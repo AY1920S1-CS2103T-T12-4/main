@@ -22,10 +22,11 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#add-feature">3.1. Add feature</a></li>
+<li><a href="#exporting-of-flashcards">3.2. Exporting of FlashCards</a></li>
+<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -173,7 +174,7 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CategoryListPane</code>, <code>CommandBox</code>, <code>ResultDisplay</code>, <code>FlashCardListPanel</code>, <code>StatusBarFooter</code>, <code>DeadlineListPane</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -268,7 +269,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores the Address Book data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;FlashCard&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -282,7 +283,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+As a more OOP model, we can store a <code>Category</code> list in <code>Address Book</code>, which <code>FlashCard</code> can reference. This would allow <code>Address Book</code> to only require one <code>Category</code> object per unique <code>Category</code>, instead of each <code>Flashcard</code> needing their own <code>Category</code> object. An example of how such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
 </td>
@@ -330,56 +331,12 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="add-feature"><a class="link" href="#add-feature">3.1. Add feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState0.png" alt="UndoRedoState0">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th flashCard in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState1.png" alt="UndoRedoState1">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new flashCard. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState2.png" alt="UndoRedoState2">
-</div>
+<p>The add feature allows the user to add flashcard with compulsory field of <code>QUESTION</code> and <code>ANSWER</code>.
+ <code>RATING</code> and <code>CATEGORY</code> are optional fields which the user can add to the flashcard later using the <code>edit</code> feature.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -388,119 +345,169 @@ Additionally, it implements the following operations:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
+Following are the prefixes for each field:<br>
+- q&gt; : <code>QUESTION</code><br>
+- a&gt; : <code>ANSWER</code><br>
+- r&gt; : <code>RATING</code><br>
+- c&gt; : <code>CATEGORY</code>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the flashCard was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
+<p>Given below is an example usage scenario of <code>add</code> :</p>
+</div>
+<div class="paragraph">
+<p>The user executes <code>add q&gt;1+1 a&gt;2 c&gt;math</code> to add new flashcard.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState3.png" alt="UndoRedoState3">
+<img src="images/AddSequenceDiagram.png" alt="AddSequenceDiagram">
 </div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
+<p>The add feature does not allow adding of duplicate flashcards.
+If the flashcard exits in the storage, an error will be shown.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes an add command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState5.png" alt="UndoRedoState5">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
+<img src="images/AddActivityDiagram.png" alt="AddActivityDiagram">
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<h5 id="aspect-how-to-implement-add"><a class="link" href="#aspect-how-to-implement-add">Aspect: How to implement add</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<p><strong>Alternative 1(current choice):</strong> Use command <code>add</code> together with
+prefixes like <code>q&gt;</code>, <code>a&gt;</code>, <code>r&gt;</code> and <code>c&gt;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>pros: Easier to implement.</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
+<p>cons: User might miss the prefixes hence adding wrong flashcards</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 2:</strong> Make use of the GUI. after user execute <code>add</code> command,
+an <strong>add flash card window</strong> would pop up and there is segment for individual fields.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the flashCard being deleted).</p>
+<p>pros: More user friendly.</p>
 </li>
 <li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
+<p>cons: Harder to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exporting-of-flashcards"><a class="link" href="#exporting-of-flashcards">3.2. Exporting of FlashCards</a></h3>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>FlashCard</code> exporting mechanism is primarily facilitated by the following classes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ExportUtil</code>&#8201;&#8212;&#8201;Handles the actual exporting of <code>FlashCard</code> s</p>
+</li>
+<li>
+<p><code>ExportCommand</code>&#8201;&#8212;&#8201;Embodies an <code>export</code> command by the user; carries information about which <code>FlashCard</code> s are to be exported, and to where</p>
+</li>
+<li>
+<p><code>ExportCommandParser</code>&#8201;&#8212;&#8201;Parses user input and uses it to construct an <code>ExportCommand</code> instance</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The mechanism is also supported by the package <code>seedu.address.model.export</code>, consisting of the following classes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DocumentPath</code>&#8201;&#8212;&#8201;Represents the path to a specific document - either absolute or relative to the application directory</p>
+</li>
+<li>
+<p><code>DocumentFilePath</code>&#8201;&#8212;&#8201;Represents the path to a specific document, relative to its immediate parent directory</p>
+</li>
+<li>
+<p><code>DirectoryPath</code>&#8201;&#8212;&#8201;Represents the path to a specific directory - either absolute or relative to the application directory</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Of particular note is <code>ExportUtil</code>, as it is arguably the class responsible for doing the most tangible work.
+Similar to the other classes in the <code>util</code> package, it consists entirely of <code>static</code> methods, and does not keep track of any variables.
+It exposes a single method, <code>ExportUtil#exportFlashCards(List&lt;FlashCard&gt;, DocumentPath)</code>, which prints a <code>List</code> of <code>FlashCard</code> s to a <code>.docx</code>
+document located at the given <code>DocumentPath</code>. This is done by interfacing with the Apache POI library (in particular, the package
+<code>org.apache.poi.xwpf.usermodel</code>).</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the export operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExportSequenceDiagram.png" alt="ExportSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes an export command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExportActivityDiagram.png" alt="ExportActivityDiagram" width="320" height="480">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-method-of-obtaining-desired-code-flashcard-code-s-for-exporting"><a class="link" href="#aspect-method-of-obtaining-desired-code-flashcard-code-s-for-exporting">Aspect: Method of obtaining desired <code>FlashCard</code> s for exporting</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Update the <code>Model</code> to show all desired <code>FlashCard</code> s, then export all of said <code>FlashCard</code> s</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Is easy to implement as it makes use of existing logic in <code>Model</code>; user receives immediate visual feedback regarding which specific <code>FlashCard</code> s were exported</p>
+</li>
+<li>
+<p>Cons: May cause confusion - <code>export</code> command does not imply that the selected <code>FlashCard</code> s will also be shown to the user</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Implement a new method in <code>Model</code> that returns the selected <code>FlashCard</code> s, without updating the on-screen list</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will not cause confusion to user - <code>export</code> command does exactly what one would expect it to do</p>
+</li>
+<li>
+<p>Cons: Is harder to implement and might result in duplication of logic</p>
 </li>
 </ul>
 </div>
@@ -509,31 +516,31 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
+<h5 id="aspect-export-file-format"><a class="link" href="#aspect-export-file-format">Aspect: Export file format</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
+<p><strong>Alternative 1 (current choice):</strong> Export to a <code>.docx</code> file</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
+<p>Pros: Is easy and convenient to print for use as a cheat sheet</p>
 </li>
 <li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
+<p>Cons: Requires an external library due to the nature of the file format</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
+<p><strong>Alternative 2:</strong> Export to a <code>.txt</code> file</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
+<p>Pros: Is easier to implement; the Java standard libraries already have the ability to write to text files</p>
 </li>
 <li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+<p>Cons: Might give rise to inconvenience in printing, as most text editors (e.g. Notepad, Vim, Gedit) do not have built-in printing functionality</p>
 </li>
 </ul>
 </div>
@@ -544,20 +551,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -588,7 +595,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1199,4 +1206,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 07:48:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 16:19:20 UTC</div></div></div></body></html>

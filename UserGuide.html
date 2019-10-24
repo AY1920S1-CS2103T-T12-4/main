@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>KeyboardFlashCards - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">KeyboardFlashCards</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T12-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">KeyboardFlashCards</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T12-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>KeyboardFlashCards - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>CS2103T-T12-4</code>      Since: <code>Aug 2019</code>      Licence: <code>-</code></p>
@@ -15,22 +15,23 @@
 <ul class="sectlevel2">
 <li><a href="#add-new-flashcard-code-add-q-question-q-answer-c-category-code">3.1. Add new flashcard: <code>add [q&gt;QUESTION] [q&gt;ANSWER] [c&gt;CATEGORY]&#8230;&#8203;</code></a></li>
 <li><a href="#edit-an-existing-flashcard-code-edit-index-fields-wanted-to-edit-code">3.2. Edit an existing flashcard: <code>edit [INDEX] {fields wanted to edit}&#8230;&#8203;</code></a></li>
-<li><a href="#delete-entire-topic-code-delete-category-code">3.3. Delete entire topic: <code>delete [category]</code></a></li>
-<li><a href="#list-function-topics-and-flashcards-code-list-category-code">3.4. List function topics and flashcards: <code>list [category]</code></a></li>
-<li><a href="#start-flashcard-test-code-start-code">3.5. Start flashcard test: <code>start</code></a></li>
-<li><a href="#set-a-reminder-for-a-specific-category-of-flashcards-coming-in-v1-3">3.6. Set a reminder for a specific category of flashcards. [coming in v1.3]</a></li>
-<li><a href="#add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code">3.7. Add general deadlines reminders: <code>deadline t&gt;[TASK] d[DUE DATE]</code></a></li>
-<li><a href="#remove-deadline-from-list-code-remove-index-code">3.8. Remove deadline from list: <code>remove [index]</code></a></li>
-<li><a href="#show-monthly-calendar-with-all-deadlines-code-calendar-code">3.9. Show monthly calendar with all deadlines: <code>calendar</code></a></li>
-<li><a href="#export-flashcards-to-a-document-file-code-export-c-category-p-file_path-code">3.10. Export flashcards to a document file: <code>export c&gt;CATEGORY p&gt;FILE_PATH</code></a></li>
-<li><a href="#get-the-full-list-of-commands-code-help-code">3.11. Get the full list of commands: <code>help</code></a></li>
-<li><a href="#search-flashcards-code-search-keywords-code">3.12. Search flashcards: <code>search [keywords]</code></a></li>
-<li><a href="#stop-test-code-stop-code">3.13. Stop test: <code>stop</code></a></li>
-<li><a href="#exit-code-exit-code">3.14. Exit: <code>exit</code></a></li>
-<li><a href="#view-overall-stats-code-stats-code">3.15. View overall stats: <code>stats</code></a></li>
-<li><a href="#cycle-through-color-themes-code-theme-code-coming-in-v2-0">3.16. Cycle through color themes: <code>theme</code> [coming in v2.0]</a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.18. Saving the data</a></li>
+<li><a href="#delete-flashcard-code-delete-index-code">3.3. Delete flashcard: <code>delete [INDEX]</code></a></li>
+<li><a href="#clear-all-the-flashcard-code-clear-code">3.4. Clear all the flashcard: <code>clear</code></a></li>
+<li><a href="#search-of-flashcards-code-find-code">3.5. Search of flashcards: <code>find</code></a></li>
+<li><a href="#list-all-flashcards-code-list-code">3.6. List all flashcards: <code>list</code></a></li>
+<li><a href="#start-flashcard-test-code-start-code">3.7. Start flashcard test: <code>start</code></a></li>
+<li><a href="#set-a-reminder-for-a-specific-category-of-flashcards-coming-in-v1-3">3.8. Set a reminder for a specific category of flashcards. [coming in v1.3]</a></li>
+<li><a href="#add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code">3.9. Add general deadlines reminders: <code>deadline t&gt;[TASK] d[DUE DATE]</code></a></li>
+<li><a href="#remove-deadline-from-list-code-remove-index-code">3.10. Remove deadline from list: <code>remove [index]</code></a></li>
+<li><a href="#show-monthly-calendar-with-all-deadlines-code-calendar-code">3.11. Show monthly calendar with all deadlines: <code>calendar</code></a></li>
+<li><a href="#export-flashcards-to-a-document-file-code-export-c-category-p-file_path-code">3.12. Export flashcards to a document file: <code>export c&gt;CATEGORY p&gt;FILE_PATH</code></a></li>
+<li><a href="#get-the-full-list-of-commands-code-help-code">3.13. Get the full list of commands: <code>help</code></a></li>
+<li><a href="#stop-test-code-stop-code">3.14. Stop test: <code>stop</code></a></li>
+<li><a href="#exit-code-exit-code">3.15. Exit: <code>exit</code></a></li>
+<li><a href="#view-overall-stats-code-stats-code">3.16. View overall stats: <code>stats</code></a></li>
+<li><a href="#cycle-through-color-themes-code-theme-code-coming-in-v2-0">3.17. Cycle through color themes: <code>theme</code> [coming in v2.0]</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.19. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -83,6 +84,9 @@ Jump to the Section 2, “Quick Start” to get started. Enjoy!</p>
 <div class="sect1">
 <h2 id="features"><a class="link" href="#features">3. Features</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section contains the features and their respective commands</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -94,7 +98,7 @@ Jump to the Section 2, “Quick Start” to get started. Enjoy!</p>
 <p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add &gt;QUESTION</code>, <code>QUESTION</code> is a parameter. The command format would thus be as such: <code>add q&gt;1+1</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>q&gt;QUESTION [c&gt;CATEGORY]</code> can be used as <code>q&gt;1+1 c&gt;math</code> or as <code>q&gt;1+1</code>.</p>
+<p>Items in square brackets skinparam linetype orthoare optional e.g <code>q&gt;QUESTION [c&gt;CATEGORY]</code> can be used as <code>q&gt;1+1 c&gt;math</code> or as <code>q&gt;1+1</code>.</p>
 </li>
 <li>
 <p>Items with <code>…</code>​ after them can be inserted zero or more times e.g. <code>[c&gt;CATEGORY]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>c&gt;math</code>, <code>c&gt;math c&gt;school</code> etc.</p>
@@ -109,59 +113,321 @@ Jump to the Section 2, “Quick Start” to get started. Enjoy!</p>
 <div class="sect2">
 <h3 id="add-new-flashcard-code-add-q-question-q-answer-c-category-code"><a class="link" href="#add-new-flashcard-code-add-q-question-q-answer-c-category-code">3.1. Add new flashcard: <code>add [q&gt;QUESTION] [q&gt;ANSWER] [c&gt;CATEGORY]&#8230;&#8203;</code></a></h3>
 <div class="paragraph">
-<p>You can add a new flashcard with specific question and answer.<br>
+<p>This command allow to you to add a new flashcard with specific question and answer.<br>
 <code>add q&gt;What is CS2103T a&gt;Software engineering</code></p>
 </div>
 <div class="paragraph">
 <p>You may also specified the category of the flashcard.<br>
 <code>add q&gt;What is CS2103T a&gt;Software engineering c&gt;CS2103T</code></p>
 </div>
+<div class="paragraph">
+<p>To add:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>add</code> followed by the question and answer and press <strong>Enter</strong> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddStep1.png" alt="AddStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will display the message: <em>"New flashCard added: What is the use of checksum ? Answer: To detect "error" Categories: "</em></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddStep2.png" alt="AddStep2" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>And you can check whether the new flashcard has been added to the flashcard list.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddStep3.png" alt="AddStep3" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect2">
 <h3 id="edit-an-existing-flashcard-code-edit-index-fields-wanted-to-edit-code"><a class="link" href="#edit-an-existing-flashcard-code-edit-index-fields-wanted-to-edit-code">3.2. Edit an existing flashcard: <code>edit [INDEX] {fields wanted to edit}&#8230;&#8203;</code></a></h3>
 <div class="paragraph">
-<p>Edit the flashcard with index corresponding to the display list with 1 or multiple fields
-<code>edit 1 q&gt;1+1</code></p>
+<p>This command allows you to edit the flashcard with index corresponding to the
+display list with 1 or multiple fields<br>
+e.g:<br></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="delete-entire-topic-code-delete-category-code"><a class="link" href="#delete-entire-topic-code-delete-category-code">3.3. Delete entire topic: <code>delete [category]</code></a></h3>
-<div class="paragraph">
-<p><code>delete Math *</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p><code>edit 7 c&gt;CS2105</code></p>
 </li>
 <li>
-<p>At least one of the optional fields must be provided.</p>
+<p><code>edit 1 a&gt;lambda c&gt;science</code></p>
 </li>
 <li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing categories, the existing categories of the person will be removed i.e adding of categories is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s categories by typing <code>t&gt;</code> without specifying any categories after it.</p>
+<p><code>edit 1 q&gt; 11 * 11 a&gt; 121 c&gt; math</code></p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="list-function-topics-and-flashcards-code-list-category-code"><a class="link" href="#list-function-topics-and-flashcards-code-list-category-code">3.4. List function topics and flashcards: <code>list [category]</code></a></h3>
 <div class="paragraph">
-<p>Lists all the flashcards under the specific topic folder. Each flashcard is color-coded to represent your familiarity with the content.
-<code>list Math</code></p>
+<p>To edit:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>edit</code> followed by the index and the content to edit, then press <strong>Enter</strong> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditStep1.png" alt="EditStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will display the message: <em>"Edited FlashCard: What is the use of checksum ? Answer: To detect "error" Categories: [CS2105]"</em>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditStep2.png" alt="EditStep2" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>And you can check whether the flashcard has been edited on the flashcard list.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditStep3.png" alt="EditStep3" width="600">
+</div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="start-flashcard-test-code-start-code"><a class="link" href="#start-flashcard-test-code-start-code">3.5. Start flashcard test: <code>start</code></a></h3>
+<h3 id="delete-flashcard-code-delete-index-code"><a class="link" href="#delete-flashcard-code-delete-index-code">3.3. Delete flashcard: <code>delete [INDEX]</code></a></h3>
+<div class="paragraph">
+<p>This command allows you the delete a
+particular flashcard with the index
+show on the flashcard list. e.g.
+<code>delete 1</code></p>
+</div>
+<div class="paragraph">
+<p>To delete:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>delete</code> with the corresponding index displayed on the
+flashcard list and press <strong>Enter</strong> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteStep1.png" alt="DeleteStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will show the message: <em>"Deleted FlashCard: What is the use of checksum ? Answer: To detect "error" Categories: [CS2105]"</em></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteStep2.png" alt="DeleteStep2" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>And you can check the flashcard list that the flashcard has been deleted.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteStep3.png" alt="DeleteStep3" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clear-all-the-flashcard-code-clear-code"><a class="link" href="#clear-all-the-flashcard-code-clear-code">3.4. Clear all the flashcard: <code>clear</code></a></h3>
+<div class="paragraph">
+<p>This command allows you to delete all the flashcard in the storage.</p>
+</div>
+<div class="paragraph">
+<p>To clear:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type `clear' and press <strong>Enter</strong> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ClearStep1.png" alt="ClearStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will show the message: -"Flash card has been cleared!"_
+And you will see that all lists turn empty.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ClearStep2.png" alt="ClearStep2" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="search-of-flashcards-code-find-code"><a class="link" href="#search-of-flashcards-code-find-code">3.5. Search of flashcards: <code>find</code></a></h3>
+<div class="paragraph">
+<p>This section will show you different ways to find flashcards that matches the keyword(s).</p>
+</div>
+<div class="sect3">
+<h4 id="search-for-flashcards-that-either-the-question-or-the-answer-matches-the-keyword-s-find-keyword-s"><a class="link" href="#search-for-flashcards-that-either-the-question-or-the-answer-matches-the-keyword-s-find-keyword-s">3.5.1. Search for flashcards that either the question or the answer matches the keyword(s): "find [keyword(s)]</a></h4>
+<div class="paragraph">
+<p>This command allows you to find a list of flashcards with the question or answer matching the keyword(s).
+Multiple keywords are separated by a single space.</p>
+</div>
+<div class="paragraph">
+<p>To find:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>find</code> followed by the keywords and press <strong>Enter</strong> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindStep1.png" alt="FindStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will show message: <em>"4  flash cards listed!"</em> and the flashcard list will show the matched flashcards</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindStep2.png" alt="FindStep2" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="search-for-flashcard-with-question-matching-the-keyword-s-only-code-findq-keyword-s-code"><a class="link" href="#search-for-flashcard-with-question-matching-the-keyword-s-only-code-findq-keyword-s-code">3.5.2. Search for flashcard with question matching the keyword(s) only: <code>findq [keyword(s)]</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to find a list of flashcards with the question matching the keyword(s).
+Multiple keywords are separated by a single space.</p>
+</div>
+<div class="paragraph">
+<p>to find question:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>findq</code> follow by the keywords and press <strong>Enter</strong> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindqStep1.png" alt="FindqStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will show message: <em>"2  flash cards listed!"</em> and the flashcard list will show the matched flashcards</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindqStep2.png" alt="FindqStep2" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="search-for-flashcard-with-answer-matching-the-keyword-s-only-code-finda-keyword-s-code"><a class="link" href="#search-for-flashcard-with-answer-matching-the-keyword-s-only-code-finda-keyword-s-code">3.5.3. Search for flashcard with answer matching the keyword(s) only: <code>finda [keyword(s)]</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to find a list of flashcards with the answer matching the keyword(s).
+Multiple keywords are separated by a single space.</p>
+</div>
+<div class="paragraph">
+<p>to find answer:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>finda</code> follow by the keywords and press <strong>Enter</strong> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindaStep1.png" alt="FindaStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will show message: <em>"1  flash cards listed!"</em> and the flashcard list will show the matched flashcards</p>
+<div class="paragraph">
+<p>image::FindaStep2.png[width="600"].</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="search-for-category-categories-code-findcat-keyword-s-code"><a class="link" href="#search-for-category-categories-code-findcat-keyword-s-code">3.5.4. Search for category/categories : <code>findcat [keyword(s)]</code></a></h4>
+<div class="paragraph">
+<p>list all the flashcards under the specific category that matching the keyword(s).
+Multiple keywords are separated by a single space.</p>
+</div>
+<div class="paragraph">
+<p>to find category:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>findcat</code> follow by the keywords and press <strong>Enter</strong> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindcatStep1.png" alt="FindcatStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will show message: <em>""</em> and the flashcard list will show the matched flashcards</p>
+<div class="paragraph">
+<p>image::FindcatStep2.png[width="600"].</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-all-flashcards-code-list-code"><a class="link" href="#list-all-flashcards-code-list-code">3.6. List all flashcards: <code>list</code></a></h3>
+<div class="paragraph">
+<p>This command allows you to lists all the flashcards in the storage.</p>
+</div>
+<div class="paragraph">
+<p>To list:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>list</code> and press <strong>Enter</strong> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListStep1.png" alt="ListStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will show message: <em>"Listed all Flash Cards"</em>  and the flashcard list will show all the flashcards.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListStep2.png" alt="ListStep2" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="start-flashcard-test-code-start-code"><a class="link" href="#start-flashcard-test-code-start-code">3.7. Start flashcard test: <code>start</code></a></h3>
 <div class="paragraph">
 <p>Starts the flashcard test (assuming you are in the category ‘folder’)
 <code>start</code></p>
@@ -172,13 +438,13 @@ Jump to the Section 2, “Quick Start” to get started. Enjoy!</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="set-a-reminder-for-a-specific-category-of-flashcards-coming-in-v1-3"><a class="link" href="#set-a-reminder-for-a-specific-category-of-flashcards-coming-in-v1-3">3.6. Set a reminder for a specific category of flashcards. [coming in v1.3]</a></h3>
+<h3 id="set-a-reminder-for-a-specific-category-of-flashcards-coming-in-v1-3"><a class="link" href="#set-a-reminder-for-a-specific-category-of-flashcards-coming-in-v1-3">3.8. Set a reminder for a specific category of flashcards. [coming in v1.3]</a></h3>
 <div class="paragraph">
 <p><code>remind Math 04/11 1030</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code"><a class="link" href="#add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code">3.7. Add general deadlines reminders: <code>deadline t&gt;[TASK] d[DUE DATE]</code></a></h3>
+<h3 id="add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code"><a class="link" href="#add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code">3.9. Add general deadlines reminders: <code>deadline t&gt;[TASK] d[DUE DATE]</code></a></h3>
 <div class="paragraph">
 <p>Adds a general deadline into the deadline list. The list will be display on the right-side pane.
 Note: [DUE DATE] has to be in dd/MM/yyyy format.</p>
@@ -188,7 +454,7 @@ Note: [DUE DATE] has to be in dd/MM/yyyy format.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remove-deadline-from-list-code-remove-index-code"><a class="link" href="#remove-deadline-from-list-code-remove-index-code">3.8. Remove deadline from list: <code>remove [index]</code></a></h3>
+<h3 id="remove-deadline-from-list-code-remove-index-code"><a class="link" href="#remove-deadline-from-list-code-remove-index-code">3.10. Remove deadline from list: <code>remove [index]</code></a></h3>
 <div class="paragraph">
 <p>Removes a specific deadline into the deadline list. The list on the right-side pane will no longer have the deadline.</p>
 </div>
@@ -208,7 +474,7 @@ Note: [DUE DATE] has to be in dd/MM/yyyy format.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="show-monthly-calendar-with-all-deadlines-code-calendar-code"><a class="link" href="#show-monthly-calendar-with-all-deadlines-code-calendar-code">3.9. Show monthly calendar with all deadlines: <code>calendar</code></a></h3>
+<h3 id="show-monthly-calendar-with-all-deadlines-code-calendar-code"><a class="link" href="#show-monthly-calendar-with-all-deadlines-code-calendar-code">3.11. Show monthly calendar with all deadlines: <code>calendar</code></a></h3>
 <div class="paragraph">
 <p>Shows the calendar filled with all dealines in the month. The calendar will be shown as a new window pop-up.</p>
 </div>
@@ -217,7 +483,7 @@ Note: [DUE DATE] has to be in dd/MM/yyyy format.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-flashcards-to-a-document-file-code-export-c-category-p-file_path-code"><a class="link" href="#export-flashcards-to-a-document-file-code-export-c-category-p-file_path-code">3.10. Export flashcards to a document file: <code>export c&gt;CATEGORY p&gt;FILE_PATH</code></a></h3>
+<h3 id="export-flashcards-to-a-document-file-code-export-c-category-p-file_path-code"><a class="link" href="#export-flashcards-to-a-document-file-code-export-c-category-p-file_path-code">3.12. Export flashcards to a document file: <code>export c&gt;CATEGORY p&gt;FILE_PATH</code></a></h3>
 <div class="paragraph">
 <p>Exports all flashcards in the supplied category to an external document (<code>.docx</code>) file.
 Each flashcard will be represented as a question-and-answer pair.
@@ -254,50 +520,57 @@ exporting to document files.
 </div>
 </div>
 <div class="sect2">
-<h3 id="get-the-full-list-of-commands-code-help-code"><a class="link" href="#get-the-full-list-of-commands-code-help-code">3.11. Get the full list of commands: <code>help</code></a></h3>
+<h3 id="get-the-full-list-of-commands-code-help-code"><a class="link" href="#get-the-full-list-of-commands-code-help-code">3.13. Get the full list of commands: <code>help</code></a></h3>
 <div class="paragraph">
 <p><code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="search-flashcards-code-search-keywords-code"><a class="link" href="#search-flashcards-code-search-keywords-code">3.12. Search flashcards: <code>search [keywords]</code></a></h3>
-<div class="paragraph">
-<p><code>search process</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="stop-test-code-stop-code"><a class="link" href="#stop-test-code-stop-code">3.13. Stop test: <code>stop</code></a></h3>
+<h3 id="stop-test-code-stop-code"><a class="link" href="#stop-test-code-stop-code">3.14. Stop test: <code>stop</code></a></h3>
 <div class="paragraph">
 <p><code>stop</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exit-code-exit-code"><a class="link" href="#exit-code-exit-code">3.14. Exit: <code>exit</code></a></h3>
+<h3 id="exit-code-exit-code"><a class="link" href="#exit-code-exit-code">3.15. Exit: <code>exit</code></a></h3>
 <div class="paragraph">
-<p><code>exit</code></p>
+<p>This command allows you to exit the application.</p>
+</div>
+<div class="paragraph">
+<p>To exit:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>exit</code> and press <strong>Enter</strong> to execute it.</p>
+</li>
+<li>
+<p>The application window will close by itself.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-overall-stats-code-stats-code"><a class="link" href="#view-overall-stats-code-stats-code">3.15. View overall stats: <code>stats</code></a></h3>
+<h3 id="view-overall-stats-code-stats-code"><a class="link" href="#view-overall-stats-code-stats-code">3.16. View overall stats: <code>stats</code></a></h3>
 <div class="paragraph">
 <p><code>stats</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="cycle-through-color-themes-code-theme-code-coming-in-v2-0"><a class="link" href="#cycle-through-color-themes-code-theme-code-coming-in-v2-0">3.16. Cycle through color themes: <code>theme</code> [coming in v2.0]</a></h3>
+<h3 id="cycle-through-color-themes-code-theme-code-coming-in-v2-0"><a class="link" href="#cycle-through-color-themes-code-theme-code-coming-in-v2-0">3.17. Cycle through color themes: <code>theme</code> [coming in v2.0]</a></h3>
 <div class="paragraph">
 <p><code>theme</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.18. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.18. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.19. Saving the data</a></h3>
 <div class="paragraph">
 <p>Flashcard data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -352,36 +625,50 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
+<p>Add new flashcard: add [q&gt;QUESTION] [q&gt;ANSWER] [c&gt;CATEGORY]…​<br>
+e.g. <code>add q&gt;1+1 a&gt;2</code></p>
+</li>
+<li>
+<p>Edit an existing flashcard - ` edit [INDEX] {fields wanted to edit}…​`<br>
+e.g.  <code>edit 2 c&gt;CS2103</code></p>
+</li>
+<li>
+<p>Delete an existing flashcard - <code>delete [INDEX]</code><br>
+e.g.  <code>delete 10</code></p>
+</li>
+<li>
+<p>Clear all the flashcard - <code>clear</code><br>
+e.g. <code>clear</code></p>
+</li>
+<li>
 <p>Start a certain topic of flashcards - <code>start [keyword]</code><br>
 e.g.  <code>start Mathematics</code></p>
-</li>
-<li>
-<p>Add a new (empty) category - <code>cat [name]</code><br>
-e.g.  <code>cat Math</code></p>
-</li>
-<li>
-<p>Add a new flashcard - <code>add [category]</code><br>
-e.g.  <code>add Math</code></p>
-</li>
-<li>
-<p>Edit an existing flashcard - <code>edit [category] [ID]</code><br>
-e.g.  <code>edit Math 10</code></p>
-</li>
-<li>
-<p>Delete an existing flashcard - <code>delete [category] [ID]</code><br>
-e.g.  <code>delete Math 10</code></p>
-</li>
-<li>
-<p>Delete an entire category - <code>delete [category]</code><br>
-e.g.  <code>delete Math *</code></p>
 </li>
 <li>
 <p>Set user preference for reminders - <code>remind [category] DD/MM HHmm</code><br>
 e.g.  <code>remind Math 04/10 1230</code></p>
 </li>
 <li>
-<p>List all flashcards under a specific category - <code>list [category]</code><br>
-e.g.  <code>list Math</code></p>
+<p>Search of flashcards - <code>find</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>find [keyword(s)]</p>
+</li>
+<li>
+<p>findq [keyword(s)]</p>
+</li>
+<li>
+<p>finda [keyword(s)]</p>
+</li>
+<li>
+<p>findcat [keyword(s)]</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>List all flashcards - list</p>
 </li>
 <li>
 <p>Export all flashcards under a specific category, to a specific filepath - <code>export c&gt;CATEGORY p&gt;FILE_PATH</code><br>
@@ -390,10 +677,6 @@ e.g.  <code>export c&gt;CS2105 p&gt;C:\Users\User\Documents\cheat_sheet.docx</co
 <li>
 <p>Get full list of commands - <code>help</code><br>
 e.g.  <code>help</code></p>
-</li>
-<li>
-<p>Search specific flashcards - <code>search [keywords]</code><br>
-e.g.  <code>search UML diagrams</code></p>
 </li>
 <li>
 <p>Stop flashcard test - <code>stop</code></p>
@@ -407,4 +690,4 @@ e.g.  <code>search UML diagrams</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 09:35:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 16:44:47 UTC</div></div></div></body></html>

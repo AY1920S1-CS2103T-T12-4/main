@@ -19,17 +19,18 @@
 <li><a href="#list-function-topics-and-flashcards-code-list-category-code">3.4. List function topics and flashcards: <code>list [category]</code></a></li>
 <li><a href="#start-flashcard-test-code-start-code">3.5. Start flashcard test: <code>start</code></a></li>
 <li><a href="#set-a-reminder-for-a-specific-category-of-flashcards-coming-in-v1-3">3.6. Set a reminder for a specific category of flashcards. [coming in v1.3]</a></li>
-<li><a href="#add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code">3.7. Add general deadlines reminders: <code>deadline t/[TASK] d[DUE DATE]</code></a></li>
+<li><a href="#add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code">3.7. Add general deadlines reminders: <code>deadline t&gt;[TASK] d[DUE DATE]</code></a></li>
 <li><a href="#remove-deadline-from-list-code-remove-index-code">3.8. Remove deadline from list: <code>remove [index]</code></a></li>
 <li><a href="#show-monthly-calendar-with-all-deadlines-code-calendar-code">3.9. Show monthly calendar with all deadlines: <code>calendar</code></a></li>
-<li><a href="#get-the-full-list-of-commands-code-help-code">3.10. Get the full list of commands: <code>help</code></a></li>
-<li><a href="#search-flashcards-code-search-keywords-code">3.11. Search flashcards: <code>search [keywords]</code></a></li>
-<li><a href="#stop-test-code-stop-code">3.12. Stop test: <code>stop</code></a></li>
-<li><a href="#exit-code-exit-code">3.13. Exit: <code>exit</code></a></li>
-<li><a href="#view-overall-stats-code-stats-code">3.14. View overall stats: <code>stats</code></a></li>
-<li><a href="#cycle-through-color-themes-code-theme-code-coming-in-v2-0">3.15. Cycle through color themes: <code>theme</code> [coming in v2.0]</a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.17. Saving the data</a></li>
+<li><a href="#export-flashcards-to-a-document-file-code-export-c-category-p-file_path-code">3.10. Export flashcards to a document file: <code>export c&gt;CATEGORY p&gt;FILE_PATH</code></a></li>
+<li><a href="#get-the-full-list-of-commands-code-help-code">3.11. Get the full list of commands: <code>help</code></a></li>
+<li><a href="#search-flashcards-code-search-keywords-code">3.12. Search flashcards: <code>search [keywords]</code></a></li>
+<li><a href="#stop-test-code-stop-code">3.13. Stop test: <code>stop</code></a></li>
+<li><a href="#exit-code-exit-code">3.14. Exit: <code>exit</code></a></li>
+<li><a href="#view-overall-stats-code-stats-code">3.15. View overall stats: <code>stats</code></a></li>
+<li><a href="#cycle-through-color-themes-code-theme-code-coming-in-v2-0">3.16. Cycle through color themes: <code>theme</code> [coming in v2.0]</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.18. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -41,7 +42,15 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>KeyboardFlashCards (KFC) is for those who prefer to use a desktop app to study using flashcards. More importantly, KFC is optimized for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, KFC can get your flash card management tasks faster than traditional GUI apps. Interested? Jump to the Section 2, “Quick Start” to get started. Enjoy!</p>
+<p>KeyboardFlashCards (KFC) is for those who prefer to use a desktop app to study using flashcards.
+More importantly, it is optimized for those who prefer to work with a Command Line Interface (CLI)
+while still having the benefits of a Graphical User Interface (GUI). If you can type fast, KFC
+can help you manage your flashcards much more efficiently than traditional GUI apps.</p>
+</div>
+<div class="paragraph">
+<p>Interested? You should be! KFC is perfect for NUS Computing students. We even have additional
+features not available with most flashcard managers that we&#8217;re sure you&#8217;ll love.
+Jump to the Section 2, “Quick Start” to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -82,13 +91,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add &gt;QUESTION</code>, <code>QUESTION</code> is a parameter which can be used as <code>add q&gt;1+1</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add &gt;QUESTION</code>, <code>QUESTION</code> is a parameter. The command format would thus be as such: <code>add q&gt;1+1</code>.</p>
 </li>
 <li>
 <p>Items in square brackets are optional e.g <code>q&gt;QUESTION [c&gt;CATEGORY]</code> can be used as <code>q&gt;1+1 c&gt;math</code> or as <code>q&gt;1+1</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[c&gt;CATEGORY]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>c&gt;math</code>, <code>c&gt;math c&gt;school</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be inserted zero or more times e.g. <code>[c&gt;CATEGORY]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>c&gt;math</code>, <code>c&gt;math c&gt;school</code> etc.</p>
 </li>
 <li>
 <p>Parameters can be in any order e.g. if the command specifies <code>q&gt;QUESTION a&gt;ANSWER</code>, <code>a&gt;ANSWER q&gt;QUESTION</code> is also acceptable.</p>
@@ -137,7 +146,7 @@
 <p>When editing categories, the existing categories of the person will be removed i.e adding of categories is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the person&#8217;s categories by typing <code>t/</code> without specifying any categories after it.</p>
+<p>You can remove all the person&#8217;s categories by typing <code>t&gt;</code> without specifying any categories after it.</p>
 </li>
 </ul>
 </div>
@@ -169,13 +178,13 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code"><a class="link" href="#add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code">3.7. Add general deadlines reminders: <code>deadline t/[TASK] d[DUE DATE]</code></a></h3>
+<h3 id="add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code"><a class="link" href="#add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code">3.7. Add general deadlines reminders: <code>deadline t&gt;[TASK] d[DUE DATE]</code></a></h3>
 <div class="paragraph">
 <p>Adds a general deadline into the deadline list. The list will be display on the right-side pane.
 Note: [DUE DATE] has to be in dd/MM/yyyy format.</p>
 </div>
 <div class="paragraph">
-<p><code>deadline t/CS2103 Exam d/10/11/2019</code></p>
+<p><code>deadline t&gt;CS2103 Exam d&gt;10/11/2019</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -208,50 +217,87 @@ Note: [DUE DATE] has to be in dd/MM/yyyy format.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="get-the-full-list-of-commands-code-help-code"><a class="link" href="#get-the-full-list-of-commands-code-help-code">3.10. Get the full list of commands: <code>help</code></a></h3>
+<h3 id="export-flashcards-to-a-document-file-code-export-c-category-p-file_path-code"><a class="link" href="#export-flashcards-to-a-document-file-code-export-c-category-p-file_path-code">3.10. Export flashcards to a document file: <code>export c&gt;CATEGORY p&gt;FILE_PATH</code></a></h3>
+<div class="paragraph">
+<p>Exports all flashcards in the supplied category to an external document (<code>.docx</code>) file.
+Each flashcard will be represented as a question-and-answer pair.
+The document file will be created at the supplied file path.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Use this to export your flashcards into an easily-printable cheat sheet! Use them for your assessments or
+self-learning.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The given file path is required to end with <code>.docx</code> - this is because we currently only support
+exporting to document files.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code>export c&gt;CS2105 p&gt;C:\Users\User\Documents\cheat_sheet.docx</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="get-the-full-list-of-commands-code-help-code"><a class="link" href="#get-the-full-list-of-commands-code-help-code">3.11. Get the full list of commands: <code>help</code></a></h3>
 <div class="paragraph">
 <p><code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="search-flashcards-code-search-keywords-code"><a class="link" href="#search-flashcards-code-search-keywords-code">3.11. Search flashcards: <code>search [keywords]</code></a></h3>
+<h3 id="search-flashcards-code-search-keywords-code"><a class="link" href="#search-flashcards-code-search-keywords-code">3.12. Search flashcards: <code>search [keywords]</code></a></h3>
 <div class="paragraph">
 <p><code>search process</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="stop-test-code-stop-code"><a class="link" href="#stop-test-code-stop-code">3.12. Stop test: <code>stop</code></a></h3>
+<h3 id="stop-test-code-stop-code"><a class="link" href="#stop-test-code-stop-code">3.13. Stop test: <code>stop</code></a></h3>
 <div class="paragraph">
 <p><code>stop</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exit-code-exit-code"><a class="link" href="#exit-code-exit-code">3.13. Exit: <code>exit</code></a></h3>
+<h3 id="exit-code-exit-code"><a class="link" href="#exit-code-exit-code">3.14. Exit: <code>exit</code></a></h3>
 <div class="paragraph">
 <p><code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-overall-stats-code-stats-code"><a class="link" href="#view-overall-stats-code-stats-code">3.14. View overall stats: <code>stats</code></a></h3>
+<h3 id="view-overall-stats-code-stats-code"><a class="link" href="#view-overall-stats-code-stats-code">3.15. View overall stats: <code>stats</code></a></h3>
 <div class="paragraph">
 <p><code>stats</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="cycle-through-color-themes-code-theme-code-coming-in-v2-0"><a class="link" href="#cycle-through-color-themes-code-theme-code-coming-in-v2-0">3.15. Cycle through color themes: <code>theme</code> [coming in v2.0]</a></h3>
+<h3 id="cycle-through-color-themes-code-theme-code-coming-in-v2-0"><a class="link" href="#cycle-through-color-themes-code-theme-code-coming-in-v2-0">3.16. Cycle through color themes: <code>theme</code> [coming in v2.0]</a></h3>
 <div class="paragraph">
 <p><code>theme</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.17. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.18. Saving the data</a></h3>
 <div class="paragraph">
 <p>Flashcard data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -338,6 +384,10 @@ e.g.  <code>remind Math 04/10 1230</code></p>
 e.g.  <code>list Math</code></p>
 </li>
 <li>
+<p>Export all flashcards under a specific category, to a specific filepath - <code>export c&gt;CATEGORY p&gt;FILE_PATH</code><br>
+e.g.  <code>export c&gt;CS2105 p&gt;C:\Users\User\Documents\cheat_sheet.docx</code></p>
+</li>
+<li>
 <p>Get full list of commands - <code>help</code><br>
 e.g.  <code>help</code></p>
 </li>
@@ -357,4 +407,4 @@ e.g.  <code>search UML diagrams</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 19:52:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 09:17:32 UTC</div></div></div></body></html>

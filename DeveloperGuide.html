@@ -430,10 +430,10 @@ an <strong>add flash card window</strong> would pop up and there is segment for 
 <div class="ulist">
 <ul>
 <li>
-<p><code>ExportUtil</code>&#8201;&#8212;&#8201;Handles the actual exporting of <code>FlashCard</code> s</p>
+<p><code>ExportUtil</code>&#8201;&#8212;&#8201;Handles the actual exporting of <code>FlashCards</code></p>
 </li>
 <li>
-<p><code>ExportCommand</code>&#8201;&#8212;&#8201;Embodies an <code>export</code> command by the user; carries information about which <code>FlashCard</code> s are to be exported, and to where</p>
+<p><code>ExportCommand</code>&#8201;&#8212;&#8201;Embodies an <code>export</code> command by the user; carries information about which <code>FlashCards</code> are to be exported, and to where</p>
 </li>
 <li>
 <p><code>ExportCommandParser</code>&#8201;&#8212;&#8201;Parses user input and uses it to construct an <code>ExportCommand</code> instance</p>
@@ -459,7 +459,7 @@ an <strong>add flash card window</strong> would pop up and there is segment for 
 <div class="paragraph">
 <p>Of particular note is <code>ExportUtil</code>, as it is arguably the class responsible for doing the most tangible work.
 Similar to the other classes in the <code>util</code> package, it consists entirely of <code>static</code> methods, and does not keep track of any variables.
-It exposes a single method, <code>ExportUtil#exportFlashCards(List&lt;FlashCard&gt;, DocumentPath)</code>, which prints a <code>List</code> of <code>FlashCard</code> s to a <code>.docx</code>
+It exposes a single method, <code>ExportUtil#exportFlashCards(List&lt;FlashCard&gt;, DocumentPath)</code>, which prints a <code>List</code> of <code>FlashCards</code> to a <code>.docx</code>
 document located at the given <code>DocumentPath</code>. This is done by interfacing with the Apache POI library (in particular, the package
 <code>org.apache.poi.xwpf.usermodel</code>).</p>
 </div>
@@ -483,24 +483,24 @@ document located at the given <code>DocumentPath</code>. This is done by interfa
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-method-of-obtaining-desired-code-flashcard-code-s-for-exporting"><a class="link" href="#aspect-method-of-obtaining-desired-code-flashcard-code-s-for-exporting">Aspect: Method of obtaining desired <code>FlashCard</code> s for exporting</a></h5>
+<h5 id="aspect-method-of-obtaining-desired-code-flashcards-code-for-exporting"><a class="link" href="#aspect-method-of-obtaining-desired-code-flashcards-code-for-exporting">Aspect: Method of obtaining desired <code>FlashCards</code> for exporting</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1:</strong> Update the <code>Model</code> to show all desired <code>FlashCard</code> s, then export all of said <code>FlashCard</code> s</p>
+<p><strong>Alternative 1:</strong> Update the <code>Model</code> to show all desired <code>FlashCards</code>, then export all of said &gt;`FlashCards`</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Is easy to implement as it makes use of existing logic in <code>Model</code>; user receives immediate visual feedback regarding which specific <code>FlashCard</code> s were exported</p>
+<p>Pros: Is easy to implement as it makes use of existing logic in <code>Model</code>; user receives immediate visual feedback regarding which specific &gt;`FlashCards` were exported</p>
 </li>
 <li>
-<p>Cons: May cause confusion - <code>export</code> command does not imply that the selected <code>FlashCard</code> s will also be shown to the user</p>
+<p>Cons: May cause confusion - <code>export</code> command does not imply that the selected &gt;`FlashCards` will also be shown to the user</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2 (current choice):</strong> Implement a new method in <code>Model</code> that returns the selected <code>FlashCard</code> s, without updating the on-screen list</p>
+<p><strong>Alternative 2 (current choice):</strong> Implement a new method in <code>Model</code> that returns the selected &gt;`FlashCards`, without updating the on-screen list</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1206,4 +1206,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 19:52:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 09:17:32 UTC</div></div></div></body></html>

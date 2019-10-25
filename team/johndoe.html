@@ -152,9 +152,91 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
+<h3 id="test-yourself-mode"><a class="link" href="#test-yourself-mode">Test Yourself Mode</a></h3>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>Test mode allows users to start a flash card test from a selected list of tags. If no parameters are provided, all
+flashcards contained in the system will be tested.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>This feature is supported by the following classes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddressBookParser</code> to control the flow of command in the entire program.</p>
+</li>
+<li>
+<p><code>StartCommandParser</code> to parse arguments for StartCommand.</p>
+</li>
+<li>
+<p><code>ModelManager</code> which stores <code>FlashCardTestModel</code>, an aggregation of <code>FlashCards</code>, to be used for test mode.</p>
+</li>
+<li>
+<p><code>CategoryContainsAnyKeywordsPredicate</code> to search and generate a list of <code>FlashCards</code> with relevant tags.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows the intended case for the <code>start</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StartSequenceDiagram.png" alt="StartSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p>Aspect: Data structure to support <code>FlashCardTestModel</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current choice):</strong> <code>LinkedList</code> implementation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Very efficient, with O(1) complexity removing the head of the list every time a question is tested.</p>
+</li>
+<li>
+<p>Cons: Less memory efficient than <code>ArrayList</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> ArrayList implementation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More memory efficient than <code>LinkedList</code>.</p>
+</li>
+<li>
+<p>Cons: To obtain the same performance as <code>LinkedList</code>, the last index/size of the <code>ArrayList</code> has to be constantly tracked.
+This slightly decreases code readability compared to the <code>LinkedList</code> implementation.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Queue interface:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Use of <code>Queue</code> interface brings simplicity to code structure and readability while having the same performance
+as a <code>LinkedList</code> implementation.</p>
+</li>
+<li>
+<p>Cons: There will be potential coupling by using <code>Queue</code> instead of <code>List</code> interface.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -167,4 +249,4 @@
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 16:44:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-25 01:06:44 UTC</div></div></div></body></html>

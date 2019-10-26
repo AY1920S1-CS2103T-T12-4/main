@@ -23,10 +23,11 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#add-feature">3.1. Add feature</a></li>
-<li><a href="#exporting-of-flashcards">3.2. Exporting of FlashCards</a></li>
-<li><a href="#test-yourself-mode">3.3. Test Yourself Mode</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#deadline-feature">3.2. Deadline feature</a></li>
+<li><a href="#exporting-of-flashcards">3.3. Exporting of FlashCards</a></li>
+<li><a href="#test-yourself-mode">3.4. Test Yourself Mode</a></li>
+<li><a href="#logging">3.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -421,9 +422,101 @@ an <strong>add flash card window</strong> would pop up and there is segment for 
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting-of-flashcards"><a class="link" href="#exporting-of-flashcards">3.2. Exporting of FlashCards</a></h3>
+<h3 id="deadline-feature"><a class="link" href="#deadline-feature">3.2. Deadline feature</a></h3>
 <div class="sect3">
 <h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The deadline feature allows the user to add tasks with specific due dates, with a compulsory field
+of <code>TASK</code> and <code>DUE DATE</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Following are the prefixes for each field:<br>
+- t&gt; : <code>TASK</code><br>
+- d&gt; : <code>DUE DATE</code>
+- For <code>DUE DATE</code> : Date format must be in dd/MM/yyyy
+i.e. 01/01/2019
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of <code>deadline</code> :</p>
+</div>
+<div class="paragraph">
+<p>The user executes <code>deadline t&gt;Complete Homework d&gt;04/10/2019</code> to add new deadline to the task
+of completing homework by the 4th October 2019.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the deadline operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeadlineSequenceDiagram.png" alt="DeadlineSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The deadline feature does not allow adding of duplicate/identical deadlines.
+i.e. A duplicated/identical deadline is one that has identical fields for both the task and the due date.
+If the duplicated/identical deadline exists in the storage, an error will be shown.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a deadline command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeadlineActivityDiagram.png" alt="DeadlineActivityDiagram" width="320" height="480">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-implement-deadline"><a class="link" href="#aspect-how-to-implement-deadline">Aspect: How to implement Deadline</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Use command <code>deadline</code> together with
+prefixes like <code>t&gt;</code> and <code>d&gt;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement.</p>
+</li>
+<li>
+<p>Cons: User might miss the prefixes hence adding wrong deadlines</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Make use of the GUI. after user execute <code>deadline</code> command,
+an <strong>add deadline window</strong> would pop up with a section for individual fields.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More user friendly.</p>
+</li>
+<li>
+<p>Cons: Difficult to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exporting-of-flashcards"><a class="link" href="#exporting-of-flashcards">3.3. Exporting of FlashCards</a></h3>
+<div class="sect3">
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>FlashCard</code> exporting mechanism is primarily facilitated by the following classes:</p>
 </div>
@@ -481,7 +574,7 @@ document located at the given <code>DocumentPath</code>. This is done by interfa
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-method-of-obtaining-desired-code-flashcards-code-for-exporting"><a class="link" href="#aspect-method-of-obtaining-desired-code-flashcards-code-for-exporting">Aspect: Method of obtaining desired <code>FlashCards</code> for exporting</a></h5>
 <div class="ulist">
@@ -551,13 +644,13 @@ document located at the given <code>DocumentPath</code>. This is done by interfa
 </div>
 </div>
 <div class="sect2">
-<h3 id="test-yourself-mode"><a class="link" href="#test-yourself-mode">3.3. Test Yourself Mode</a></h3>
+<h3 id="test-yourself-mode"><a class="link" href="#test-yourself-mode">3.4. Test Yourself Mode</a></h3>
 <div class="paragraph">
 <p>Test mode allows users to start a flash card test from a selected list of tags. If no parameters are provided, all
 flashcards contained in the system will be tested.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>This feature is supported by the following classes:</p>
 </div>
@@ -587,7 +680,7 @@ flashcards contained in the system will be tested.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>Aspect: Data structure to support <code>FlashCardTestModel</code>:</p>
 </div>
@@ -639,14 +732,14 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -677,7 +770,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1288,4 +1381,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-25 01:06:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-26 14:41:22 UTC</div></div></div></body></html>

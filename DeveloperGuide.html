@@ -26,9 +26,10 @@
 <li><a href="#deadline-feature">3.2. Deadline feature</a></li>
 <li><a href="#exporting-of-flashcards">3.3. Exporting of FlashCards</a></li>
 <li><a href="#test-mode">3.4. Test mode</a></li>
-<li><a href="#statistics-feature">3.5. Statistics Feature</a></li>
-<li><a href="#logging">3.6. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
+<li><a href="#statistics-feature">3.5. Statistics feature</a></li>
+<li><a href="#help-feature">3.6. Help feature</a></li>
+<li><a href="#logging">3.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -797,9 +798,9 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="statistics-feature"><a class="link" href="#statistics-feature">3.5. Statistics Feature</a></h3>
+<h3 id="statistics-feature"><a class="link" href="#statistics-feature">3.5. Statistics feature</a></h3>
 <div class="paragraph">
-<p>The statistics feature allows users to view the overall statistics (i.e. number of good, hard and easy flashcards in application and those completed in test mode)</p>
+<p>The statistics feature allows users to view the overall statistics in a single pop-up window.</p>
 </div>
 <div class="sect3">
 <h4 id="implementation-6"><a class="link" href="#implementation-6">3.5.1. Implementation</a></h4>
@@ -812,23 +813,43 @@ as a <code>LinkedList</code> implementation.</p>
 <p><code>StatsCommand</code>&#8201;&#8212;&#8201;Carries the message to be displayed to the user.</p>
 </li>
 <li>
-<p><code>RatingContainsKeywordPredicate</code>&#8201;&#8212;&#8201;To generate a predicate for good, hard and easy ratings.</p>
+<p><code>MainWindow</code>&#8201;&#8212;&#8201;Opens a specific window as required.</p>
 </li>
 <li>
-<p><code>Model</code>&#8201;&#8212;&#8201;To provide a list of FlashCards given a rating predicate and the statistics from test mode</p>
+<p><code>StatsWindow</code>&#8201;&#8212;&#8201;Builds the statistics window display.</p>
+</li>
+<li>
+<p><code>Model</code>&#8201;&#8212;&#8201;To provide a list of FlashCards given a rating predicate and the statistics from test mode.</p>
+</li>
+<li>
+<p><code>Stage</code>&#8201;&#8212;&#8201;To create the pop-up window.</p>
+</li>
+<li>
+<p><code>Scene</code>&#8201;&#8212;&#8201;To create an object that contains all the physical contents of the pop-up window.</p>
+</li>
+<li>
+<p><code>FlowPane</code>&#8201;&#8212;&#8201;To create the layout of the pop-up window.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the <code>stats</code> operation works:</p>
+<p>The sequence diagram below shows how the statistics operation works.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/StatisticsSequenceDiagram.png" alt="StatisticsSequenceDiagram">
+<img src="images/StatisticsSequenceDiagram.png" alt="StatisticsSequenceDiagram" width="700">
 </div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes the <code>stats</code> command:</p>
+<p>The sequence diagram below details how these other classes (i.e. <code>Stage</code>, <code>Scene</code> and <code>FlowPane</code>) work with <code>StatsWindow</code> to create the statistics pop-up window.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StatisticsShow.png" alt="StatisticsShow" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>The activity diagram below summarizes what happens when a user executes the <code>stats</code> command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -838,6 +859,9 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>The following aspect was a consideration when designing the statistics feature.</p>
+</div>
 <div class="paragraph">
 <p>Aspect: Methods to collect statistics</p>
 </div>
@@ -871,17 +895,120 @@ as a <code>LinkedList</code> implementation.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Alternative 1 was chosen simply because it was easier to implement within the given period of time.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
+<h3 id="help-feature"><a class="link" href="#help-feature">3.6. Help feature</a></h3>
+<div class="paragraph">
+<p>The help feature allows a user to refer to a summary of commands supported by the application.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-7"><a class="link" href="#implementation-7">3.6.1. Implementation</a></h4>
+<div class="paragraph">
+<p>This feature is supported by the following classes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>HelpCommand</code>&#8201;&#8212;&#8201;Carries the message to be displayed to the user.</p>
+</li>
+<li>
+<p><code>MainWindow</code>&#8201;&#8212;&#8201;Opens a specific window as required.</p>
+</li>
+<li>
+<p><code>HelpWindow</code>&#8201;&#8212;&#8201;Builds the help window display.</p>
+</li>
+<li>
+<p><code>Image</code>&#8201;&#8212;&#8201;To convert a png file into an <code>Image</code> object.</p>
+</li>
+<li>
+<p><code>ImageView</code>&#8201;&#8212;&#8201;To convert an <code>Image</code> object into a view.</p>
+</li>
+<li>
+<p><code>Stage</code>&#8201;&#8212;&#8201;To display the view.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows how the help operation works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HelpSequenceDiagram.png" alt="HelpSequenceDiagram" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below details how these other classes (i.e. <code>Stage</code>, <code>Image</code> and <code>ImageView</code>) work with <code>HelpWindow</code> to create the help pop-up window.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HelpShow.png" alt="HelpShow" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>The activity diagram below summarizes what happens when a user executes the <code>help</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HelpActivityDiagram.png" alt="HelpActivityDiagram" width="300" height="300">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.6.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>The following aspect was a consideration when designing the help feature.</p>
+</div>
+<div class="paragraph">
+<p>Aspect: Ways to display the command summary</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current choice):</strong> Display a snapshot with all the commands supported by the application.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The display can be quickly ammended with any addition or removal of command(s).</p>
+</li>
+<li>
+<p>Cons: The size of the snapshot displayed needs to be large to ensure sufficient picture resolution.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Display as text.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This results in a higher-resolution display of the command summary.</p>
+</li>
+<li>
+<p>Cons: This requires changing the code.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Alternative 1 was chosen simply because it was easier to update the displayed command summary.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -912,7 +1039,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1523,4 +1650,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 09:11:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 12:23:41 UTC</div></div></div></body></html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Leow Wen Bin - Project Portfolio for KeyboardFlashCards</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">KeyboardFlashCards</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T12-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Leow Wen Bin - Project Portfolio for KeyboardFlashCards</h1></div><div id="content"><div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document details the various contributions that I have made to my team project, <em>KeyboardFlashCards</em>. Done as part of a second-year software engineering module,
+the project requires that students work in teams to morph a desktop addressbook application into another product. The
+project is required to conform to a number of constraints, the most significant being that the product must have primarily utilize a CLI (command-line interface); this
+means that the primary means of user input to the product must be through the typing of commands.</p>
+</div>
+<div class="paragraph">
+<p>This project was the result of six weeks of hard work by my team, which comprises two final-year Computer Engineering students and three sophomore Computer Science
+students (including myself). All are students in the National University of Singapore (NUS).</p>
+</div>
+<div class="paragraph">
+<p>Our final product is <em>KeyboardFlashCards</em> - a flashcard manager application targeted at computing students (in particular, NUS School of Computing students),
+who will be able to use it to enhance their learning experience. It does this by simulating a real deck of flashcards, complete with features including creation, editing,
+deletion, revision, and sharing of flashcards. This application is written in the Java programming language, and has a GUI (graphical user interface) created with the JavaFX library.
+It has roughly 17 KLoC, up from the original addressbook application&#8217;s 10 KLoC.</p>
+</div>
+<div class="paragraph">
+<p>Here is a screenshot of our project:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="KeyboardFlashCards">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 1. The graphical user interface of <strong>KeyboardFlashCards</strong></em></p>
+</div>
+<div class="paragraph">
+<p>Please note the following symbols and formatting, which will appear throughout the rest of the document:
+TODO</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This section is a summary of the contributions I have made to the team project. It includes code, documentation, and various helpful contributions.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement #1</strong>: I added <strong>the ability to export flashcards to various file formats</strong>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It allows the user to save a subset of their flashcards to a specified external file. The file format can be either '.docx' or '.json', and is inferred from the file extension specified by the user.</p>
+</li>
+<li>
+<p>Justification: This feature greatly improves the application, as the ability to export flashcards would mean that the user can easily generate cheat sheets or share flashcards with others.</p>
+</li>
+<li>
+<p>Highlights: This enhancement was designed in such a way as to maximize extensibility in the future (if a developer wishes to add support for more file formats). It required an in-depth analysis of design alternatives. The implementation was challenging due to the dependence on an external library, as well as the tendency of certain file paths to break our parser.</p>
+</li>
+<li>
+<p>Credits: All writing of flashcards to <code>.docx</code> format is done with the use of Apache POI.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement #2: I added *the ability to import flashcards</strong>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It allows the user to import flashcards from JSON format (files that end in '.json').</p>
+</li>
+<li>
+<p>Justification: A user could previously import '.json' files that were previously exported, by copying and pasting the file over their existing save file. This feature allows users to do the same from the convenience of the application&#8217;s CLI, Furthermore, importing flashcards in this manner will not result in any loss to their original data.</p>
+</li>
+<li>
+<p>Highlights: TODO</p>
+</li>
+<li>
+<p>Credits: TODO</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Code contributed</strong>: Please click on these links to see a sample of my code:
+[<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em> (reposense link??)</p>
+</li>
+<li>
+<p><strong>Other contributions</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+</li>
+<li>
+<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote the User Guide and Developer Guide content pertaining to the exporting and importing of flashcards <a href="https://github.com">#14</a></p>
+</li>
+<li>
+<p>TODO wrote the qna? what else ah <a href="https://github.com">#14</a></p>
+</li>
+<li>
+<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments):
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/98">#98</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/154">#154</a></p>
+</li>
+<li>
+<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (examples:
+<a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/53">1</a>,
+<a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/23">2</a>,
+TODO the one reviewed for mock PE?
+)</p>
+</li>
+<li>
+<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated a third party library (Apache POI) to the project (<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/44">#44</a>)</p>
+</li>
+<li>
+<p>Integrated new Github plugins (Travis CI, Appveyor, Coveralls) to the team repository</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>{you can add/remove categories in the list above}</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>My team&#8217;s complete overhaul of the addressbook application meant that we also had to rewrite much of the User Guide. The following are excerpts of my contributions to this effort. They showcase my ability to write documentation that targets end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><em>(start of extract from User Guide)</em></p>
+</div>
+<div class="paragraph">
+<p><em>(end of extract from User Guide)</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The following are sections that I have written for the Developer Guide. They showcase my ability to write technical documentation targeting developers, as well as the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><em>(start of extract from User Guide)</em></p>
+</div>
+<div class="sect2">
+<h3 id="exporting-of-flashcards"><a class="link" href="#exporting-of-flashcards">Exporting of FlashCards</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>FlashCard</code> exporting mechanism is primarily facilitated by the following classes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ExportUtil</code>&#8201;&#8212;&#8201;Handles the actual exporting of <code>FlashCards</code></p>
+</li>
+<li>
+<p><code>ExportCommand</code>&#8201;&#8212;&#8201;Embodies an <code>export</code> command by the user; carries information about which <code>FlashCards</code> are to be exported, and to where</p>
+</li>
+<li>
+<p><code>ExportCommandParser</code>&#8201;&#8212;&#8201;Parses user input and uses it to construct an <code>ExportCommand</code> instance</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The mechanism is also supported by the package <code>seedu.address.model.export</code>, consisting of the following classes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DocumentPath</code>&#8201;&#8212;&#8201;Represents the path to a specific document - either absolute or relative to the application directory</p>
+</li>
+<li>
+<p><code>DocumentFilePath</code>&#8201;&#8212;&#8201;Represents the path to a specific document, relative to its immediate parent directory</p>
+</li>
+<li>
+<p><code>DirectoryPath</code>&#8201;&#8212;&#8201;Represents the path to a specific directory - either absolute or relative to the application directory</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Of particular note is <code>ExportUtil</code>, as it is arguably the class responsible for doing the most tangible work.
+Similar to the other classes in the <code>util</code> package, it consists entirely of <code>static</code> methods, and does not keep track of any variables.
+It exposes a single method, <code>ExportUtil#exportFlashCards(List&lt;FlashCard&gt;, DocumentPath)</code>, which prints a <code>List</code> of <code>FlashCards</code> to a <code>.docx</code>
+document located at the given <code>DocumentPath</code>. This is done by interfacing with the Apache POI library (in particular, the package
+<code>org.apache.poi.xwpf.usermodel</code>).</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the export operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ExportSequenceDiagram.png" alt="ExportSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes an export command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ExportActivityDiagram.png" alt="ExportActivityDiagram" width="320" height="480">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-method-of-obtaining-desired-code-flashcards-code-for-exporting"><a class="link" href="#aspect-method-of-obtaining-desired-code-flashcards-code-for-exporting">Aspect: Method of obtaining desired <code>FlashCards</code> for exporting</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Update the <code>Model</code> to show all desired <code>FlashCards</code>, then export all of said <code>FlashCards</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Is easy to implement as it makes use of existing logic in <code>Model</code>; user receives immediate visual feedback regarding which specific <code>FlashCards</code> were exported</p>
+</li>
+<li>
+<p>Cons: May cause confusion - <code>export</code> command does not imply that the selected <code>FlashCards</code> will also be shown to the user</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Implement a new method in <code>Model</code> that returns the selected <code>FlashCards</code>, without updating the on-screen list</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will not cause confusion to user - <code>export</code> command does exactly what one would expect it to do</p>
+</li>
+<li>
+<p>Cons: Is harder to implement and might result in duplication of logic</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-export-file-format"><a class="link" href="#aspect-export-file-format">Aspect: Export file format</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Export to a <code>.docx</code> file</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Is easy and convenient to print for use as a cheat sheet</p>
+</li>
+<li>
+<p>Cons: Requires an external library due to the nature of the file format</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Export to a <code>.txt</code> file</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Is easier to implement; the Java standard libraries already have the ability to write to text files</p>
+</li>
+<li>
+<p>Cons: Might give rise to inconvenience in printing, as most text editors (e.g. Notepad, Vim, Gedit) do not have built-in printing functionality</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-parsing-of-file-path-from-user-input"><a class="link" href="#aspect-parsing-of-file-path-from-user-input">Aspect: Parsing of file path from user input</a></h5>
+<div class="paragraph">
+<p>Background: the original AddressBook application, from which KeyboardFlashCards was morphed, delimited its command arguments using slash-containing flags
+(e.g. <code>c/CATEGORY</code>). This had the potential to cause problems due to the nature of file paths, which likewise contain slashes. While the existing
+AddressBook parser was able to correctly parse most file paths, there were a few degenerate cases that gave rise to errors.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Read file path as-is, using the existing AddressBook parser</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Does not require further code changes</p>
+</li>
+<li>
+<p>Cons: Means that errors are likely to occur given repeated use</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Disallow user from selecting file path - instead, always export to a specific directory</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Is somewhat easy to implement</p>
+</li>
+<li>
+<p>Cons: Requires user to navigate to the specified directory to obtain the file; requires a means of finding alternatives if the default directory does not exist</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Ask user to replace slashes in file path with another character</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Is very easy to implement</p>
+</li>
+<li>
+<p>Cons: Greatly inconveniences the user; extra work must be done to restore the input to the original file path</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 4 (current choice):</strong> Overhaul the AddressBook parser to use <code>&gt;</code> rather than <code>/</code> as a delimiter</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Provides the user with the most power and convenience</p>
+</li>
+<li>
+<p>Cons: Might possibly break existing functional and test code; may require an additional button press from the user (<code>Shift</code>) in order to type <code>&gt;</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="test-mode"><a class="link" href="#test-mode">Test mode</a></h3>
+<div class="paragraph">
+<p>Test mode allows users to start a flash card test from a selected list of tags. If no parameters are provided, all
+flashcards contained in the system will be tested.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<div class="paragraph">
+<p>This feature is supported by the following classes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddressBookParser</code> to control the flow of command in the entire program.</p>
+</li>
+<li>
+<p><code>StartCommandParser</code> to parse arguments for StartCommand.</p>
+</li>
+<li>
+<p><code>ModelManager</code> which stores <code>FlashCardTestModel</code>, an aggregation of <code>FlashCards</code>, to be used for test mode.</p>
+</li>
+<li>
+<p><code>CategoryContainsAnyKeywordsPredicate</code> to search and generate a list of <code>FlashCards</code> with relevant tags.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows the intended case for the <code>start</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StartSequenceDiagram.png" alt="StartSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="paragraph">
+<p>Aspect: Data structure to support <code>FlashCardTestModel</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current choice):</strong> <code>LinkedList</code> implementation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Very efficient, with O(1) complexity removing the head of the list every time a question is tested.</p>
+</li>
+<li>
+<p>Cons: Less memory efficient than <code>ArrayList</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> ArrayList implementation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More memory efficient than <code>LinkedList</code>.</p>
+</li>
+<li>
+<p>Cons: To obtain the same performance as <code>LinkedList</code>, the last index/size of the <code>ArrayList</code> has to be constantly tracked.
+This slightly decreases code readability compared to the <code>LinkedList</code> implementation.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Queue interface:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Use of <code>Queue</code> interface brings simplicity to code structure and readability while having the same performance
+as a <code>LinkedList</code> implementation.</p>
+</li>
+<li>
+<p>Cons: There will be potential coupling by using <code>Queue</code> instead of <code>List</code> interface.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>(end of extract from User Guide)</em></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<div class="sectionbody">
+<hr>
+<div class="paragraph">
+<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 06:38:31 UTC</div></div></div></body></html>

@@ -25,12 +25,13 @@
 <li><a href="#remove-deadline-from-list-code-remove-index-code">3.10. Remove deadline from list: <code>remove index</code></a></li>
 <li><a href="#show-monthly-calendar-with-all-deadlines-code-calendar-code">3.11. Show monthly calendar with all deadlines: <code>calendar</code></a></li>
 <li><a href="#test-mode">3.12. Test mode</a></li>
-<li><a href="#export-flashcards-to-a-document-file-code-export-c-category-p-file_path-code">3.13. Export flashcards to a document file: <code>export c&gt;CATEGORY p&gt;FILE_PATH</code></a></li>
-<li><a href="#get-the-full-list-of-commands-code-help-code">3.14. Get the full list of commands: <code>help</code></a></li>
-<li><a href="#view-overall-statistics-code-stats-code">3.15. View overall statistics: <code>stats</code></a></li>
-<li><a href="#change-color-themes-code-theme-themename-code">3.16. Change color themes: <code>theme [THEMENAME]</code></a></li>
-<li><a href="#saving-the-data">3.17. Saving the data</a></li>
-<li><a href="#exit-code-exit-code">3.18. Exit: <code>exit</code></a></li>
+<li><a href="#export-flashcards-to-a-file-code-export-c-category-p-file_path-code">3.13. Export flashcards to a file: <code>export c&gt;CATEGORY p&gt;FILE_PATH</code></a></li>
+<li><a href="#import-flashcards-from-a-json-file-code-import-p-file_path-code">3.14. Import flashcards from a JSON file: <code>import p&gt;FILE_PATH</code></a></li>
+<li><a href="#get-the-full-list-of-commands-code-help-code">3.15. Get the full list of commands: <code>help</code></a></li>
+<li><a href="#view-overall-statistics-code-stats-code">3.16. View overall statistics: <code>stats</code></a></li>
+<li><a href="#change-color-themes-code-theme-themename-code">3.17. Change color themes: <code>theme [THEMENAME]</code></a></li>
+<li><a href="#saving-the-data">3.18. Saving the data</a></li>
+<li><a href="#exit-code-exit-code">3.19. Exit: <code>exit</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -545,11 +546,67 @@ Note: [DUE DATE] has to be in dd/MM/yyyy format.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-flashcards-to-a-document-file-code-export-c-category-p-file_path-code"><a class="link" href="#export-flashcards-to-a-document-file-code-export-c-category-p-file_path-code">3.13. Export flashcards to a document file: <code>export c&gt;CATEGORY p&gt;FILE_PATH</code></a></h3>
+<h3 id="export-flashcards-to-a-file-code-export-c-category-p-file_path-code"><a class="link" href="#export-flashcards-to-a-file-code-export-c-category-p-file_path-code">3.13. Export flashcards to a file: <code>export c&gt;CATEGORY p&gt;FILE_PATH</code></a></h3>
 <div class="paragraph">
-<p>Exports all flashcards in the supplied category to an external document (<code>.docx</code>) file.
-Each flashcard will be represented as a question-and-answer pair.
-The document file will be created at the supplied file path.</p>
+<p>You can use this command to export all your FlashCards in a particular category, to an external file.
+This may be useful if you wish to publish your FlashCards somewhere, print them out, or share them with a friend.
+The file will be located at the file path that you specify, and the format of the file will be inferred from the
+extension. We currently support exporting to JSON (.json) and document (.docx) file formats.<br>
+Example: <code>export c&gt;CS2105 p&gt;C:\Documents\cs2105.json</code></p>
+</div>
+<div class="paragraph">
+<p>Suppose you have a category named <code>CS2105</code>, and you wanted to export the FlashCards in that category to an external file
+(so you can share them with your friend). Here&#8217;s how you would go about this:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the example command given above into the command box (<code>export c&gt;CS2105 p&gt;C:\Documents\cs2105.json</code>), as shown below.</p>
+</li>
+<li>
+<p>Press <strong>Enter</strong> to execute the command. The results box will display a success message similar to the one shown in the screenshot below.</p>
+</li>
+<li>
+<p>Navigate to the directory that you specified in the command (in this case, it would be 'C:\Documents'). Sure enough, your exported file is there!</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only the questions and answers of FlashCards will be exported.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Your file paths must be comprised solely of alphanumeric characters, spaces, and the following characters: <code>~\/-_!:[]()</code><br>
+It must also end in either <code>.json</code> or <code>.docx</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Do note that some directories may be protected by your operating system (<code>C:\</code> on Windows, <code>/</code> on Unix). You may not be allowed to save files to these directories.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -564,25 +621,44 @@ self-learning.
 </tr>
 </table>
 </div>
-<div class="admonitionblock warning">
+</div>
+<div class="sect2">
+<h3 id="import-flashcards-from-a-json-file-code-import-p-file_path-code"><a class="link" href="#import-flashcards-from-a-json-file-code-import-p-file_path-code">3.14. Import flashcards from a JSON file: <code>import p&gt;FILE_PATH</code></a></h3>
+<div class="paragraph">
+<p>You can use this command to import FlashCards from a file that you or someone else had exported to earlier.
+We currently only support importing from JSON (.json) files.<br>
+Example: <code>import p&gt;C:\Downloads\cs2105.json</code></p>
+</div>
+<div class="paragraph">
+<p>Suppose your friend has kindly exported some of his FlashCards for you to use. You&#8217;ve download the <code>.json</code> file that he sent you;
+now your next step is to get those FlashCards into your copy of KFC. Here&#8217;s how you&#8217;d go about this:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the example command given above into the command box (<code>import p&gt;C:\Downloads\cs2105.json</code>), as shown below.</p>
+</li>
+<li>
+<p>Press <strong>Enter</strong> to execute the command. The results box will display a success message similar to the one shown in the screenshot below.
+Furthermore, the category panel on the left will now display the category of the newly-imported FlashCards!</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The given file path is required to end with <code>.docx</code> - this is because we currently only support
-exporting to document files.
+Duplicate FlashCards will not be imported. You will be notified when we detect duplicate FlashCards in the file you provide.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><code>export c&gt;CS2105 p&gt;C:\Users\User\Documents\cheat_sheet.docx</code></p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="get-the-full-list-of-commands-code-help-code"><a class="link" href="#get-the-full-list-of-commands-code-help-code">3.14. Get the full list of commands: <code>help</code></a></h3>
+<h3 id="get-the-full-list-of-commands-code-help-code"><a class="link" href="#get-the-full-list-of-commands-code-help-code">3.15. Get the full list of commands: <code>help</code></a></h3>
 <div class="paragraph">
 <p>This command allows you to view all the commands available in the application.<br>
 <code>help</code></p>
@@ -620,7 +696,7 @@ exporting to document files.
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-overall-statistics-code-stats-code"><a class="link" href="#view-overall-statistics-code-stats-code">3.15. View overall statistics: <code>stats</code></a></h3>
+<h3 id="view-overall-statistics-code-stats-code"><a class="link" href="#view-overall-statistics-code-stats-code">3.16. View overall statistics: <code>stats</code></a></h3>
 <div class="paragraph">
 <p>This command allows you to view three different type of statistics.<br>
 <code>stats</code></p>
@@ -667,7 +743,7 @@ exporting to document files.
 </div>
 </div>
 <div class="sect2">
-<h3 id="change-color-themes-code-theme-themename-code"><a class="link" href="#change-color-themes-code-theme-themename-code">3.16. Change color themes: <code>theme [THEMENAME]</code></a></h3>
+<h3 id="change-color-themes-code-theme-themename-code"><a class="link" href="#change-color-themes-code-theme-themename-code">3.17. Change color themes: <code>theme [THEMENAME]</code></a></h3>
 <div class="paragraph">
 <p>This command allows you to change the theme of the app.</p>
 </div>
@@ -721,14 +797,14 @@ exporting to document files.
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.17. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.18. Saving the data</a></h3>
 <div class="paragraph">
 <p>Flashcard data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exit-code-exit-code"><a class="link" href="#exit-code-exit-code">3.18. Exit: <code>exit</code></a></h3>
+<h3 id="exit-code-exit-code"><a class="link" href="#exit-code-exit-code">3.19. Exit: <code>exit</code></a></h3>
 <div class="paragraph">
 <p>This command allows you to exit the application.</p>
 </div>
@@ -830,7 +906,14 @@ e.g.  <code>export c&gt;CS2105 p&gt;C:\Users\User\Documents\cheat_sheet.docx</co
 e.g.  <code>help</code></p>
 </li>
 <li>
-<p>List all flashcards under a specific category - <code>list CATEGORY</code><br>
+<p>Import flashcards from a JSON file - <code>import p&gt;FILE_PATH</code><br>
+e.g.  <code>import p&gt;C:\Users\User\Documents\flashcards.json</code></p>
+</li>
+<li>
+<p>List all flashcards - list</p>
+</li>
+<li>
+<p>List all flashcards under a specific category - <code>list [category]</code><br>
 e.g.  <code>list Math</code></p>
 </li>
 <li>
@@ -876,4 +959,4 @@ e.g.  <code>start Mathematics</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 06:38:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 07:13:47 UTC</div></div></div></body></html>

@@ -287,6 +287,61 @@ document located at the given <code>DocumentPath</code>. This is done by interfa
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This section describes some of the design considerations that went into the implementation of this feature.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="aspect-implementation-of-exporting-functionality-for-different-file-formats"><a class="link" href="#aspect-implementation-of-exporting-functionality-for-different-file-formats">Aspect: Implementation of exporting functionality for different file formats</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Have a single <code>export</code> command - leave file formats to be handled by underlying classes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Is easier for user to remember; can easily be extended to support additional file formats</p>
+</li>
+<li>
+<p>Cons: Is harder to implement</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Have a separate command for exporting to each format (e.g. <code>exportdoc</code>, <code>exportjson</code>, etc.)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Is easier to implement</p>
+</li>
+<li>
+<p>Cons: Results in user having more commands to remember; new commands must be added to support new file formats</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Alternative 1</strong> was preferred for its ease of extensibility.
+</td>
+</tr>
+</table>
+</div>
+</div>
 <div class="sect4">
 <h5 id="aspect-method-of-obtaining-desired-code-flashcards-code-for-exporting"><a class="link" href="#aspect-method-of-obtaining-desired-code-flashcards-code-for-exporting">Aspect: Method of obtaining desired <code>FlashCards</code> for exporting</a></h5>
 <div class="ulist">
@@ -319,46 +374,33 @@ document located at the given <code>DocumentPath</code>. This is done by interfa
 </li>
 </ul>
 </div>
-</div>
-<div class="sect4">
-<h5 id="aspect-export-file-format"><a class="link" href="#aspect-export-file-format">Aspect: Export file format</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Export to a <code>.docx</code> file</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Is easy and convenient to print for use as a cheat sheet</p>
-</li>
-<li>
-<p>Cons: Requires an external library due to the nature of the file format</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Export to a <code>.txt</code> file</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Is easier to implement; the Java standard libraries already have the ability to write to text files</p>
-</li>
-<li>
-<p>Cons: Might give rise to inconvenience in printing, as most text editors (e.g. Notepad, Vim, Gedit) do not have built-in printing functionality</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Alternative 2</strong> was preferred as it provides users with an experience closer to what they would expect.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect4">
 <h5 id="aspect-parsing-of-file-path-from-user-input"><a class="link" href="#aspect-parsing-of-file-path-from-user-input">Aspect: Parsing of file path from user input</a></h5>
-<div class="paragraph">
-<p>Background: the original AddressBook application, from which KeyboardFlashCards was morphed, delimited its command arguments using slash-containing flags
-(e.g. <code>c/CATEGORY</code>). This had the potential to cause problems due to the nature of file paths, which likewise contain slashes. While the existing
-AddressBook parser was able to correctly parse most file paths, there were a few degenerate cases that gave rise to errors.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The original AddressBook application, from which KeyboardFlashCards was morphed, delimited its command arguments using slash-containing flags
+(e.g. <code>c/CATEGORY</code>). This sometimes caused parsing problems due to the nature of file paths, which likewise contain slashes.
+</td>
+</tr>
+</table>
 </div>
 <div class="ulist">
 <ul>
@@ -370,7 +412,7 @@ AddressBook parser was able to correctly parse most file paths, there were a few
 <p>Pros: Does not require further code changes</p>
 </li>
 <li>
-<p>Cons: Means that errors are likely to occur given repeated use</p>
+<p>Cons: Means that errors may occur for certain file paths</p>
 </li>
 </ul>
 </div>
@@ -415,6 +457,18 @@ AddressBook parser was able to correctly parse most file paths, there were a few
 </div>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Alternative 4</strong> was preferred as it provides users with the greatest overall convenience.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -520,4 +574,4 @@ as a <code>LinkedList</code> implementation.</p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 06:38:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 07:13:47 UTC</div></div></div></body></html>

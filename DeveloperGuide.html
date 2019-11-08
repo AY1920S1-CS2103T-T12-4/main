@@ -24,7 +24,7 @@
 <ul class="sectlevel2">
 <li><a href="#add-feature">3.1. Add feature</a></li>
 <li><a href="#deadline-feature">3.2. Deadline feature</a></li>
-<li><a href="#exporting-of-flashcards">3.3. Exporting of FlashCards</a></li>
+<li><a href="#exporting-importing-of-flashcards">3.3. Exporting/Importing of FlashCards</a></li>
 <li><a href="#test-mode">3.4. Test mode</a></li>
 <li><a href="#statistics-feature">3.5. Statistics feature</a></li>
 <li><a href="#help-feature">3.6. Help feature</a></li>
@@ -516,50 +516,180 @@ an <strong>add deadline window</strong> would pop up with a section for individu
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting-of-flashcards"><a class="link" href="#exporting-of-flashcards">3.3. Exporting of FlashCards</a></h3>
+<h3 id="exporting-importing-of-flashcards"><a class="link" href="#exporting-importing-of-flashcards">3.3. Exporting/Importing of FlashCards</a></h3>
 <div class="sect3">
 <h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>FlashCard</code> exporting mechanism is primarily facilitated by the following classes:</p>
+<p>Our application currently supports the exporting of <code>FlashCards</code> to two file formats (<code>.docx</code> and <code>.json</code>) and importing of <code>FlashCards</code> from one
+file format (<code>.json</code>). These mechanisms are primarily facilitated by the following classes:</p>
 </div>
 <div class="ulist">
 <ul>
-<li>
-<p><code>ExportUtil</code>&#8201;&#8212;&#8201;Handles the actual exporting of <code>FlashCards</code></p>
-</li>
 <li>
 <p><code>ExportCommand</code>&#8201;&#8212;&#8201;Embodies an <code>export</code> command by the user; carries information about which <code>FlashCards</code> are to be exported, and to where</p>
 </li>
 <li>
 <p><code>ExportCommandParser</code>&#8201;&#8212;&#8201;Parses user input and uses it to construct an <code>ExportCommand</code> instance</p>
 </li>
+<li>
+<p><code>ImportCommand</code>&#8201;&#8212;&#8201;Embodies an <code>import</code> command by the user; carries information about where <code>FlashCards</code> are to be imported from</p>
+</li>
+<li>
+<p><code>ImportCommandParser</code>&#8201;&#8212;&#8201;Parses user input and uses it to construct an <code>ImportCommand</code> instance</p>
+</li>
+<li>
+<p><code>ExportPath</code>&#8201;&#8212;&#8201;Represents the path to a specific file - either absolute or relative to the application directory</p>
+</li>
+<li>
+<p><code>ExportPathFactory</code>&#8201;&#8212;&#8201;Parses the user-provided file path and creates instances of <code>ExportPath</code></p>
+</li>
 </ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The "export" in <code>ExportPath</code> is to be taken as a noun, not a verb. An <code>ExportPath</code>, therefore, is not the path that we export to, but the
+path of an export. <code>ExportPaths</code> are used in both exporting and importing of files.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>The mechanism is also supported by the package <code>seedu.address.model.export</code>, consisting of the following classes:</p>
+<p><code>ExportPath</code> is an abstract class that follows the factory pattern. Each subclass of <code>ExportPath</code> represents the path to a specific file of a
+specific extension (e.g. an instance of <code>DocumentPath</code> represents the path to a specific document). Instances of these subclasses are created by
+<code>ExportPathFactory#getExportPath(String)</code>, which determines the appropriate subclass to create based on the extension of the provided file path String.
+Once created, an <code>ExportPath</code> will expose the following relevant methods:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>DocumentPath</code>&#8201;&#8212;&#8201;Represents the path to a specific document - either absolute or relative to the application directory</p>
+<p><code>getPath()</code>&#8201;&#8212;&#8201;Returns a Java <code>Path</code> object that represents this <code>ExportPath</code></p>
 </li>
 <li>
-<p><code>DocumentFilePath</code>&#8201;&#8212;&#8201;Represents the path to a specific document, relative to its immediate parent directory</p>
+<p><code>export(List&lt;FlashCard&gt; list)</code>&#8201;&#8212;&#8201;Exports the given <code>List</code> of <code>FlashCards</code> to the file path embodied by this <code>ExportPath</code></p>
 </li>
 <li>
-<p><code>DirectoryPath</code>&#8201;&#8212;&#8201;Represents the path to a specific directory - either absolute or relative to the application directory</p>
+<p><code>importFrom()</code>&#8201;&#8212;&#8201;Attempts to import <code>FlashCards</code> from the file path represented by this <code>ExportPath</code></p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Of particular note is <code>ExportUtil</code>, as it is arguably the class responsible for doing the most tangible work.
-Similar to the other classes in the <code>util</code> package, it consists entirely of <code>static</code> methods, and does not keep track of any variables.
-It exposes a single method, <code>ExportUtil#exportFlashCards(List&lt;FlashCard&gt;, DocumentPath)</code>, which prints a <code>List</code> of <code>FlashCards</code> to a <code>.docx</code>
-document located at the given <code>DocumentPath</code>. This is done by interfacing with the Apache POI library (in particular, the package
-<code>org.apache.poi.xwpf.usermodel</code>).</p>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Not all <code>ExportPath</code> subclasses will implement the <code>importFrom()</code> method. <code>DocumentPath</code>, for example, does not - this is because documents are
+relatively unstructured and impractical to import from, and there are other reasons for exporting to a document (e.g. to use as cheat sheet).
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the export operation works:</p>
+<p>Because <code>ExportPath</code> follows the factory pattern, any class that deals with <code>ExportPath</code> or its subclasses need not know which particular subclass it is
+dealing with exactly. Each <code>ExportPath</code> subclass will implement its own <code>export</code> and <code>import</code> methods, which, when called, will perform the required operations
+without any further hassle. Of course, due to the Separation of Concerns principle, the <code>ExportPath</code> subclasses will not handle these directly.
+Instead, they will delegate the work to other utility classes, which, in turn, interface with the external libraries necessary to complete the task.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The exporting/importing functionality is extremely easy to extend - support for new formats can be added simply through the creation of new subclasses of <code>ExportPath</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+All relevant classes can be found in the <code>seedu.address.model.export</code> package. The only exceptions are <code>ExportCommand</code>, <code>ImportCommand</code>, <code>ExportCommandParser</code>, and <code>ImportCommandParser</code>, which can be found in the <code>seedu.address.logic</code> package.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following table shows the classes and methods that you may have to deal with when exporting to or importing from each format:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 59%;">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 38.8888%;">
+<col style="width: 38.889%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>File format</strong></th>
+<th class="tableblock halign-left valign-top">Document</th>
+<th class="tableblock halign-left valign-top">JSON</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>File extension</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.docx</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.json</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>ExportPath</code> subclass</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DocumentPath</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>JsonExportPath</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>Export utility class and method</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>DocumentExportUtil#exportFlashCardsToDocument( List&lt;FlashCard&gt;, DocumentPath)</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>JsonExportUtil#exportFlashCardsToJson( List&lt;FlashCard&gt;, JsonExportPath)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>Import utility class and method</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><em>None - importing not supported</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>JsonImportUtil#importFlashCardsFromJson( JsonExportPath)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>External library used</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apache POI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jackson</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The number of classes supporting the import/export feature is rather large. The following class diagram will help to clarify the associations
+between these classes:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExportClassDiagram.png" alt="ExportClassDiagram" height="700">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 1: Class diagram showing the classes directly relevant to importing and exporting</em></p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the export operation works when the user tries to export to a document (<code>.docx</code>) file:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -567,12 +697,41 @@ document located at the given <code>DocumentPath</code>. This is done by interfa
 </div>
 </div>
 <div class="paragraph">
+<p><em>Figure 2: Sequence diagram showing the process of exporting to a document file</em></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Due to a limitation of PlantUML, object lifelines in the diagram extend beyond the destroy markers. This, of course, should be ignored.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes an export command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ExportActivityDiagram.png" alt="ExportActivityDiagram" width="320" height="480">
+<img src="images/ExportActivityDiagram.png" alt="ExportActivityDiagram" width="500" height="540">
 </div>
+</div>
+<div class="paragraph">
+<p><em>Figure 3: Activity diagram of when the user executes an export command</em></p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes an import command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ImportActivityDiagram.png" alt="ImportActivityDiagram" width="500" height="580">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4: Activity diagram of when the user executes an import command</em></p>
 </div>
 </div>
 <div class="sect3">
@@ -708,14 +867,14 @@ The original AddressBook application, from which KeyboardFlashCards was morphed,
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Disallow user from selecting file path - instead, always export to a specific directory</p>
+<p><strong>Alternative 2:</strong> Disallow user from selecting file path - instead, always export to and import from a specific directory</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: Is somewhat easy to implement</p>
 </li>
 <li>
-<p>Cons: Requires user to navigate to the specified directory to obtain the file; requires a means of finding alternatives if the default directory does not exist</p>
+<p>Cons: Requires user to navigate to the specified directory; requires a means of finding alternatives if the default directory does not exist</p>
 </li>
 </ul>
 </div>
@@ -1704,4 +1863,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 07:13:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 08:30:56 UTC</div></div></div></body></html>

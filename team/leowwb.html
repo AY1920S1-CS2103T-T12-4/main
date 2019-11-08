@@ -14,17 +14,20 @@ means that the primary means of user input to the product must be through the ty
 students (including myself). All are students in the National University of Singapore (NUS).</p>
 </div>
 <div class="paragraph">
-<p>Our final product is <em>KeyboardFlashCards</em> - a flashcard manager application targeted at computing students (in particular, NUS School of Computing students),
-who will be able to use it to enhance their learning experience. It does this by simulating a real deck of flashcards, complete with features including creation, editing,
-deletion, revision, and sharing of flashcards. This application is written in the Java programming language, and has a GUI (graphical user interface) created with the JavaFX library.
-It has roughly 17 KLoC, up from the original addressbook application&#8217;s 10 KLoC.</p>
+<p>Our final product is <em>KeyboardFlashCards</em> - a desktop flashcard manager application targeted at
+computing students (in particular, NUS School of Computing students), who will be able to use it to
+enhance their learning experience. It does this by simulating a real deck of flashcards on the user&#8217;s
+computer, complete with features including creation, editing, deletion, revision, and sharing of
+flashcards. The application is written in the Java programming language, and has a GUI (graphical
+user interface) created with the JavaFX library. It has roughly 17 KLoC, up from the original
+addressbook application&#8217;s 10 KLoC.</p>
 </div>
 <div class="paragraph">
 <p>Here is a screenshot of our project:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/Ui.png" alt="KeyboardFlashCards">
+<img src="../images/annotatedUi.png" alt="KeyboardFlashCards">
 </div>
 </div>
 <div class="paragraph">
@@ -32,7 +35,9 @@ It has roughly 17 KLoC, up from the original addressbook application&#8217;s 10 
 </div>
 <div class="paragraph">
 <p>Please note the following symbols and formatting, which will appear throughout the rest of the document:
-TODO</p>
+NOTE: A point of information to take note of
+TIP: A tip or suggestion
+CAUTION: A cautionary piece of advice</p>
 </div>
 </div>
 </div>
@@ -56,43 +61,52 @@ TODO</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: It allows the user to save a subset of their flashcards to a specified external file. The file format can be either '.docx' or '.json', and is inferred from the file extension specified by the user.</p>
+<p>What it does: It allows the user to save their flashcards from the application into a specified external file.
+The file format can be either '.docx' or '.json', and is inferred from the file extension specified by the user.
+To avoid clutter, any data that would only be relevant in the context of the application (e.g. a user-given rating)
+is not exported with the flashcards.</p>
 </li>
 <li>
-<p>Justification: This feature greatly improves the application, as the ability to export flashcards would mean that the user can easily generate cheat sheets or share flashcards with others.</p>
+<p>Justification: This feature greatly improves the application. The ability to export flashcards
+means that the user can easily generate cheat sheets (by exporting to a document file),
+or share flashcards with others (by exporting to a JSON file) - all through the convenience of a single command.</p>
 </li>
 <li>
-<p>Highlights: This enhancement was designed in such a way as to maximize extensibility in the future (if a developer wishes to add support for more file formats). It required an in-depth analysis of design alternatives. The implementation was challenging due to the dependence on an external library, as well as the tendency of certain file paths to break our parser.</p>
+<p>Highlights: This enhancement was designed in such a way as to maximize extensibility in the future
+(if a future developer ever wishes to add support for more file formats). It required an in-depth analysis of design alternatives.
+The implementation was challenging due to the dependence on an external library,
+as well as the tendency of certain file paths to break our user input parser.</p>
 </li>
 <li>
-<p>Credits: All writing of flashcards to <code>.docx</code> format is done with the use of Apache POI.</p>
+<p>Credits: All writing of flashcards to the '.docx' and '.json' formats is done with the use of two external libraries;
+these are Apache POI and Jackson, respectively.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Major enhancement #2: I added *the ability to import flashcards</strong>.</p>
+<p><strong>Major enhancement #2: I added *the ability to import flashcards from an external file</strong>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: It allows the user to import flashcards from JSON format (files that end in '.json').</p>
+<p>What it does: It allows the user to import flashcards from a JSON file (a file that ends in '.json').
+The imported flashcards are added to the application, and the user will be able to use them as if they were their own.</p>
 </li>
 <li>
-<p>Justification: A user could previously import '.json' files that were previously exported, by copying and pasting the file over their existing save file. This feature allows users to do the same from the convenience of the application&#8217;s CLI, Furthermore, importing flashcards in this manner will not result in any loss to their original data.</p>
+<p>Justification: This feature, when used in combination with the <code>export</code> feature, allows users to share their flashcards with
+one another.</p>
 </li>
 <li>
-<p>Highlights: TODO</p>
+<p>Highlights: This feature does not import flashcards which the user already has. This is because
+there&#8217;s no good reason for the user to have two copies of the same flashcard.
+The user will be notified if a duplicate is detected in a file while importing.</p>
 </li>
 <li>
-<p>Credits: TODO</p>
+<p>Credits: All reading of flashcards from the <code>.json</code> format is done with the use of Jackson, an external library.</p>
 </li>
 </ul>
 </div>
 </li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
 <li>
 <p><strong>Code contributed</strong>: Please click on these links to see a sample of my code:
 [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em> (reposense link??)</p>
@@ -106,20 +120,13 @@ TODO</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
+<p>Managed releases <code>v1.1</code> - <code>v1.2</code> (2 releases) on GitHub</p>
 </li>
 <li>
-<p>Enhancements to existing features</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Updated the project website with the team&#8217;s details (
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/19">#19</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/24">#24</a>
+)</p>
 </li>
 </ul>
 </div>
@@ -129,13 +136,23 @@ TODO</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Wrote the User Guide and Developer Guide content pertaining to the exporting and importing of flashcards <a href="https://github.com">#14</a></p>
+<p>Created the general framework that would be used by the User Guide (
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/19">#19</a>
+)</p>
 </li>
 <li>
-<p>TODO wrote the qna? what else ah <a href="https://github.com">#14</a></p>
+<p>Wrote the FAQ and an early version of the Command Summary section for the User Guide (
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/19">#19</a>
+)</p>
 </li>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Wrote the User Guide and Developer Guide content pertaining to the exporting and importing of flashcards (
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/137">#137</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/141">#141</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/151">#151</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/221">#221</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/224">#224</a>
+)</p>
 </li>
 </ul>
 </div>
@@ -145,22 +162,15 @@ TODO</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments):
+<p>Reviewed the following PRs (with non-trivial review comments):
 <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/98">#98</a>,
 <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/154">#154</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
 <p>Reported bugs and suggestions for other teams in the class (examples:
 <a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/53">1</a>,
-<a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/23">2</a>,
-TODO the one reviewed for mock PE?
+<a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/23">2</a>
 )</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
 </li>
 </ul>
 </div>
@@ -170,7 +180,9 @@ TODO the one reviewed for mock PE?
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated a third party library (Apache POI) to the project (<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/44">#44</a>)</p>
+<p>Integrated a third party library (Apache POI) to the project (
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/44">#44</a>
+)</p>
 </li>
 <li>
 <p>Integrated new Github plugins (Travis CI, Appveyor, Coveralls) to the team repository</p>
@@ -182,9 +194,6 @@ TODO the one reviewed for mock PE?
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -204,8 +213,146 @@ TODO the one reviewed for mock PE?
 <div class="paragraph">
 <p><em>(start of extract from User Guide)</em></p>
 </div>
+<div class="sect2">
+<h3 id="export-flashcards-to-a-file-code-export-c-category-p-file_path-code"><a class="link" href="#export-flashcards-to-a-file-code-export-c-category-p-file_path-code">Export flashcards to a file: <code>export c&gt;CATEGORY p&gt;FILE_PATH</code></a></h3>
+<div class="paragraph">
+<p>You can use this command to export all your FlashCards in a particular category, to an external file.
+This may be useful if you wish to publish your FlashCards somewhere, print them out, or share them with a friend.
+The file will be located at the file path that you specify, and the format of the file will be inferred from the
+extension. We currently support exporting to JSON (.json) and document (.docx) file formats.<br>
+Example: <code>export c&gt;CS2105 p&gt;C:\Documents\cs2105.json</code></p>
+</div>
+<div class="paragraph">
+<p>Suppose you have a category named <code>CS2105</code>, and you wanted to export the FlashCards in that category to an external file
+(so you can share them with your friend). Here&#8217;s how you would go about this:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the example command given above into the command box (<code>export c&gt;CS2105 p&gt;C:\Documents\cs2105.json</code>), as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ExportDemo1.png" alt="ExportDemo1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>Press <strong>Enter</strong> to execute the command. The results box will display a success message similar to the one shown in the screenshot below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ExportDemo2.png" alt="ExportDemo2" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>Navigate to the directory that you specified in the command (in this case, it would be 'C:\Documents'). Sure enough, your exported file is there!</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ExportDemo3.png" alt="ExportDemo3" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only the questions and answers of FlashCards will be exported.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Your file paths must be comprised solely of alphanumeric characters, spaces, and the following characters: <code>~\/-_!:[]()</code><br>
+It must also end in either <code>.json</code> or <code>.docx</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Do note that some directories may be protected by your operating system (<code>C:\</code> on Windows, <code>/</code> on Unix). You may not be allowed to save files to these directories.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Use this to export your flashcards into an easily-printable cheat sheet! Use them for your assessments or
+self-learning.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="import-flashcards-from-a-json-file-code-import-p-file_path-code"><a class="link" href="#import-flashcards-from-a-json-file-code-import-p-file_path-code">Import flashcards from a JSON file: <code>import p&gt;FILE_PATH</code></a></h3>
+<div class="paragraph">
+<p>You can use this command to import FlashCards from a file that you or someone else had exported to earlier.
+We currently only support importing from JSON (.json) files.<br>
+Example: <code>import p&gt;C:\Downloads\cs2105.json</code></p>
+</div>
+<div class="paragraph">
+<p>Suppose your friend has kindly exported some of his FlashCards for you to use. You have download the <code>.json</code> file that he sent you,
+and it&#8217;s currently located at the following path: <code>C:\Downloads\cs2105.json</code>.
+Your next step is to get those FlashCards into your copy of KFC. Here&#8217;s how you&#8217;d go about this:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the example command given above into the command box (<code>import p&gt;C:\Downloads\cs2105.json</code>), as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ImportDemo1.png" alt="ImportDemo1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>Press <strong>Enter</strong> to execute the command. The results box will display a success message similar to the one shown in the screenshot below.
+Furthermore, the category list on the left will now display the category of the newly-imported FlashCards!</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ImportDemo2.png" alt="ImportDemo2" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Duplicate FlashCards will not be imported. You will be notified when we detect duplicate FlashCards in the file you provide.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p><em>(end of extract from User Guide)</em></p>
+</div>
 </div>
 </div>
 </div>
@@ -223,53 +370,183 @@ TODO the one reviewed for mock PE?
 </tbody>
 </table>
 <div class="paragraph">
-<p><em>(start of extract from User Guide)</em></p>
+<p><em>(start of extract from Developer Guide)</em></p>
 </div>
 <div class="sect2">
-<h3 id="exporting-of-flashcards"><a class="link" href="#exporting-of-flashcards">Exporting of FlashCards</a></h3>
+<h3 id="exporting-importing-of-flashcards"><a class="link" href="#exporting-importing-of-flashcards">Exporting/Importing of FlashCards</a></h3>
 <div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>FlashCard</code> exporting mechanism is primarily facilitated by the following classes:</p>
+<p>Our application currently supports the exporting of <code>FlashCards</code> to two file formats (<code>.docx</code> and <code>.json</code>) and importing of <code>FlashCards</code> from one
+file format (<code>.json</code>). These mechanisms are primarily facilitated by the following classes:</p>
 </div>
 <div class="ulist">
 <ul>
-<li>
-<p><code>ExportUtil</code>&#8201;&#8212;&#8201;Handles the actual exporting of <code>FlashCards</code></p>
-</li>
 <li>
 <p><code>ExportCommand</code>&#8201;&#8212;&#8201;Embodies an <code>export</code> command by the user; carries information about which <code>FlashCards</code> are to be exported, and to where</p>
 </li>
 <li>
 <p><code>ExportCommandParser</code>&#8201;&#8212;&#8201;Parses user input and uses it to construct an <code>ExportCommand</code> instance</p>
 </li>
+<li>
+<p><code>ImportCommand</code>&#8201;&#8212;&#8201;Embodies an <code>import</code> command by the user; carries information about where <code>FlashCards</code> are to be imported from</p>
+</li>
+<li>
+<p><code>ImportCommandParser</code>&#8201;&#8212;&#8201;Parses user input and uses it to construct an <code>ImportCommand</code> instance</p>
+</li>
+<li>
+<p><code>ExportPath</code>&#8201;&#8212;&#8201;Represents the path to a specific file - either absolute or relative to the application directory</p>
+</li>
+<li>
+<p><code>ExportPathFactory</code>&#8201;&#8212;&#8201;Parses the user-provided file path and creates instances of <code>ExportPath</code></p>
+</li>
 </ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The "export" in <code>ExportPath</code> is to be taken as a noun, not a verb. An <code>ExportPath</code>, therefore, is not the path that we export to, but the
+path of an export. <code>ExportPaths</code> are used in both exporting and importing of files.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>The mechanism is also supported by the package <code>seedu.address.model.export</code>, consisting of the following classes:</p>
+<p><code>ExportPath</code> is an abstract class that follows the factory pattern. Each subclass of <code>ExportPath</code> represents the path to a specific file of a
+specific extension (e.g. an instance of <code>DocumentPath</code> represents the path to a specific document). Instances of these subclasses are created by
+<code>ExportPathFactory#getExportPath(String)</code>, which determines the appropriate subclass to create based on the extension of the provided file path String.
+Once created, an <code>ExportPath</code> will expose the following relevant methods:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>DocumentPath</code>&#8201;&#8212;&#8201;Represents the path to a specific document - either absolute or relative to the application directory</p>
+<p><code>getPath()</code>&#8201;&#8212;&#8201;Returns a Java <code>Path</code> object that represents this <code>ExportPath</code></p>
 </li>
 <li>
-<p><code>DocumentFilePath</code>&#8201;&#8212;&#8201;Represents the path to a specific document, relative to its immediate parent directory</p>
+<p><code>export(List&lt;FlashCard&gt; list)</code>&#8201;&#8212;&#8201;Exports the given <code>List</code> of <code>FlashCards</code> to the file path embodied by this <code>ExportPath</code></p>
 </li>
 <li>
-<p><code>DirectoryPath</code>&#8201;&#8212;&#8201;Represents the path to a specific directory - either absolute or relative to the application directory</p>
+<p><code>importFrom()</code>&#8201;&#8212;&#8201;Attempts to import <code>FlashCards</code> from the file path represented by this <code>ExportPath</code></p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Of particular note is <code>ExportUtil</code>, as it is arguably the class responsible for doing the most tangible work.
-Similar to the other classes in the <code>util</code> package, it consists entirely of <code>static</code> methods, and does not keep track of any variables.
-It exposes a single method, <code>ExportUtil#exportFlashCards(List&lt;FlashCard&gt;, DocumentPath)</code>, which prints a <code>List</code> of <code>FlashCards</code> to a <code>.docx</code>
-document located at the given <code>DocumentPath</code>. This is done by interfacing with the Apache POI library (in particular, the package
-<code>org.apache.poi.xwpf.usermodel</code>).</p>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Not all <code>ExportPath</code> subclasses will implement the <code>importFrom()</code> method. <code>DocumentPath</code>, for example, does not - this is because documents are
+relatively unstructured and impractical to import from, and there are other reasons for exporting to a document (e.g. to use as cheat sheet).
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the export operation works:</p>
+<p>Because <code>ExportPath</code> follows the factory pattern, any class that deals with <code>ExportPath</code> or its subclasses need not know which particular subclass it is
+dealing with exactly. Each <code>ExportPath</code> subclass will implement its own <code>export</code> and <code>import</code> methods, which, when called, will perform the required operations
+without any further hassle. Of course, due to the Separation of Concerns principle, the <code>ExportPath</code> subclasses will not handle these directly.
+Instead, they will delegate the work to other utility classes, which, in turn, interface with the external libraries necessary to complete the task.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The exporting/importing functionality is extremely easy to extend - support for new formats can be added simply through the creation of new subclasses of <code>ExportPath</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+All relevant classes can be found in the <code>seedu.address.model.export</code> package. The only exceptions are <code>ExportCommand</code>, <code>ImportCommand</code>, <code>ExportCommandParser</code>, and <code>ImportCommandParser</code>, which can be found in the <code>seedu.address.logic</code> package.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following table shows the classes and methods that you may have to deal with when exporting to or importing from each format:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 59%;">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 38.8888%;">
+<col style="width: 38.889%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>File format</strong></th>
+<th class="tableblock halign-left valign-top">Document</th>
+<th class="tableblock halign-left valign-top">JSON</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>File extension</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.docx</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.json</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>ExportPath</code> subclass</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DocumentPath</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>JsonExportPath</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>Export utility class and method</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>DocumentExportUtil#exportFlashCardsToDocument( List&lt;FlashCard&gt;, DocumentPath)</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>JsonExportUtil#exportFlashCardsToJson( List&lt;FlashCard&gt;, JsonExportPath)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>Import utility class and method</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><em>None - importing not supported</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>JsonImportUtil#importFlashCardsFromJson( JsonExportPath)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>External library used</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apache POI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jackson</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The number of classes supporting the import/export feature is rather large. The following class diagram will help to clarify the associations
+between these classes:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ExportClassDiagram.png" alt="ExportClassDiagram" height="700">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 1: Class diagram showing the classes directly relevant to importing and exporting</em></p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the export operation works when the user tries to export to a document (<code>.docx</code>) file:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -277,12 +554,41 @@ document located at the given <code>DocumentPath</code>. This is done by interfa
 </div>
 </div>
 <div class="paragraph">
+<p><em>Figure 2: Sequence diagram showing the process of exporting to a document file</em></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Due to a limitation of PlantUML, object lifelines in the diagram extend beyond the destroy markers. This, of course, should be ignored.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes an export command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ExportActivityDiagram.png" alt="ExportActivityDiagram" width="320" height="480">
+<img src="../images/ExportActivityDiagram.png" alt="ExportActivityDiagram" width="500" height="540">
 </div>
+</div>
+<div class="paragraph">
+<p><em>Figure 3: Activity diagram of when the user executes an export command</em></p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes an import command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ImportActivityDiagram.png" alt="ImportActivityDiagram" width="500" height="580">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4: Activity diagram of when the user executes an import command</em></p>
 </div>
 </div>
 <div class="sect3">
@@ -418,14 +724,14 @@ The original AddressBook application, from which KeyboardFlashCards was morphed,
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Disallow user from selecting file path - instead, always export to a specific directory</p>
+<p><strong>Alternative 2:</strong> Disallow user from selecting file path - instead, always export to and import from a specific directory</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: Is somewhat easy to implement</p>
 </li>
 <li>
-<p>Cons: Requires user to navigate to the specified directory to obtain the file; requires a means of finding alternatives if the default directory does not exist</p>
+<p>Cons: Requires user to navigate to the specified directory; requires a means of finding alternatives if the default directory does not exist</p>
 </li>
 </ul>
 </div>
@@ -470,108 +776,11 @@ The original AddressBook application, from which KeyboardFlashCards was morphed,
 </tr>
 </table>
 </div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="test-mode"><a class="link" href="#test-mode">Test mode</a></h3>
 <div class="paragraph">
-<p>Test mode allows users to start a flash card test from a selected list of tags. If no parameters are provided, all
-flashcards contained in the system will be tested.</p>
-</div>
-<div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
-<div class="paragraph">
-<p>This feature is supported by the following classes:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>AddressBookParser</code> to control the flow of command in the entire program.</p>
-</li>
-<li>
-<p><code>StartCommandParser</code> to parse arguments for StartCommand.</p>
-</li>
-<li>
-<p><code>ModelManager</code> which stores <code>FlashCardTestModel</code>, an aggregation of <code>FlashCards</code>, to be used for test mode.</p>
-</li>
-<li>
-<p><code>CategoryContainsAnyKeywordsPredicate</code> to search and generate a list of <code>FlashCards</code> with relevant tags.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows the intended case for the <code>start</code> command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/StartSequenceDiagram.png" alt="StartSequenceDiagram">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
-<div class="paragraph">
-<p>Aspect: Data structure to support <code>FlashCardTestModel</code>:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (Current choice):</strong> <code>LinkedList</code> implementation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Very efficient, with O(1) complexity removing the head of the list every time a question is tested.</p>
-</li>
-<li>
-<p>Cons: Less memory efficient than <code>ArrayList</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> ArrayList implementation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: More memory efficient than <code>LinkedList</code>.</p>
-</li>
-<li>
-<p>Cons: To obtain the same performance as <code>LinkedList</code>, the last index/size of the <code>ArrayList</code> has to be constantly tracked.
-This slightly decreases code readability compared to the <code>LinkedList</code> implementation.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 3:</strong> Queue interface:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Use of <code>Queue</code> interface brings simplicity to code structure and readability while having the same performance
-as a <code>LinkedList</code> implementation.</p>
-</li>
-<li>
-<p>Cons: There will be potential coupling by using <code>Queue</code> instead of <code>List</code> interface.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><em>(end of extract from User Guide)</em></p>
+<p><em>(end of extract from Developer Guide)</em></p>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 07:13:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 08:30:57 UTC</div></div></div></body></html>

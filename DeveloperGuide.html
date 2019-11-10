@@ -122,6 +122,9 @@ A tip or word of advice
 <div class="sect1">
 <h2 id="design"><a class="link" href="#design">3. Design</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section will show you the designs for varies component of <em>KeyboardFlashCards</em>.</p>
+</div>
 <div class="sect2">
 <h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture</a></h3>
 <div class="imageblock">
@@ -207,7 +210,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
+<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="600">
 </div>
 <div class="title">Figure 2. Class Diagram of the Logic Component</div>
 </div>
@@ -217,7 +220,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
+<img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram" width="600">
 </div>
 <div class="title">Figure 3. Component interactions for <code>delete 1</code> command</div>
 </div>
@@ -229,7 +232,7 @@ The following class plays an important role at the architecture level:</p>
 <h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/UiClassDiagram.png" alt="UiClassDiagram">
+<img src="images/UiClassDiagram.png" alt="UiClassDiagram" width="600">
 </div>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
@@ -260,7 +263,7 @@ The following class plays an important role at the architecture level:</p>
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
+<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="600">
 </div>
 <div class="title">Figure 5. Structure of the Logic Component</div>
 </div>
@@ -271,7 +274,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> uses the <code>AddressBookParser</code> class to parse the user command.</p>
+<p><code>Logic</code> uses the <code>FlashCardsParser</code> class to parse the user command.</p>
 </li>
 <li>
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
@@ -292,7 +295,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
+<img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram" width="600">
 </div>
 <div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
 </div>
@@ -313,7 +316,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
+<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="600">
 </div>
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
@@ -329,7 +332,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Address Book data.</p>
+<p>stores the KeyboardFlashCards' data.</p>
 </li>
 <li>
 <p>exposes an unmodifiable <code>ObservableList&lt;FlashCard&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
@@ -346,9 +349,9 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Category</code> list in <code>Address Book</code>, which <code>FlashCard</code> can reference. This would allow <code>Address Book</code> to only require one <code>Category</code> object per unique <code>Category</code>, instead of each <code>Flashcard</code> needing their own <code>Category</code> object. An example of how such a model may look like is given below.<br>
+As a more OOP model, we can store a <code>Category</code> list in <code>KeyboardFlashCards</code>, which <code>FlashCard</code> can reference. This would allow <code>KeyboardFlashCards</code> to only require one <code>Category</code> object per unique <code>Category</code>, instead of each <code>Flashcard</code> needing their own <code>Category</code> object. An example of how such a model may look like is given below.<br>
 <br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram" width="600"></span>
+<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram" width="300"></span>
 </td>
 </tr>
 </table>
@@ -358,7 +361,7 @@ As a more OOP model, we can store a <code>Category</code> list in <code>Address 
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
+<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="600">
 </div>
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
@@ -374,7 +377,7 @@ As a more OOP model, we can store a <code>Category</code> list in <code>Address 
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Address Book data in json format and read it back.</p>
+<p>can save the KeyboardFlashCards data in json format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -398,8 +401,7 @@ As a more OOP model, we can store a <code>Category</code> list in <code>Address 
 <div class="sect3">
 <h4 id="implementation-2"><a class="link" href="#implementation-2">4.1.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The add feature allows the user to add flashcard with compulsory field of <code>QUESTION</code> and <code>ANSWER</code>.
- <code>RATING</code> and <code>CATEGORY</code> are optional fields which the user can add to the flashcard later using the <code>edit</code> feature.</p>
+<p>The add feature allows the user to add flashcard with compulsory field of <code>QUESTION</code> and <code>ANSWER</code>. <code>CATEGORY</code> is optional fields which the user can add to the flashcard later using the <code>edit</code> feature.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -411,7 +413,6 @@ As a more OOP model, we can store a <code>Category</code> list in <code>Address 
 Following are the prefixes for each field:<br>
 - q&gt; : <code>QUESTION</code><br>
 - a&gt; : <code>ANSWER</code><br>
-- r&gt; : <code>RATING</code><br>
 - c&gt; : <code>CATEGORY</code>
 </td>
 </tr>
@@ -428,12 +429,24 @@ Following are the prefixes for each field:<br>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddSequenceDiagram.png" alt="AddSequenceDiagram">
+<img src="images/AddSequenceDiagram.png" alt="AddSequenceDiagram" width="600">
 </div>
 </div>
 <div class="paragraph">
-<p>The add feature does not allow adding of duplicate flashcards.
-If the flashcard exists in the storage, an error will be shown.</p>
+<p>The add feature does not allow adding of duplicate FlashCards.
+If the FlashCard exists in the storage, an error will be shown.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Duplicate FlashCards refers to FlashCards that have the exact same question and answer.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes an add command:</p>
@@ -452,14 +465,14 @@ If the flashcard exists in the storage, an error will be shown.</p>
 <ul>
 <li>
 <p><strong>Alternative 1(current choice):</strong> Use command <code>add</code> together with
-prefixes like <code>q&gt;</code>, <code>a&gt;</code>, <code>r&gt;</code> and <code>c&gt;</code></p>
+prefixes like <code>q&gt;</code>, <code>a&gt;</code> and <code>c&gt;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>pros: Easier to implement.</p>
+<p>pros: Easier to implement and easier to process the data.</p>
 </li>
 <li>
-<p>cons: User might miss the prefixes hence adding wrong flashcards</p>
+<p>cons: User might miss the prefixes hence adding wrong FlashCards</p>
 </li>
 </ul>
 </div>
@@ -470,7 +483,7 @@ an <strong>add flash card window</strong> would pop up and there is segment for 
 <div class="ulist">
 <ul>
 <li>
-<p>pros: More user friendly.</p>
+<p>pros: More user friendly and void user input error.</p>
 </li>
 <li>
 <p>cons: Harder to implement.</p>
@@ -479,6 +492,19 @@ an <strong>add flash card window</strong> would pop up and there is segment for 
 </div>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Alternative 1</strong> was preferred as we have constraints using command line interface.
+In addition, there was limited time.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -519,7 +545,7 @@ of completing homework by the 4th October 2019.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeadlineSequenceDiagram.png" alt="DeadlineSequenceDiagram">
+<img src="images/DeadlineSequenceDiagram.png" alt="DeadlineSequenceDiagram" height="300">
 </div>
 </div>
 <div class="paragraph">
@@ -537,7 +563,7 @@ If the duplicated/identical deadline exists in the storage, an error will be sho
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-implement-deadline"><a class="link" href="#aspect-how-to-implement-deadline">Aspect: How to implement Deadline</a></h5>
 <div class="ulist">
@@ -742,7 +768,7 @@ between these classes:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ExportClassDiagram.png" alt="ExportClassDiagram" height="700">
+<img src="images/ExportClassDiagram.png" alt="ExportClassDiagram" height="600">
 </div>
 </div>
 <div class="paragraph">
@@ -753,7 +779,7 @@ between these classes:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ExportSequenceDiagram.png" alt="ExportSequenceDiagram">
+<img src="images/ExportSequenceDiagram.png" alt="ExportSequenceDiagram" width="600">
 </div>
 </div>
 <div class="paragraph">
@@ -776,7 +802,7 @@ Due to a limitation of PlantUML, object lifelines in the diagram extend beyond t
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ExportActivityDiagram.png" alt="ExportActivityDiagram" width="500" height="540">
+<img src="images/ExportActivityDiagram.png" alt="ExportActivityDiagram" width="300">
 </div>
 </div>
 <div class="paragraph">
@@ -787,7 +813,7 @@ Due to a limitation of PlantUML, object lifelines in the diagram extend beyond t
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ImportActivityDiagram.png" alt="ImportActivityDiagram" width="500" height="580">
+<img src="images/ImportActivityDiagram.png" alt="ImportActivityDiagram" width="300">
 </div>
 </div>
 <div class="paragraph">
@@ -795,7 +821,7 @@ Due to a limitation of PlantUML, object lifelines in the diagram extend beyond t
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
@@ -996,7 +1022,7 @@ flashcards contained in the system will be tested.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>AddressBookParser</code> to control the flow of command in the entire program.</p>
+<p><code>KeyboardFlashCardsParser</code> to control the flow of command in the entire program.</p>
 </li>
 <li>
 <p><code>StartCommandParser</code> to parse arguments for StartCommand.</p>
@@ -1014,12 +1040,12 @@ flashcards contained in the system will be tested.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/StartSequenceDiagram.png" alt="StartSequenceDiagram">
+<img src="images/StartSequenceDiagram.png" alt="StartSequenceDiagram" width="600">
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.2. Design considerations</a></h4>
 <div class="paragraph">
 <p>Aspect: Data structure to support <code>FlashCardTestModel</code>:</p>
 </div>
@@ -1110,7 +1136,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/StatisticsSequenceDiagram.png" alt="StatisticsSequenceDiagram" width="700">
+<img src="images/StatisticsSequenceDiagram.png" alt="StatisticsSequenceDiagram" width="600">
 </div>
 </div>
 <div class="paragraph">
@@ -1126,12 +1152,12 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/StatisticsActivityDiagram.png" alt="StatisticsActivityDiagram">
+<img src="images/StatisticsActivityDiagram.png" alt="StatisticsActivityDiagram" width="300">
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.2. Design considerations</a></h4>
 <div class="paragraph">
 <p>The following aspect was a consideration when designing the statistics feature.</p>
 </div>
@@ -1210,7 +1236,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/HelpSequenceDiagram.png" alt="HelpSequenceDiagram" width="700">
+<img src="images/HelpSequenceDiagram.png" alt="HelpSequenceDiagram" width="600">
 </div>
 </div>
 <div class="paragraph">
@@ -1218,7 +1244,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/HelpShow.png" alt="HelpShow" width="500">
+<img src="images/HelpShow.png" alt="HelpShow" width="600">
 </div>
 </div>
 <div class="paragraph">
@@ -1226,12 +1252,12 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/HelpActivityDiagram.png" alt="HelpActivityDiagram" width="300" height="300">
+<img src="images/HelpActivityDiagram.png" alt="HelpActivityDiagram" width="300">
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.2. Design considerations</a></h4>
 <div class="paragraph">
 <p>The following aspect was a consideration when designing the help feature.</p>
 </div>
@@ -1923,4 +1949,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 10:05:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 11:02:26 UTC</div></div></div></body></html>

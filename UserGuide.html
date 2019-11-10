@@ -5,6 +5,7 @@
 <div class="paragraph">
 <p>By: <code>CS2103T-T12-4</code>      Since: <code>Aug 2019</code>      Licence: <code>-</code></p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle"></div>
@@ -13,12 +14,12 @@
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#add-new-flashcard-code-add-q-question-a-answer-c-category-code">3.1. Add new flashcard: <code>add q&gt;QUESTION a&gt;ANSWER [c&gt;CATEGORY]&#8230;&#8203;</code></a></li>
-<li><a href="#edit-an-existing-flashcard-code-edit-index-fields-wanted-to-edit-code">3.2. Edit an existing flashcard: <code>edit INDEX {fields wanted to edit}&#8230;&#8203;</code></a></li>
-<li><a href="#delete-flashcard-code-delete-index-code">3.3. Delete flashcard: <code>delete INDEX</code></a></li>
-<li><a href="#clear-all-the-flashcard-code-clear-code">3.4. Clear all the flashcard: <code>clear</code></a></li>
-<li><a href="#search-for-flashcards-code-search-code">3.5. Search for flashcards: <code>search</code></a></li>
-<li><a href="#list-all-flashcards-code-listall-code">3.6. List all flashcards: <code>listall</code></a></li>
+<li><a href="#add-new-flashcard-code-add-q-question-a-answer-c-category-code">3.1. Add new FlashCard: <code>add q&gt;QUESTION a&gt;ANSWER [c&gt;CATEGORY]&#8230;&#8203;</code></a></li>
+<li><a href="#edit-an-existing-flashcard-code-edit-index-fields-wanted-to-edit-code">3.2. Edit an existing FlashCard: <code>edit INDEX {fields wanted to edit}&#8230;&#8203;</code></a></li>
+<li><a href="#delete-flashcard-code-delete-index-code">3.3. Delete FlashCard: <code>delete INDEX</code></a></li>
+<li><a href="#clear-all-the-flashcard-code-clear-code">3.4. Clear all the FlashCard: <code>clear</code></a></li>
+<li><a href="#search-for-flashcards-code-search-code">3.5. Search for FlashCards: <code>search</code></a></li>
+<li><a href="#list-all-flashcards-code-listall-code">3.6. List all FlashCards: <code>listall</code></a></li>
 <li><a href="#list-of-category-code-list-category-code">3.7. List of category : <code>list CATEGORY</code></a></li>
 <li><a href="#add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code">3.8. Add general deadlines reminders: <code>deadline t&gt;TASK d&gt;DUE DATE</code></a></li>
 <li><a href="#set-flashcard-as-bad-with-reminder-to-re-test-code-bad-index-code">3.9. Set Flashcard as "Bad", with reminder to re-test: <code>bad index</code></a></li>
@@ -63,7 +64,7 @@ features not available with most flashcard managers that we&#8217;re sure you&#8
 <p>Ensure you have Java 11 or above installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest build keyboardflashcards.jar <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/releases">here</a>.</p>
+<p>Download the latest build KeyboardFlashCards.jar <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your KFC app.</p>
@@ -74,17 +75,19 @@ features not available with most flashcard managers that we&#8217;re sure you&#8
 <div class="content">
 <img src="images/annotatedUi.png" alt="annotatedUi" width="790">
 </div>
+<div class="title">Figure 1. Graphical User Interface of KeyboardFlashCards[</div>
 </div>
 </li>
 </ol>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="features"><a class="link" href="#features">3. Features</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section contains the features and their respective commands</p>
+<p>This section contains the features and their respective commands.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -110,6 +113,8 @@ features not available with most flashcard managers that we&#8217;re sure you&#8
 </li>
 </ul>
 </div>
+</div>
+</div>
 <div class="paragraph">
 <p>Please also note the following icons, which will indicate points of interest throughout this document.</p>
 </div>
@@ -121,23 +126,56 @@ features not available with most flashcard managers that we&#8217;re sure you&#8
 </td>
 <td class="content">
 A point of information that you may wish to note
-TIP: A tip or suggestion
-CAUTION: A cautionary word of advice
 </td>
 </tr>
 </table>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A tip or suggestion
+</td>
+</tr>
+</table>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+A cautionary word of advice
+</td>
+</tr>
+</table>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="sect2">
-<h3 id="add-new-flashcard-code-add-q-question-a-answer-c-category-code"><a class="link" href="#add-new-flashcard-code-add-q-question-a-answer-c-category-code">3.1. Add new flashcard: <code>add q&gt;QUESTION a&gt;ANSWER [c&gt;CATEGORY]&#8230;&#8203;</code></a></h3>
+<h3 id="add-new-flashcard-code-add-q-question-a-answer-c-category-code"><a class="link" href="#add-new-flashcard-code-add-q-question-a-answer-c-category-code">3.1. Add new FlashCard: <code>add q&gt;QUESTION a&gt;ANSWER [c&gt;CATEGORY]&#8230;&#8203;</code></a></h3>
 <div class="paragraph">
-<p>This command allows to you to add a new flashcard with question and answer.<br>
+<p>This command allows to you to add a new FlashCard with question and answer.<br>
 <code>add q&gt;What is CS2103T a&gt;Software engineering</code></p>
 </div>
 <div class="paragraph">
-<p>You may also include the category for the flashcard.<br>
+<p>You may also include the category for the FlashCard.<br>
 <code>add q&gt;What is CS2103T a&gt;Software engineering c&gt;CS2103T</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>a&gt;</code>, <code>q&gt;</code> and <code>c&gt;</code> are reserved as prefixes, If you want to include these in your question/answer put them in <code>""</code> or otherwise to differentiate.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>To add:</p>
@@ -153,7 +191,7 @@ CAUTION: A cautionary word of advice
 </div>
 </li>
 <li>
-<p>The result box will display the message: <em>"New flashCard added: What is the use of checksum ? Answer: To detect "error""</em></p>
+<p>The result box will display the message: <em>"New FlashCard added: What is the use of checksum ? Answer: To detect "error""</em></p>
 <div class="imageblock">
 <div class="content">
 <img src="images/AddStep2.png" alt="AddStep2" width="600">
@@ -161,7 +199,7 @@ CAUTION: A cautionary word of advice
 </div>
 </li>
 <li>
-<p>And you can check the new flashcard has been added to bottom of the flashcard list.</p>
+<p>And you can check the new FlashCard has been added to bottom of the FlashCard list.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/AddStep3.png" alt="AddStep3" width="600">
@@ -170,20 +208,24 @@ CAUTION: A cautionary word of advice
 </li>
 </ol>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+When multiple questions or answers prefixes in one <code>add</code> command, only input from the last appearance will be taken. For example, <code>add q&gt; 1+1 a&gt; 2 q&gt;Hi a&gt;bye</code> KFC will add a FlashCard with the question as <code>Hi</code> and the answer as <code>bye</code>.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
-<h3 id="edit-an-existing-flashcard-code-edit-index-fields-wanted-to-edit-code"><a class="link" href="#edit-an-existing-flashcard-code-edit-index-fields-wanted-to-edit-code">3.2. Edit an existing flashcard: <code>edit INDEX {fields wanted to edit}&#8230;&#8203;</code></a></h3>
+<h3 id="edit-an-existing-flashcard-code-edit-index-fields-wanted-to-edit-code"><a class="link" href="#edit-an-existing-flashcard-code-edit-index-fields-wanted-to-edit-code">3.2. Edit an existing FlashCard: <code>edit INDEX {fields wanted to edit}&#8230;&#8203;</code></a></h3>
 <div class="paragraph">
-<p>This command allows you to edit the flashcard with index corresponding to the
-display list with 1 or multiple fields<br>
-e.g:<br></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit 7 c&gt;CS2105</code></p>
-</li>
-</ul>
+<p>This command allows you to edit the FlashCard with index corresponding to the
+display list with 1 or multiple fields e.g: <code>edit 7 c&gt;CS2105</code></p>
 </div>
 <div class="paragraph">
 <p>To edit:</p>
@@ -207,7 +249,7 @@ e.g:<br></p>
 </div>
 </li>
 <li>
-<p>And you can see that the 7th flashcard has been edited on the flashcard list.</p>
+<p>And you can see that the 7th FlashCard has been edited on the FlashCard list.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/EditStep3.png" alt="EditStep3" width="600">
@@ -218,11 +260,11 @@ e.g:<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-flashcard-code-delete-index-code"><a class="link" href="#delete-flashcard-code-delete-index-code">3.3. Delete flashcard: <code>delete INDEX</code></a></h3>
+<h3 id="delete-flashcard-code-delete-index-code"><a class="link" href="#delete-flashcard-code-delete-index-code">3.3. Delete FlashCard: <code>delete INDEX</code></a></h3>
 <div class="paragraph">
 <p>This command allows you the delete a
-particular flashcard with the index
-show on the flashcard list. e.g.
+particular FlashCard with the index
+show on the FlashCard list. e.g.
 <code>delete 7</code></p>
 </div>
 <div class="paragraph">
@@ -247,7 +289,7 @@ show on the flashcard list. e.g.
 </div>
 </li>
 <li>
-<p>And you can check the flashcard list that the flashcard has been deleted.</p>
+<p>And you can check the FlashCard list that the FlashCard has been deleted.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteStep3.png" alt="DeleteStep3" width="600">
@@ -258,9 +300,9 @@ show on the flashcard list. e.g.
 </div>
 </div>
 <div class="sect2">
-<h3 id="clear-all-the-flashcard-code-clear-code"><a class="link" href="#clear-all-the-flashcard-code-clear-code">3.4. Clear all the flashcard: <code>clear</code></a></h3>
+<h3 id="clear-all-the-flashcard-code-clear-code"><a class="link" href="#clear-all-the-flashcard-code-clear-code">3.4. Clear all the FlashCard: <code>clear</code></a></h3>
 <div class="paragraph">
-<p>This command allows you to delete all the flashcard in the storage.</p>
+<p>This command allows you to delete all the FlashCard in the storage.</p>
 </div>
 <div class="paragraph">
 <p>To clear:</p>
@@ -288,15 +330,26 @@ And you will see that all lists turn empty.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="search-for-flashcards-code-search-code"><a class="link" href="#search-for-flashcards-code-search-code">3.5. Search for flashcards: <code>search</code></a></h3>
+<h3 id="search-for-flashcards-code-search-code"><a class="link" href="#search-for-flashcards-code-search-code">3.5. Search for FlashCards: <code>search</code></a></h3>
 <div class="paragraph">
-<p>The section will show you 3 methods to search for flashcards. Keywords are case-insensitive.
-Current search function does not support fuzzy search, so remove punctuations when adding the flashcards or include the punctuations for searching</p>
+<p>The section will show you 3 methods to search for FlashCards. Keywords are case-insensitive.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Current search function does not support fuzzy search, so remove punctuations when adding the FlashCards or include the punctuations for searching
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="either-the-question-or-the-answer-matches-the-keyword-s-search-keyword-s"><a class="link" href="#either-the-question-or-the-answer-matches-the-keyword-s-search-keyword-s">3.5.1. Either the question or the answer matches the keyword(s): "search KEYWORD(S)"</a></h4>
 <div class="paragraph">
-<p>This command allows you to search for flashcards with the question or answer matching the keyword(s).
+<p>This command allows you to search for FlashCards with the question or answer matching the keyword(s).
 Multiple keywords are separated by a single space.</p>
 </div>
 <div class="paragraph">
@@ -313,7 +366,7 @@ Multiple keywords are separated by a single space.</p>
 </div>
 </li>
 <li>
-<p>The result box will show message: <em>"2  flash cards listed!"</em> and the flashcard list will show the matching flashcards</p>
+<p>The result box will show message: <em>"2  flash cards listed!"</em> and the FlashCard list will show the matching FlashCards</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/SearchStep2.png" alt="SearchStep2" width="600">
@@ -326,7 +379,7 @@ Multiple keywords are separated by a single space.</p>
 <div class="sect3">
 <h4 id="question-matching-the-keyword-s-only-code-searchqn-keyword-s-code"><a class="link" href="#question-matching-the-keyword-s-only-code-searchqn-keyword-s-code">3.5.2. Question matching the keyword(s) only: <code>searchqn KEYWORD(S)</code></a></h4>
 <div class="paragraph">
-<p>This command allows you to search for flashcards with the question matching the keyword(s).
+<p>This command allows you to search for FlashCards with the question matching the keyword(s).
 Multiple keywords are separated by a single space.</p>
 </div>
 <div class="paragraph">
@@ -343,7 +396,7 @@ Multiple keywords are separated by a single space.</p>
 </div>
 </li>
 <li>
-<p>The result box will show message: <em>"2  flash cards listed!"</em> and the flashcard list will show the matching flashcards</p>
+<p>The result box will show message: <em>"2  flash cards listed!"</em> and the FlashCard list will show the matching FlashCards</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/SearchqStep2.png" alt="SearchqStep2" width="600">
@@ -356,7 +409,7 @@ Multiple keywords are separated by a single space.</p>
 <div class="sect3">
 <h4 id="answer-matching-the-keyword-s-only-code-searchans-keyword-s-code"><a class="link" href="#answer-matching-the-keyword-s-only-code-searchans-keyword-s-code">3.5.3. Answer matching the keyword(s) only: <code>searchans KEYWORD(S)</code></a></h4>
 <div class="paragraph">
-<p>This command allows you to search for flashcards with the answer matching the keyword(s).
+<p>This command allows you to search for FlashCards with the answer matching the keyword(s).
 Multiple keywords are separated by a single space.</p>
 </div>
 <div class="paragraph">
@@ -373,7 +426,7 @@ Multiple keywords are separated by a single space.</p>
 </div>
 </li>
 <li>
-<p>The result box will show message: <em>"1  flash cards listed!"</em> and the flashcard list will show the matching flashcards</p>
+<p>The result box will show message: <em>"1  flash cards listed!"</em> and the FlashCard list will show the matching FlashCards</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/SearchaStep2.png" alt="SearchaStep2" width="600">
@@ -385,9 +438,9 @@ Multiple keywords are separated by a single space.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-all-flashcards-code-listall-code"><a class="link" href="#list-all-flashcards-code-listall-code">3.6. List all flashcards: <code>listall</code></a></h3>
+<h3 id="list-all-flashcards-code-listall-code"><a class="link" href="#list-all-flashcards-code-listall-code">3.6. List all FlashCards: <code>listall</code></a></h3>
 <div class="paragraph">
-<p>This command allows you to lists all the flashcards in the storage.</p>
+<p>This command allows you to lists all the FlashCards in the storage.</p>
 </div>
 <div class="paragraph">
 <p>To listall:</p>
@@ -411,8 +464,8 @@ Multiple keywords are separated by a single space.</p>
 </div>
 </li>
 <li>
-<p>And the flashcard list will show all the flashcards. You can move your mouse
-to the flashcard list and scroll up and down to view the flashcards.</p>
+<p>And the FlashCard list will show all the FlashCards. You can move your mouse
+to the FlashCard list and scroll up and down to view the FlashCards.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/ListAllStep3.png" alt="ListAllStep3" width="600">
@@ -425,7 +478,7 @@ to the flashcard list and scroll up and down to view the flashcards.</p>
 <div class="sect2">
 <h3 id="list-of-category-code-list-category-code"><a class="link" href="#list-of-category-code-list-category-code">3.7. List of category : <code>list CATEGORY</code></a></h3>
 <div class="paragraph">
-<p>This command allows you to list all flashcards under one or multiple categories.
+<p>This command allows you to list all FlashCards under one or multiple categories.
 Multiple keywords are separated by a single space.</p>
 </div>
 <div class="paragraph">
@@ -442,7 +495,7 @@ Multiple keywords are separated by a single space.</p>
 </div>
 </li>
 <li>
-<p>The result box will show message: <em>"1 flashcard is listed!"</em> .</p>
+<p>The result box will show message: <em>"1 FlashCard is listed!"</em> .</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/ListCatStep2.png" alt="ListCatStep2" width="600">
@@ -450,7 +503,7 @@ Multiple keywords are separated by a single space.</p>
 </div>
 </li>
 <li>
-<p>And the flashcard list is updated.</p>
+<p>And the FlashCard list is updated.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/ListcatStep3.png" alt="ListcatStep3" width="600">
@@ -831,28 +884,25 @@ Duplicate FlashCards will not be imported. You will be notified when we detect d
 <div class="paragraph">
 <p>Follow are the current available themes</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>dark</p>
-</li>
-<li>
-<p>light</p>
-</li>
-<li>
-<p>pink</p>
-</li>
-<li>
-<p>blue</p>
-</li>
-<li>
-<p>hacker</p>
-</li>
-<li>
-<p>nus</p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dark</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">light</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pink</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">blue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hacker</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nus</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>To change theme:</p>
 </div>
@@ -1032,4 +1082,4 @@ e.g.  <code>start Mathematics</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 10:05:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 11:02:26 UTC</div></div></div></body></html>

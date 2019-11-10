@@ -1,3 +1,854 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Untitled</title><link rel="stylesheet" href="./gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Yang Shuting - Project Portfolio for KeyboardFlashCards</title><link rel="stylesheet" href="./gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="./coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">KeyboardFlashCards</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T12-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"></div><div id="content"></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 10:05:27 UTC</div></div></div></body></html>
+<link rel="stylesheet" href="./coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">KeyboardFlashCards</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T12-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"></div><div id="content"><div class="sect1">
+<h2 id="yang-shuting-project-portfolio-for-keyboardflashcards"><a class="link" href="#yang-shuting-project-portfolio-for-keyboardflashcards">Yang Shuting - Project Portfolio for KeyboardFlashCards</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document details the various contributions that I have made to my team project, <em>KeyboardFlashCards</em>, done as part of a second-year software engineering module CS2103T.</p>
+</div>
+<div class="paragraph">
+<p>My team consists of two year 4 Computer engineering students three year 2 Computer Science students(including myself).
+For our CS2103T 6 weeks Software engineering project,
+we were tasked to either enhance or morph a basic command line interface(CLI) desktop AddressBook 3.
+We chose to morph it into a study application named <em>KeyboardFlashCards(KFC)</em>.
+It is a desktop study application which is targeting at computing students (in particular NUS computing students).
+Users can create FlashCards with question and answer; add categories to manage the cards, create schedules to plan their studies and also import and export the flashcards.
+The user interact with it using the CLI and has 17kLoC.</p>
+</div>
+<div class="paragraph">
+<p>This is what our project looks like</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/annotatedUi.png" alt="annotatedUi" width="400">
+</div>
+<div class="title">Figure 1. Figure 1. The graphical user interface of  <em>KeyboardFlashCards</em></div>
+</div>
+<div class="paragraph">
+<p>Follow are my involvements to the project</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>I designed and wrote the code for <code>FlashCards</code> which is the fundamental component for our application.</p>
+</li>
+<li>
+<p>I designed and wrote the code for <code>list</code> and <code>search</code> feature which allow the users to navigate between different flashcard list.</p>
+</li>
+<li>
+<p>I designed and wrote the code for the GUI for our application, ensuring the UI is working.</p>
+</li>
+<li>
+<p>I designed and wrote the code for <code>theme</code> features which allows the user to change the theme based on their mood.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following sections illustrate some of these enhancements with more detail, as well as the relevant documentation I have added to the user and developer guides.</p>
+</div>
+<div class="paragraph">
+<p>Please note the following symbols and format used in this document</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This symbol indicates important information
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A tip or suggestion
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+A cautionary piece of advice
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code>add</code>: A highlight(called a mark-up) indicates that this is a command that can be inputted into the command line and executed by the application.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Enhancement #1</strong>: I added the Flashcard features.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: FlashCard is the basic building block for our application. FlashCards features allows the user to <code>add</code>, <code>edit</code>, <code>delete</code>, <code>clear</code> flashcard in the system.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: In the event that the users want to add flashcards, the   <code>add</code> command allow the user to add questions and answer. They can choose to add categories to the new flashcard or they can add on to existing ones using the
+<code>edit</code> command. If the user wants to change the answer for certain question as they find better answer in a later time. They can use <code>edit</code> to update the answer.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: There is no fixed order for the attributes while adding FlashCards. User can choose to input question before answer or vice versa. This gives user more flexibility for the user to add FlashCards.
+While editing a particular FlashCard, user can select it using the index corresponding to that particular FlashCard that is displayed on the FlashCards list on the dashboard. In addition to <code>edit</code>, user only need to indicate the field(s) he or she wants to change.  This brings convenience to the users as they do no have to retype everything again. The implementation is easy as these were adapted from the AddressBook 3.</p>
+</li>
+<li>
+<p>Credits: [<a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3">AddressBook 3</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Enhancement #2</strong>: I added the <code>list</code> and <code>search</code> features as part of FlashCard feature.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: <code>list</code> and <code>search</code> have similar function, they allows the user to view/find FlashCards that match the keyword.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: The default FlashCards list displayed all FlashCards in the system. Sometimes, user might not always want to view all the FlashCards. If they just want to review FlashCards for certain category, they can use <code>list</code> follow by the category.
+Then user can view FlashCards under the chosen category.
+When the date build up, there will be many FlashCards in the system.
+If the users just want to view a particular FlashCard but could not remember where it is, they can use the search function to search for the FlashCard they are looking for. <code>list</code> and <code>search</code> bring great ease for the users to navigate between the different FlashCard lists.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: Both <code>list</code> and <code>search</code> support multiple keywords.
+If the users want to revise for two or more categories in one glance, they can type <code>list</code> follow by the categories they want. The FlashCard list will show all FlashCards in those categories.
+Similarly, <code>search</code> support multiple keywords search. <code>search</code> is a general searching for both question and answer through all the FlashCards.
+Additionally, I also implemented search by question <code>searchqn</code> and search by answer <code>searchans</code>.The users can use these to search for particular field. These increase our product diversification and cater to different needs from the users.</p>
+</li>
+<li>
+<p>Credits: [<a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3">AddressBook 3</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Enhancement #3</strong>: I added the <code>theme</code> feature.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: It allow the users to change theme. Currently, there are six themes available for the user to choose.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: The default theme is dark theme. We expected the users to spend long time with our application when they start to use KFC to study and do revision. A single theme, might appear boring and plain in the long run.
+Therefore, I implemented this feature to allow the users to change color theme. This would allow the users to change theme depends on their mode.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: The changing of the theme is spontaneous when the command is executed. There is no need for the user to restart the application.
+The implementation was challenging as I have to trace the path for the logic to work. At the same time, I need to ensure that the application stores the changes made by the users so that when the users reopen the application, the theme will be the same as the moment the app was closed.
+In addition, I need the figure out how the GUI will response to the changes. The template for the css file used to implement different themes is from the AddressBook 3.</p>
+</li>
+<li>
+<p>Credit: [<a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/blob/master/src/main/resources/view/DarkTheme.css">AddressBook 3 - DarkTheme.css</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Enhancement #4</strong>: I designed and coded the flashcard panel for the test mode.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: It is for test mode. It will show questions first when the user enter the test mode and shows the answer when the user type <code>ans</code> in the test mode. After user <code>rate</code>/<code>skip</code> the FlashCard, the next FlashCard will be shown.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: This feature is cooperated with the test mode that was designed by one of the team member <a href="keiteo.html">Keith</a>.
+In the test mode, the original FlashCard list is replaced by the test FlashCard panel that will only show the questions and answers for individual testing FlashCard. This feature makes the application more convenient and appealing to the users.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: This panel supports long questions or answer. Long question/answer will not be concatenated. Users can view long question easily using the scroll on th mouse.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=shutingy&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=zoom&amp;tabAuthor=ShuTingY&amp;tabRepo=AY1920S1-CS2103T-T12-4%2Fmain%5Bmaster%5D">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+</li>
+<li>
+<p><strong>Other contributions</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.2</code> - <code>v1.4rc</code> (3 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Morph from AddressBook 3 (Pull request <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/18">#18</a>)</p>
+</li>
+<li>
+<p>Debugged and fixed the bugs (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/222">#222</a>, <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/229">#229</a>
+, <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/235">#235</a>)</p>
+</li>
+<li>
+<p>Updated the GUI scheme (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/100">#100</a>, <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/153">#153</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/160">#160</a>, <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/299">#299</a>,https://github.com/AY1920S1-CS2103T-T12-4/main/pull/234[#234])</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Update the diagrams in User Guide and Developer Guide
+(<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/138">#138</a>
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/145">#145</a>)</p>
+</li>
+<li>
+<p>Wrote User Guide contents related to the the features from me
+(<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/145">#145</a>
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/138">#138</a>
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/164">#164</a>
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/167">#167</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments)
+(<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/101">#101</a>
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/114">#114</a>
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/150">#150</a>
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/226">#226</a>
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/233">#233</a>)</p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are some sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><em>(start of extract from User Guide)</em></p>
+</div>
+<div class="sect2">
+<h3 id="add-new-flashcard-code-add-q-question-a-answer-c-category-code"><a class="link" href="#add-new-flashcard-code-add-q-question-a-answer-c-category-code">Add new FlashCard: <code>add q&gt;QUESTION a&gt;ANSWER [c&gt;CATEGORY]&#8230;&#8203;</code></a></h3>
+<div class="paragraph">
+<p>This command allows to you to add a new FlashCard with question and answer.<br>
+<code>add q&gt;What is CS2103T a&gt;Software engineering</code></p>
+</div>
+<div class="paragraph">
+<p>You may also include the category for the FlashCard.<br>
+<code>add q&gt;What is CS2103T a&gt;Software engineering c&gt;CS2103T</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>a&gt;</code>, <code>q&gt;</code> and <code>c&gt;</code> are reserved as prefixes, If you want to include these in your question/answer put them in <code>""</code> or otherwise to differentiate.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To add:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>add q&gt;What is the use of checksum ? a&gt;To detect "error"</code> and press <strong>Enter</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddStep1.png" alt="AddStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will display the message: <em>"New FlashCard added: What is the use of checksum ? Answer: To detect "error""</em></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddStep2.png" alt="AddStep2" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>And you can check the new FlashCard has been added to bottom of the FlashCard list.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddStep3.png" alt="AddStep3" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+When multiple questions or answers prefixes in one <code>add</code> command, only input from the last appearance will be taken. For example, <code>add q&gt; 1+1 a&gt; 2 q&gt;Hi a&gt;bye</code> KFC will add a FlashCard with the question as <code>Hi</code> and the answer as <code>bye</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="edit-an-existing-flashcard-code-edit-index-fields-wanted-to-edit-code"><a class="link" href="#edit-an-existing-flashcard-code-edit-index-fields-wanted-to-edit-code">Edit an existing FlashCard: <code>edit INDEX {fields wanted to edit}&#8230;&#8203;</code></a></h3>
+<div class="paragraph">
+<p>This command allows you to edit the FlashCard with index corresponding to the
+display list with 1 or multiple fields e.g: <code>edit 7 c&gt;CS2105</code></p>
+</div>
+<div class="paragraph">
+<p>To edit:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>edit 7 c&gt;CS2105</code> and press <strong>Enter</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditStep1.png" alt="EditStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will display the message: <em>"Edited FlashCard: What is the use of checksum ? Answer: To detect "error" Categories: [CS2105]"</em>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditStep2.png" alt="EditStep2" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>And you can see that the 7th FlashCard has been edited on the FlashCard list.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditStep3.png" alt="EditStep3" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-flashcard-code-delete-index-code"><a class="link" href="#delete-flashcard-code-delete-index-code">Delete FlashCard: <code>delete INDEX</code></a></h3>
+<div class="paragraph">
+<p>This command allows you the delete a
+particular FlashCard with the index
+show on the FlashCard list. e.g.
+<code>delete 7</code></p>
+</div>
+<div class="paragraph">
+<p>To delete:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>delete 7</code> and press <strong>Enter</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteStep1.png" alt="DeleteStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will show the message: <em>"Deleted FlashCard: What is the use of checksum ? Answer: To detect "error" Categories: [CS2105]"</em></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteStep2.png" alt="DeleteStep2" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>And you can check the FlashCard list that the FlashCard has been deleted.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteStep3.png" alt="DeleteStep3" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clear-all-the-flashcard-code-clear-code"><a class="link" href="#clear-all-the-flashcard-code-clear-code">Clear all the FlashCard: <code>clear</code></a></h3>
+<div class="paragraph">
+<p>This command allows you to delete all the FlashCard in the storage.</p>
+</div>
+<div class="paragraph">
+<p>To clear:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>clear</code> and press <strong>Enter</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ClearStep1.png" alt="ClearStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will show the message: -"Flash card has been cleared!"_
+And you will see that all lists turn empty.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ClearStep2.png" alt="ClearStep2" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="search-for-flashcards-code-search-code"><a class="link" href="#search-for-flashcards-code-search-code">Search for FlashCards: <code>search</code></a></h3>
+<div class="paragraph">
+<p>The section will show you 3 methods to search for FlashCards. Keywords are case-insensitive.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Current search function does not support fuzzy search, so remove punctuations when adding the FlashCards or include the punctuations for searching
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="either-the-question-or-the-answer-matches-the-keyword-s-search-keyword-s"><a class="link" href="#either-the-question-or-the-answer-matches-the-keyword-s-search-keyword-s">Either the question or the answer matches the keyword(s): "search KEYWORD(S)"</a></h4>
+<div class="paragraph">
+<p>This command allows you to search for FlashCards with the question or answer matching the keyword(s).
+Multiple keywords are separated by a single space.</p>
+</div>
+<div class="paragraph">
+<p>To search:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>search pointer</code> and press <strong>Enter</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SearchStep1.png" alt="SearchStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will show message: <em>"2  flash cards listed!"</em> and the FlashCard list will show the matching FlashCards</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SearchStep2.png" alt="SearchStep2" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="question-matching-the-keyword-s-only-code-searchqn-keyword-s-code"><a class="link" href="#question-matching-the-keyword-s-only-code-searchqn-keyword-s-code">Question matching the keyword(s) only: <code>searchqn KEYWORD(S)</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to search for FlashCards with the question matching the keyword(s).
+Multiple keywords are separated by a single space.</p>
+</div>
+<div class="paragraph">
+<p>to search question:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>searchqn C</code> and press <strong>Enter</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SearchqStep1.png" alt="SearchqStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will show message: <em>"2  flash cards listed!"</em> and the FlashCard list will show the matching FlashCards</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SearchqStep2.png" alt="SearchqStep2" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="answer-matching-the-keyword-s-only-code-searchans-keyword-s-code"><a class="link" href="#answer-matching-the-keyword-s-only-code-searchans-keyword-s-code">Answer matching the keyword(s) only: <code>searchans KEYWORD(S)</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to search for FlashCards with the answer matching the keyword(s).
+Multiple keywords are separated by a single space.</p>
+</div>
+<div class="paragraph">
+<p>to search for answer:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>searchans name</code> and press <strong>Enter</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SearchaStep1.png" alt="SearchaStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will show message: <em>"1  flash cards listed!"</em> and the FlashCard list will show the matching FlashCards</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SearchaStep2.png" alt="SearchaStep2" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-all-flashcards-code-listall-code"><a class="link" href="#list-all-flashcards-code-listall-code">List all FlashCards: <code>listall</code></a></h3>
+<div class="paragraph">
+<p>This command allows you to lists all the FlashCards in the storage.</p>
+</div>
+<div class="paragraph">
+<p>To listall:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>listall</code> and press <strong>Enter</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListAllStep1.png" alt="ListAllStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will show message: <em>"Listed all Flash Cards"</em>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListAllStep2.png" alt="ListAllStep2" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>And the FlashCard list will show all the FlashCards. You can move your mouse
+to the FlashCard list and scroll up and down to view the FlashCards.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListAllStep3.png" alt="ListAllStep3" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-of-category-code-list-category-code"><a class="link" href="#list-of-category-code-list-category-code">List of category : <code>list CATEGORY</code></a></h3>
+<div class="paragraph">
+<p>This command allows you to list all FlashCards under one or multiple categories.
+Multiple keywords are separated by a single space.</p>
+</div>
+<div class="paragraph">
+<p>to list category:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>list CS2105</code> and press <strong>Enter</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListCatStep1.png" alt="ListCatStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will show message: <em>"1 FlashCard is listed!"</em> .</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListCatStep2.png" alt="ListCatStep2" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>And the FlashCard list is updated.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListcatStep3.png" alt="ListcatStep3" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exit-code-exit-code"><a class="link" href="#exit-code-exit-code">Exit: <code>exit</code></a></h3>
+<div class="paragraph">
+<p>This command allows you to exit the application.</p>
+</div>
+<div class="paragraph">
+<p>To exit:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>exit</code> and press <strong>Enter</strong>.</p>
+</li>
+<li>
+<p>The application window will close by itself.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="change-color-themes-code-theme-themename-code"><a class="link" href="#change-color-themes-code-theme-themename-code">Change color themes: <code>theme [THEMENAME]</code></a></h3>
+<div class="paragraph">
+<p>This command allows you to change the theme of the app.</p>
+</div>
+<div class="paragraph">
+<p>Follow are the current available themes</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dark</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">light</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pink</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">blue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hacker</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nus</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To change theme:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type "theme hacker" and press <strong>Enter</strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ThemeStep1.png" alt="ThemeStep1" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will show the message: <em>"Theme changed to hackerTheme"</em> and the theme will be changed.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ThemeStep2.png" alt="ThemeStep2" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><em>(end of extract from User Guide)</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><em>(start of extract from Developer Guide)</em></p>
+</div>
+<div class="sect2">
+<h3 id="add-feature"><a class="link" href="#add-feature">Add feature</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The add feature allows the user to add flashcard with compulsory field of <code>QUESTION</code> and <code>ANSWER</code>. <code>CATEGORY</code> is optional fields which the user can add to the flashcard later using the <code>edit</code> feature.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Following are the prefixes for each field:<br>
+- q&gt; : <code>QUESTION</code><br>
+- a&gt; : <code>ANSWER</code><br>
+- c&gt; : <code>CATEGORY</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of <code>add</code> :</p>
+</div>
+<div class="paragraph">
+<p>The user executes <code>add q&gt;1+1 a&gt;2 c&gt;math</code> to add new flashcard.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddSequenceDiagram.png" alt="AddSequenceDiagram" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>The add feature does not allow adding of duplicate FlashCards.
+If the FlashCard exists in the storage, an error will be shown.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Duplicate FlashCards refers to FlashCards that have the exact same question and answer.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes an add command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddActivityDiagram.png" alt="AddActivityDiagram" width="300">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-implement-add"><a class="link" href="#aspect-how-to-implement-add">Aspect: How to implement add</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Use command <code>add</code> together with
+prefixes like <code>q&gt;</code>, <code>a&gt;</code> and <code>c&gt;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>pros: Easier to implement and easier to process the data.</p>
+</li>
+<li>
+<p>cons: User might miss the prefixes hence adding wrong FlashCards</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Make use of the GUI. After user execute <code>add</code> command,
+an <strong>add flash card window</strong> would pop up and there is segment for individual fields.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>pros: More user friendly and void user input error.</p>
+</li>
+<li>
+<p>cons: Harder to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Alternative 1</strong> was preferred as we have constraints using command line interface.
+In addition, there was limited time.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><em>(end of extract from Developer Guide)</em></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 11:02:26 UTC</div></div></div></body></html>

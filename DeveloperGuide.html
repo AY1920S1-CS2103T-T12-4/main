@@ -9,32 +9,33 @@
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#setting-up">1. Setting up</a></li>
-<li><a href="#design">2. Design</a>
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#setting-up">2. Setting up</a></li>
+<li><a href="#design">3. Design</a>
 <ul class="sectlevel2">
-<li><a href="#Design-Architecture">2.1. Architecture</a></li>
-<li><a href="#Design-Ui">2.2. UI component</a></li>
-<li><a href="#Design-Logic">2.3. Logic component</a></li>
-<li><a href="#Design-Model">2.4. Model component</a></li>
-<li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-Commons">2.6. Common classes</a></li>
+<li><a href="#Design-Architecture">3.1. Architecture</a></li>
+<li><a href="#Design-Ui">3.2. UI component</a></li>
+<li><a href="#Design-Logic">3.3. Logic component</a></li>
+<li><a href="#Design-Model">3.4. Model component</a></li>
+<li><a href="#Design-Storage">3.5. Storage component</a></li>
+<li><a href="#Design-Commons">3.6. Common classes</a></li>
 </ul>
 </li>
-<li><a href="#implementation">3. Implementation</a>
+<li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#add-feature">3.1. Add feature</a></li>
-<li><a href="#deadline-feature">3.2. Deadline feature</a></li>
-<li><a href="#exporting-importing-of-flashcards">3.3. Exporting/Importing of FlashCards</a></li>
-<li><a href="#test-mode">3.4. Test mode</a></li>
-<li><a href="#statistics-feature">3.5. Statistics feature</a></li>
-<li><a href="#help-feature">3.6. Help feature</a></li>
-<li><a href="#logging">3.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
+<li><a href="#add-feature">4.1. Add feature</a></li>
+<li><a href="#deadline-feature">4.2. Deadline feature</a></li>
+<li><a href="#exporting-importing-of-flashcards">4.3. Exporting/Importing of FlashCards</a></li>
+<li><a href="#test-mode">4.4. Test mode</a></li>
+<li><a href="#statistics-feature">4.5. Statistics feature</a></li>
+<li><a href="#help-feature">4.6. Help feature</a></li>
+<li><a href="#logging">4.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
 </ul>
 </li>
-<li><a href="#documentation">4. Documentation</a></li>
-<li><a href="#testing">5. Testing</a></li>
-<li><a href="#dev-ops">6. Dev Ops</a></li>
+<li><a href="#documentation">5. Documentation</a></li>
+<li><a href="#testing">6. Testing</a></li>
+<li><a href="#dev-ops">7. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a></li>
@@ -52,7 +53,73 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up"><a class="link" href="#setting-up">1. Setting up</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document details various aspects of the implementation of the <em>KeyboardFlashCards</em> application. It serves as
+a guide for any software developer who wishes to maintain or add on to the project - as such, it is extremely
+detailed and technical, and a certain degree of expertise may be required to fully understand everything here.</p>
+</div>
+<div class="paragraph">
+<p><em>KeyboardFlashCards</em> (KFC) is a desktop flashcard manager application. It is primarily targeted at university
+undergraduates, particularly computing students. As such, it is optimized for users who prefer to work with a
+Command Line Interface (CLI) while still enjoying the benefits of a Graphical User Interface (GUI).</p>
+</div>
+<div class="paragraph">
+<p>The application is written entirely in the Java programming language, with a GUI implemented using JavaFX. Its code base
+currently contains an approximate 25 KLoC.</p>
+</div>
+<div class="paragraph">
+<p>The following admonitions will occasionally appear throughout this document; you may wish to take note of them.
+Here is what each of them means:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A point of information that you may wish to take note of
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+A cautionary warning
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A tip or word of advice
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Quick Start</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setting-up"><a class="link" href="#setting-up">2. Setting up</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="SettingUp.html">here</a>.</p>
@@ -60,10 +127,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="design"><a class="link" href="#design">2. Design</a></h2>
+<h2 id="design"><a class="link" href="#design">3. Design</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
@@ -166,7 +233,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
@@ -197,7 +264,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
@@ -250,7 +317,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -295,7 +362,7 @@ As a more OOP model, we can store a <code>Category</code> list in <code>Address 
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
@@ -320,7 +387,7 @@ As a more OOP model, we can store a <code>Category</code> list in <code>Address 
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
 </div>
@@ -328,15 +395,15 @@ As a more OOP model, we can store a <code>Category</code> list in <code>Address 
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
+<h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="add-feature"><a class="link" href="#add-feature">3.1. Add feature</a></h3>
+<h3 id="add-feature"><a class="link" href="#add-feature">4.1. Add feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.1.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The add feature allows the user to add flashcard with compulsory field of <code>QUESTION</code> and <code>ANSWER</code>.
  <code>RATING</code> and <code>CATEGORY</code> are optional fields which the user can add to the flashcard later using the <code>edit</code> feature.</p>
@@ -385,7 +452,7 @@ If the flashcard exists in the storage, an error will be shown.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-implement-add"><a class="link" href="#aspect-how-to-implement-add">Aspect: How to implement add</a></h5>
 <div class="ulist">
@@ -424,9 +491,9 @@ an <strong>add flash card window</strong> would pop up and there is segment for 
 </div>
 </div>
 <div class="sect2">
-<h3 id="deadline-feature"><a class="link" href="#deadline-feature">3.2. Deadline feature</a></h3>
+<h3 id="deadline-feature"><a class="link" href="#deadline-feature">4.2. Deadline feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">4.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The deadline feature allows the user to add tasks with specific due dates, with a compulsory field
 of <code>TASK</code> and <code>DUE DATE</code>.</p>
@@ -477,7 +544,7 @@ If the duplicated/identical deadline exists in the storage, an error will be sho
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-implement-deadline"><a class="link" href="#aspect-how-to-implement-deadline">Aspect: How to implement Deadline</a></h5>
 <div class="ulist">
@@ -516,9 +583,9 @@ an <strong>add deadline window</strong> would pop up with a section for individu
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting-importing-of-flashcards"><a class="link" href="#exporting-importing-of-flashcards">3.3. Exporting/Importing of FlashCards</a></h3>
+<h3 id="exporting-importing-of-flashcards"><a class="link" href="#exporting-importing-of-flashcards">4.3. Exporting/Importing of FlashCards</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Our application currently supports the exporting of <code>FlashCards</code> to two file formats (<code>.docx</code> and <code>.json</code>) and importing of <code>FlashCards</code> from one
 file format (<code>.json</code>). These mechanisms are primarily facilitated by the following classes:</p>
@@ -735,7 +802,7 @@ Due to a limitation of PlantUML, object lifelines in the diagram extend beyond t
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
@@ -923,13 +990,13 @@ The original AddressBook application, from which KeyboardFlashCards was morphed,
 </div>
 </div>
 <div class="sect2">
-<h3 id="test-mode"><a class="link" href="#test-mode">3.4. Test mode</a></h3>
+<h3 id="test-mode"><a class="link" href="#test-mode">4.4. Test mode</a></h3>
 <div class="paragraph">
 <p>Test mode allows users to start a flash card test from a selected list of tags. If no parameters are provided, all
 flashcards contained in the system will be tested.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">3.4.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">4.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>This feature is supported by the following classes:</p>
 </div>
@@ -959,7 +1026,7 @@ flashcards contained in the system will be tested.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>Aspect: Data structure to support <code>FlashCardTestModel</code>:</p>
 </div>
@@ -1011,12 +1078,12 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="statistics-feature"><a class="link" href="#statistics-feature">3.5. Statistics feature</a></h3>
+<h3 id="statistics-feature"><a class="link" href="#statistics-feature">4.5. Statistics feature</a></h3>
 <div class="paragraph">
 <p>The statistics feature allows users to view the overall statistics in a single pop-up window.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-6"><a class="link" href="#implementation-6">3.5.1. Implementation</a></h4>
+<h4 id="implementation-6"><a class="link" href="#implementation-6">4.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>This feature is supported by the following classes:</p>
 </div>
@@ -1071,7 +1138,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>The following aspect was a consideration when designing the statistics feature.</p>
 </div>
@@ -1114,12 +1181,12 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="help-feature"><a class="link" href="#help-feature">3.6. Help feature</a></h3>
+<h3 id="help-feature"><a class="link" href="#help-feature">4.6. Help feature</a></h3>
 <div class="paragraph">
 <p>The help feature allows a user to refer to a summary of commands supported by the application.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-7"><a class="link" href="#implementation-7">3.6.1. Implementation</a></h4>
+<h4 id="implementation-7"><a class="link" href="#implementation-7">4.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>This feature is supported by the following classes:</p>
 </div>
@@ -1171,7 +1238,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>The following aspect was a consideration when designing the help feature.</p>
 </div>
@@ -1214,14 +1281,14 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1252,7 +1319,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1260,7 +1327,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
+<h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Documentation.html">here</a>.</p>
@@ -1268,7 +1335,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
+<h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Testing.html">here</a>.</p>
@@ -1276,7 +1343,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
+<h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="DevOps.html">here</a>.</p>
@@ -1863,4 +1930,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 05:18:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 07:42:20 UTC</div></div></div></body></html>

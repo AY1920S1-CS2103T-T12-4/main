@@ -764,9 +764,6 @@ Using the <code>remove</code> command to remove a "ToDo: Bad Questions" Deadline
 <p>This command starts the flashcard test mode. If no parameter is supplied, the application will test all
 available FlashCards.</p>
 </div>
-<div class="paragraph">
-<p>E.g. <code>start</code></p>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StartEmptyParam.png" alt="StartEmptyParam" width="600">
@@ -776,12 +773,17 @@ available FlashCards.</p>
 <p>If tag(s) are entered, this command starts the FlashCard test from any specific category. Only relevant FlashCards from the tag(s) will
 be tested.</p>
 </div>
-<div class="paragraph">
-<p>E.g. <code>start [category]</code></p>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StartWithTagParam.png" alt="StartWithTagParam" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>After starting the test, you should see the first question.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StartResults.png" alt="StartResults" width="600">
 </div>
 </div>
 </div>
@@ -790,14 +792,38 @@ be tested.</p>
 <div class="paragraph">
 <p>This command allows you to check the answer of the flashcard question.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ShowAnswerCommand.png" alt="ShowAnswerCommand" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>After entering the <code>ans</code> command, you will see the answer to that FlashCard.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ShowAnswerResults.png" alt="ShowAnswerResults" width="600">
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="rate-flashcard-code-rate-easy-good-hard-code"><a class="link" href="#rate-flashcard-code-rate-easy-good-hard-code">3.14.3. Rate flashcard: <code>rate [easy/good/hard]</code></a></h4>
 <div class="paragraph">
-<p>This command rates the flashcard, depending on how well you answered the question i.e. easy, good, hard.</p>
+<p>After seeing the answer, you can enter this command which rates the flashcard,
+depending on how well you answered the question i.e. easy, good, hard.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RateCommand.png" alt="RateCommand" width="600">
+</div>
 </div>
 <div class="paragraph">
-<p><code>rate [rating]</code>, e.g. <code>rate hard</code></p>
+<p>At the same time, the next question will be displayed if available.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RateResults.png" alt="RateResults" width="600">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -806,11 +832,38 @@ be tested.</p>
 <p>If you would like to manually filter and skip questions, the <code>skip</code> command helps you to skip FlashCards,
 saving you extra time.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SkipCommand.png" alt="SkipCommand" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Similarly to the <code>rate</code> command, <code>skip</code> command fetches the next question if available.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SkipResults.png" alt="SkipResults" width="600">
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="end-test-code-end-code"><a class="link" href="#end-test-code-end-code">3.14.5. End test: <code>end</code></a></h4>
 <div class="paragraph">
 <p>You can stop the test any time simply by typing <code>end</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EndCommand.png" alt="EndCommand" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>By exiting the test mode, normal commands such as <code>listall</code> and <code>add</code> are re-enabled.
+The entire list of FlashCards in the system will be displayed again.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EndResults.png" alt="EndResults" width="600">
+</div>
 </div>
 </div>
 </div>
@@ -1249,4 +1302,4 @@ e.g.  <code>start Mathematics</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 06:13:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 06:55:50 UTC</div></div></div></body></html>

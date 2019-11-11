@@ -769,7 +769,7 @@ Multiple keywords are separated by a single space.</p>
 <div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
-<p>The add feature allows the user to add flashcard with compulsory field of <code>QUESTION</code> and <code>ANSWER</code>. <code>CATEGORY</code> is optional fields which the user can add to the flashcard later using the <code>edit</code> feature.</p>
+<p>The <code>add</code> feature allows the user to add <code>FlashCard</code>(s) with compulsory field of <code>QUESTION</code> and <code>ANSWER</code>. <code>CATEGORY</code> are optional fields which the user can add to the flashcard later using the <code>edit</code> feature.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -790,10 +790,10 @@ Following are the prefixes for each field:<br>
 <p>Given below is an example usage scenario of <code>add</code> :</p>
 </div>
 <div class="paragraph">
-<p>The user executes <code>add q&gt;1+1 a&gt;2 c&gt;math</code> to add new flashcard.</p>
+<p>The user executes <code>add q&gt;1+1 a&gt;2 c&gt;math</code> to add new <code>FlashCard</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the add operation works:</p>
+<p>The following sequence diagram shows how the <code>add</code> operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -801,8 +801,8 @@ Following are the prefixes for each field:<br>
 </div>
 </div>
 <div class="paragraph">
-<p>The add feature does not allow adding of duplicate FlashCards.
-If the FlashCard exists in the storage, an error will be shown.</p>
+<p>The <code>add</code> feature does not allow adding of duplicate <code>FlashCard</code>(s).
+If the <code>FlashCard</code> exists in the storage, an error will be shown.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -811,13 +811,13 @@ If the FlashCard exists in the storage, an error will be shown.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Duplicate FlashCards refers to FlashCards that have the exact same question and answer.
+Duplicate <code>FlashCard</code>(s) refers to <code>FlashCard</code>(s) that have the exact same question and answer.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes an add command:</p>
+<p>The following activity diagram summarizes what happens when a user executes an <code>add</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -840,14 +840,14 @@ prefixes like <code>q&gt;</code>, <code>a&gt;</code> and <code>c&gt;</code></p>
 <p>pros: Easier to implement and easier to process the data.</p>
 </li>
 <li>
-<p>cons: User might miss the prefixes hence adding wrong FlashCards</p>
+<p>cons: User might miss the prefixes hence adding wrong <code>FlashCard</code>(s)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p><strong>Alternative 2:</strong> Make use of the GUI. After user execute <code>add</code> command,
-an <strong>add flash card window</strong> would pop up and there is segment for individual fields.</p>
+an <strong>add <code>FlashCard</code> window</strong> would pop up and there is segment for individual fields.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -881,4 +881,4 @@ In addition, there was limited time.
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:13:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:23:02 UTC</div></div></div></body></html>

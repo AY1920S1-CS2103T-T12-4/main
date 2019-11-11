@@ -197,7 +197,7 @@ I implemented a simple version of spaced repetition through rating of "Bad" Flas
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="add-general-deadlines-code-deadline-t-task-d-duedate-code"><a class="link" href="#add-general-deadlines-code-deadline-t-task-d-duedate-code">Add general Deadlines: <code>deadline t&gt;TASK d&gt;DUEDATE</code></a></h3>
+<h3 id="add-general-deadline-code-deadline-t-task-d-duedate-code"><a class="link" href="#add-general-deadline-code-deadline-t-task-d-duedate-code">Add general Deadline: <code>deadline t&gt;TASK d&gt;DUEDATE</code></a></h3>
 <div class="paragraph">
 <p>This command adds a general <code>Deadline</code> into a list. The list will be displayed on the right-side pane.
 Note: <code>DUEDATE</code> has to be in dd/MM/yyyy format.</p>
@@ -246,7 +246,7 @@ Note that <code>Deadline</code>(s) entered will be sorted in ascending order i.e
 </div>
 </div>
 <div class="sect2">
-<h3 id="remove-deadline-from-list-code-remove-index-code"><a class="link" href="#remove-deadline-from-list-code-remove-index-code">Remove deadline from list: <code>remove index</code></a></h3>
+<h3 id="remove-deadline-from-list-code-remove-index-code"><a class="link" href="#remove-deadline-from-list-code-remove-index-code">Remove Deadline from list: <code>remove index</code></a></h3>
 <div class="paragraph">
 <p>Removes a specific <code>Deadline</code>. The list on the right-side pane will no longer have the <code>Deadline</code>.</p>
 </div>
@@ -258,7 +258,8 @@ Note that <code>Deadline</code>(s) entered will be sorted in ascending order i.e
 <div class="ulist">
 <ul>
 <li>
-<p>Removes the <code>Deadline</code> at the specified <code>INDEX</code> from the list. The index refers to the index number shown in the displayed deadline list on the right-sde pane. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Removes the <code>Deadline</code> at the specified <code>INDEX</code> from the list. The index refers to the index number shown in the displayed
+<code>Deadline</code> list on the right-side pane. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
@@ -278,7 +279,7 @@ When a <code>Deadline</code> of re-test questions is removed, the list of questi
 </div>
 </div>
 <div class="sect2">
-<h3 id="show-monthly-calendar-with-all-deadlines-code-calendar-code"><a class="link" href="#show-monthly-calendar-with-all-deadlines-code-calendar-code">Show monthly calendar with all deadlines: <code>calendar</code></a></h3>
+<h3 id="show-monthly-calendar-with-all-deadline-s-code-calendar-code"><a class="link" href="#show-monthly-calendar-with-all-deadline-s-code-calendar-code">Show monthly calendar with all Deadline(s): <code>calendar</code></a></h3>
 <div class="paragraph">
 <p>Shows the calendar filled with all deadlines in the month. The calendar will be shown as a new window pop-up.</p>
 </div>
@@ -300,16 +301,16 @@ When a <code>Deadline</code> of re-test questions is removed, the list of questi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Calendar does not show the specific <code>Deadline</code>, but an overview of all your <code>Deadline</code>(s) for the month ahead.
+The calendar window does not show the specific <code>Deadline</code>, but an overview of all your <code>Deadline</code>(s) for the month ahead.
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="set-flashcard-as-bad-with-deadline-to-re-test-code-bad-index-code"><a class="link" href="#set-flashcard-as-bad-with-deadline-to-re-test-code-bad-index-code">Set Flashcard as "Bad", with deadline to re-test: <code>bad index</code></a></h3>
+<h3 id="rate-flashcard-as-bad-with-deadline-to-re-test-code-bad-index-code"><a class="link" href="#rate-flashcard-as-bad-with-deadline-to-re-test-code-bad-index-code">Rate Flashcard as "Bad", with Deadline to re-test: <code>bad index</code></a></h3>
 <div class="paragraph">
-<p>Sets a specific flashcard as a "Bad" <code>FlashCard</code>. It will then be stored as a <code>Deadline</code> in the list on the right-side pane.</p>
+<p>Rates a specific 'FlashCard' as "Bad". It will then be stored as a <code>Deadline</code> in the list on the right-side pane.</p>
 </div>
 <div class="paragraph">
 <p><code>bad 2</code></p>
@@ -319,14 +320,15 @@ Calendar does not show the specific <code>Deadline</code>, but an overview of al
 <div class="ulist">
 <ul>
 <li>
-<p>Sets the FlashCard specified at <code>INDEX</code> as 'Bad'. The index refers to the index number shown in the displayed deadline list on the right-sde pane. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Sets the <code>FlashCard</code> specified at <code>INDEX</code> as 'Bad'. The index refers to the index number shown in the displayed deadline
+list on the right-side pane. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Key the above mentioned example into the command box</p>
+<p>Key the above mentioned example into the command box.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -334,9 +336,9 @@ Calendar does not show the specific <code>Deadline</code>, but an overview of al
 </div>
 </div>
 <div class="paragraph">
-<p>The command will add the 2nd flashcard on the list, "How to declare a pointer in C?" as a 'bad' flashcard.
+<p>The command will add the 2nd <code>FlashCard</code> on the list, "How to declare a pointer in C?" as a "Bad" <code>FlashCard</code>.
 After which, the result box will show the success message.
-A new deadline will now be shown at the right side-bar, 3 days later from the day it was entered.</p>
+A new <code>Deadline</code> will now be shown at the right side-bar, 3 days later from the day it was entered.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -350,7 +352,7 @@ A new deadline will now be shown at the right side-bar, 3 days later from the da
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Bad Questions will be added to a deadline which is due 3 days later. This is an approximated value that based on
+"Bad" rated <code>FlashCard</code>(s) will be added to as a <code>Deadline</code> which is due 3 days later. This is an approximated value that based on
 the theory of <a href="https://en.wikipedia.org/wiki/Spaced_repetition">Spaced Repetition</a>, referring to Ebbinghaus Forgetting Curve
 by Hermann Ebbinghaus who hypothesised this theory in 1985.
 </td>
@@ -361,7 +363,7 @@ by Hermann Ebbinghaus who hypothesised this theory in 1985.
 <div class="sect2">
 <h3 id="list-all-bad-flashcards-for-a-specific-date-code-listbad-d-date-code"><a class="link" href="#list-all-bad-flashcards-for-a-specific-date-code-listbad-d-date-code">List all "Bad" FlashCards for a specific date <code>listbad d&gt;DATE</code></a></h3>
 <div class="paragraph">
-<p>List all the "Bad" rated FlashCards from a specific date. The FlashCard Questions will be shown.</p>
+<p>List all the "Bad" rated <code>FlashCard</code>(s) from a specific date. The <code>FlashCard</code> questions will be shown.</p>
 </div>
 <div class="paragraph">
 <p><code>listbad d&gt;14/11/2019</code></p>
@@ -396,7 +398,8 @@ The automated test mode for the "Bad" <code>FlashCard</code> is not functional a
 <p>You can refer to the example above.</p>
 </div>
 <div class="paragraph">
-<p>As seen from before, after listing all the "Bad" rated FlashCards for a specific date using <code>listbad d&gt;14/11/2019</code>, you can observe the full list as seen below.</p>
+<p>As seen from before, after listing all the "Bad" rated <code>FlashCard</code>(s) for a specific date using <code>listbad d&gt;14/11/2019</code>,
+you can observe the full list as seen below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -404,7 +407,7 @@ The automated test mode for the "Bad" <code>FlashCard</code> is not functional a
 </div>
 </div>
 <div class="paragraph">
-<p>Afterwards, you can choose to remove as specific "Bad" rated FlashCard from that list.
+<p>Afterwards, you can choose to remove as specific "Bad" rated <code>FlashCard</code> from that list.
 Using the example <code>removebad d&gt;14/11/2019 i&gt;2</code>, you can observe this.</p>
 </div>
 <div class="imageblock">
@@ -427,7 +430,8 @@ Using the example <code>removebad d&gt;14/11/2019 i&gt;2</code>, you can observe
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Using the <code>remove</code> command to remove a "ToDo: Bad Questions" Deadline does not remove all the "Bad" <code>FlashCard</code> stored for that date.
+Using the <code>remove</code> command to remove a "ToDo: Bad Questions" <code>Deadline</code> does not remove all the "Bad" <code>FlashCard</code>
+stored for that date.
 </td>
 </tr>
 </table>
@@ -457,7 +461,7 @@ Using the <code>remove</code> command to remove a "ToDo: Bad Questions" Deadline
 of <code>TASK</code> and <code>DUE DATE</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following are new classes used to integrate the Deadline feature.</p>
+<p>The following are new classes used to integrate the <code>Deadline</code> feature.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -484,7 +488,7 @@ the <code>Deadline</code> that will be added.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>In addition, various Exception classes are added to handle possible runtime errors while adding or removing <code>Deadline</code>.
+<p>In addition, various Exception classes are added to handle possible runtime errors while adding or removing <code>Deadline</code>(s).
 This is done to ensure that the user specified <code>Deadline</code> is valid for storage and processing.</p>
 </div>
 <div class="ulist">
@@ -523,7 +527,7 @@ The upper cased <code>Deadline</code> represents the object class that contains 
 <p>Given below is an example usage scenario of <code>deadline</code> command:</p>
 </div>
 <div class="paragraph">
-<p>The user executes <code>deadline t&gt;Complete Homework d&gt;04/10/2020</code> to add new deadline to the task
+<p>The user executes <code>deadline t&gt;Complete Homework d&gt;04/10/2020</code> to add new <code>Deadline</code> to the task
 of completing homework by the 4th October 2020.</p>
 </div>
 <div class="admonitionblock note">
@@ -533,14 +537,14 @@ of completing homework by the 4th October 2020.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The deadline feature does not allow adding of duplicate/identical deadlines. Also, new deadlines must
-be later than the current date.
+The <code>deadline</code> feature does not allow adding of duplicate/identical <code>Deadline</code>(s). Also, new <code>Deadline</code>(s) must
+be later than the current date and is a valid type of date i.e. 29/02/2019 is invalid as 2019 is not a leap year.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the deadline operation works:</p>
+<p>The following sequence diagram shows how the <code>deadline</code> operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -548,7 +552,7 @@ be later than the current date.
 </div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a deadline command:</p>
+<p>The following activity diagram summarizes what happens when a user executes a <code>deadline</code> command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -556,7 +560,7 @@ be later than the current date.
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>remove</code> command works in a similar way, and hence the Sequence and Activity diagrams will be omitted for redundancy.</p>
+<p>The <code>remove</code> command works in a similar way, and hence the sequence and activity diagrams will be omitted for redundancy.</p>
 </div>
 </div>
 <div class="sect3">
@@ -574,21 +578,21 @@ prefixes like <code>t&gt;</code> and <code>d&gt;</code></p>
 <p>Pros: Easier to implement</p>
 </li>
 <li>
-<p>Cons: User might miss the prefixes hence adding wrong deadlines</p>
+<p>Cons: User might miss the prefixes hence adding wrong <code>Deadline</code>(s)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p><strong>Alternative 2:</strong> Make use of the GUI. after user execute <code>deadline</code> command,
-an <strong>add deadline window</strong> would pop up with a section for individual fields</p>
+an <strong>add <code>deadline</code> window</strong> would pop up with a section for individual fields</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: More user friendly</p>
 </li>
 <li>
-<p>Cons: Difficult to implement. Might be slower for the user to key in deadlines as compared to using a one liner with prefixes</p>
+<p>Cons: Difficult to implement. Might be slower for the user to key in <code>Deadline</code>(s) as compared to using a one liner with prefixes</p>
 </li>
 </ul>
 </div>
@@ -599,12 +603,12 @@ an <strong>add deadline window</strong> would pop up with a section for individu
 </div>
 </div>
 <div class="sect2">
-<h3 id="bad-flashcard-feature"><a class="link" href="#bad-flashcard-feature">Bad FlashCard feature</a></h3>
+<h3 id="bad-rating-feature"><a class="link" href="#bad-rating-feature">Bad rating feature</a></h3>
 <div class="sect3">
 <h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>bad</code> feature allows the user to rate specific <code>FlashCards</code> as 'bad' if they did not perform well on them.
-These rated FlashCards will then we stored as a <code>Deadline</code> dated 3 days later, where the user will then be reminded to
+<p>The <code>bad</code> feature allows the user to rate specific <code>FlashCard</code>(s) as "Bad" if they did not perform well on them.
+These rated <code>FlashCard</code>(s) will then we stored as a <code>Deadline</code> dated 3 days later, where the user will then be reminded to
 re-test them.</p>
 </div>
 <div class="paragraph">
@@ -614,14 +618,14 @@ active recall technique which is said to overcome forgetting, theorised by Herma
 <a href="https://en.wikipedia.org/wiki/Forgetting_curve">Forgetting Curve</a>.</p>
 </div>
 <div class="paragraph">
-<p>The following are new classes used to integrate the "Bad" <code>FlashCard</code> feature.</p>
+<p>The following are new classes used to integrate the "Bad" <code>FlashCard</code> rating feature.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p><code>BadQuestions</code>&#8201;&#8212;&#8201;Main object class for the feature. Makes use of a <code>HashMap</code> of key-value pairing of a Date <code>String</code>
-that is converted to a <code>LocalDate</code> class as the key, and the value is a <code>ArrayList</code> of <code>FlashCards</code>. This allows ease of
-search for "Bad" rated <code>FlashCards</code> based on the date stored.</p>
+that is converted to a <code>LocalDate</code> class as the key, and the value is a <code>ArrayList</code> of <code>FlashCard</code>(s). This allows ease of
+search for "Bad" rated <code>FlashCard</code>(s) based on the date stored.</p>
 </li>
 <li>
 <p><code>BadCommand</code>&#8201;&#8212;&#8201;Contains a <code>ObservableList</code> of <code>Deadline</code> objects. The list will be initialised from the storage
@@ -637,7 +641,7 @@ the <code>Deadline</code> that will be added.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>In addition, two Exception classes are added to handle possible runtime errors while adding new "Bad" <code>FlashCards</code>.
+<p>In addition, two Exception classes are added to handle possible runtime errors while adding new "Bad" <code>FlashCard</code>(s).
 This is done to ensure that the user specified "Bad" <code>FlashCard</code> is valid for storage and processing.</p>
 </div>
 <div class="ulist">
@@ -666,12 +670,6 @@ i.e. bad 2
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Given below is an example usage scenario of <code>bad INDEX</code> :</p>
-</div>
-<div class="paragraph">
-<p>The user executes <code>bad 2</code> to rate the second <code>FlashCard</code> in the list as "Bad".</p>
-</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design considerations</a></h4>
@@ -680,8 +678,8 @@ i.e. bad 2
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1(current choice):</strong> Use a <code>HashMap</code> with the specified date as the key. Store <code>FlashCard</code> as an
-<code>ArrayList</code>. Use of the Google Gson library to save and fetch <code>HashMap</code> from and to Json format.</p>
+<p><strong>Alternative 1(current choice):</strong> Use a <code>HashMap</code> with the specified date as the key and the values as <code>ArrayList</code> of
+<code>FlashCard</code>(s). Use of the Google Gson library to save and fetch <code>HashMap</code> from and to Json format.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -689,21 +687,23 @@ i.e. bad 2
 referred using the date as key. Can fetch more than just the answer of the <code>FlashCard</code></p>
 </li>
 <li>
-<p>Cons: Separated from the <code>FlashCard</code> <code>UniqueFlashCardList</code>, which might confuse the user</p>
+<p>Cons: Separated from the <code>FlashCard</code> <code>UniqueFlashCardList</code>, which might confuse the user as there will be two
+different lists of <code>FlashCard</code></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p><strong>Alternative 2:</strong> Use similar implementation as how <code>FlashCard</code> and <code>Deadline</code> objects are stored in storage;
-use a <code>ObservableList</code> that can be displayed in GUI.</p>
+use an <code>ObservableList</code> that can be displayed in GUI.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easier to implement, clearer for user to see</p>
+<p>Pros: Easier to implement, clearer for user to see and fetch these "Bad" rated <code>FlashCard</code>(s)</p>
 </li>
 <li>
-<p>Cons: Difficult to manipulate in the future, especially when we want to implement</p>
+<p>Cons: Difficult to manipulate in the future, especially when we want to implement automated test reminders for these
+"Bad" rated <code>FlashCard</code>(s). A <code>HashMap</code> will allow easy fetching using the specified date as key</p>
 </li>
 </ul>
 </div>
@@ -714,4 +714,4 @@ use a <code>ObservableList</code> that can be displayed in GUI.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:13:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:23:02 UTC</div></div></div></body></html>

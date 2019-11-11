@@ -25,7 +25,7 @@
 <ul class="sectlevel2">
 <li><a href="#add-feature">4.1. Add feature</a></li>
 <li><a href="#add-and-remove-deadline-feature">4.2. Add and Remove Deadline feature</a></li>
-<li><a href="#bad-flashcard-feature">4.3. Bad FlashCard feature</a></li>
+<li><a href="#bad-rating-feature">4.3. Bad rating feature</a></li>
 <li><a href="#exporting-importing-of-flashcards">4.4. Exporting/Importing of FlashCards</a></li>
 <li><a href="#test-mode">4.5. Test mode</a></li>
 <li><a href="#statistics-feature">4.6. Statistics feature</a></li>
@@ -406,7 +406,7 @@ As a more OOP model, we can store a <code>Category</code> list in <code>Keyboard
 <div class="sect3">
 <h4 id="implementation-2"><a class="link" href="#implementation-2">4.1.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The add feature allows the user to add flashcard with compulsory field of <code>QUESTION</code> and <code>ANSWER</code>. <code>CATEGORY</code> is optional fields which the user can add to the flashcard later using the <code>edit</code> feature.</p>
+<p>The <code>add</code> feature allows the user to add <code>FlashCard</code>(s) with compulsory field of <code>QUESTION</code> and <code>ANSWER</code>. <code>CATEGORY</code> are optional fields which the user can add to the flashcard later using the <code>edit</code> feature.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -427,10 +427,10 @@ Following are the prefixes for each field:<br>
 <p>Given below is an example usage scenario of <code>add</code> :</p>
 </div>
 <div class="paragraph">
-<p>The user executes <code>add q&gt;1+1 a&gt;2 c&gt;math</code> to add new flashcard.</p>
+<p>The user executes <code>add q&gt;1+1 a&gt;2 c&gt;math</code> to add new <code>FlashCard</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the add operation works:</p>
+<p>The following sequence diagram shows how the <code>add</code> operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -438,8 +438,8 @@ Following are the prefixes for each field:<br>
 </div>
 </div>
 <div class="paragraph">
-<p>The add feature does not allow adding of duplicate FlashCards.
-If the FlashCard exists in the storage, an error will be shown.</p>
+<p>The <code>add</code> feature does not allow adding of duplicate <code>FlashCard</code>(s).
+If the <code>FlashCard</code> exists in the storage, an error will be shown.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -448,13 +448,13 @@ If the FlashCard exists in the storage, an error will be shown.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Duplicate FlashCards refers to FlashCards that have the exact same question and answer.
+Duplicate <code>FlashCard</code>(s) refers to <code>FlashCard</code>(s) that have the exact same question and answer.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes an add command:</p>
+<p>The following activity diagram summarizes what happens when a user executes an <code>add</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -477,14 +477,14 @@ prefixes like <code>q&gt;</code>, <code>a&gt;</code> and <code>c&gt;</code></p>
 <p>pros: Easier to implement and easier to process the data.</p>
 </li>
 <li>
-<p>cons: User might miss the prefixes hence adding wrong FlashCards</p>
+<p>cons: User might miss the prefixes hence adding wrong <code>FlashCard</code>(s)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p><strong>Alternative 2:</strong> Make use of the GUI. After user execute <code>add</code> command,
-an <strong>add flash card window</strong> would pop up and there is segment for individual fields.</p>
+an <strong>add <code>FlashCard</code> window</strong> would pop up and there is segment for individual fields.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -523,7 +523,7 @@ In addition, there was limited time.
 of <code>TASK</code> and <code>DUE DATE</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following are new classes used to integrate the Deadline feature.</p>
+<p>The following are new classes used to integrate the <code>Deadline</code> feature.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -550,7 +550,7 @@ the <code>Deadline</code> that will be added.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>In addition, various Exception classes are added to handle possible runtime errors while adding or removing <code>Deadline</code>.
+<p>In addition, various Exception classes are added to handle possible runtime errors while adding or removing <code>Deadline</code>(s).
 This is done to ensure that the user specified <code>Deadline</code> is valid for storage and processing.</p>
 </div>
 <div class="ulist">
@@ -589,7 +589,7 @@ The upper cased <code>Deadline</code> represents the object class that contains 
 <p>Given below is an example usage scenario of <code>deadline</code> command:</p>
 </div>
 <div class="paragraph">
-<p>The user executes <code>deadline t&gt;Complete Homework d&gt;04/10/2020</code> to add new deadline to the task
+<p>The user executes <code>deadline t&gt;Complete Homework d&gt;04/10/2020</code> to add new <code>Deadline</code> to the task
 of completing homework by the 4th October 2020.</p>
 </div>
 <div class="admonitionblock note">
@@ -599,14 +599,14 @@ of completing homework by the 4th October 2020.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The deadline feature does not allow adding of duplicate/identical deadlines. Also, new deadlines must
-be later than the current date.
+The <code>deadline</code> feature does not allow adding of duplicate/identical <code>Deadline</code>(s). Also, new <code>Deadline</code>(s) must
+be later than the current date and is a valid type of date i.e. 29/02/2019 is invalid as 2019 is not a leap year.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the deadline operation works:</p>
+<p>The following sequence diagram shows how the <code>deadline</code> operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -614,7 +614,7 @@ be later than the current date.
 </div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a deadline command:</p>
+<p>The following activity diagram summarizes what happens when a user executes a <code>deadline</code> command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -622,7 +622,7 @@ be later than the current date.
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>remove</code> command works in a similar way, and hence the Sequence and Activity diagrams will be omitted for redundancy.</p>
+<p>The <code>remove</code> command works in a similar way, and hence the sequence and activity diagrams will be omitted for redundancy.</p>
 </div>
 </div>
 <div class="sect3">
@@ -640,21 +640,21 @@ prefixes like <code>t&gt;</code> and <code>d&gt;</code></p>
 <p>Pros: Easier to implement</p>
 </li>
 <li>
-<p>Cons: User might miss the prefixes hence adding wrong deadlines</p>
+<p>Cons: User might miss the prefixes hence adding wrong <code>Deadline</code>(s)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p><strong>Alternative 2:</strong> Make use of the GUI. after user execute <code>deadline</code> command,
-an <strong>add deadline window</strong> would pop up with a section for individual fields</p>
+an <strong>add <code>deadline</code> window</strong> would pop up with a section for individual fields</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: More user friendly</p>
 </li>
 <li>
-<p>Cons: Difficult to implement. Might be slower for the user to key in deadlines as compared to using a one liner with prefixes</p>
+<p>Cons: Difficult to implement. Might be slower for the user to key in <code>Deadline</code>(s) as compared to using a one liner with prefixes</p>
 </li>
 </ul>
 </div>
@@ -665,12 +665,12 @@ an <strong>add deadline window</strong> would pop up with a section for individu
 </div>
 </div>
 <div class="sect2">
-<h3 id="bad-flashcard-feature"><a class="link" href="#bad-flashcard-feature">4.3. Bad FlashCard feature</a></h3>
+<h3 id="bad-rating-feature"><a class="link" href="#bad-rating-feature">4.3. Bad rating feature</a></h3>
 <div class="sect3">
 <h4 id="implementation-4"><a class="link" href="#implementation-4">4.3.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>bad</code> feature allows the user to rate specific <code>FlashCards</code> as 'bad' if they did not perform well on them.
-These rated FlashCards will then we stored as a <code>Deadline</code> dated 3 days later, where the user will then be reminded to
+<p>The <code>bad</code> feature allows the user to rate specific <code>FlashCard</code>(s) as "Bad" if they did not perform well on them.
+These rated <code>FlashCard</code>(s) will then we stored as a <code>Deadline</code> dated 3 days later, where the user will then be reminded to
 re-test them.</p>
 </div>
 <div class="paragraph">
@@ -680,14 +680,14 @@ active recall technique which is said to overcome forgetting, theorised by Herma
 <a href="https://en.wikipedia.org/wiki/Forgetting_curve">Forgetting Curve</a>.</p>
 </div>
 <div class="paragraph">
-<p>The following are new classes used to integrate the "Bad" <code>FlashCard</code> feature.</p>
+<p>The following are new classes used to integrate the "Bad" <code>FlashCard</code> rating feature.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p><code>BadQuestions</code>&#8201;&#8212;&#8201;Main object class for the feature. Makes use of a <code>HashMap</code> of key-value pairing of a Date <code>String</code>
-that is converted to a <code>LocalDate</code> class as the key, and the value is a <code>ArrayList</code> of <code>FlashCards</code>. This allows ease of
-search for "Bad" rated <code>FlashCards</code> based on the date stored.</p>
+that is converted to a <code>LocalDate</code> class as the key, and the value is a <code>ArrayList</code> of <code>FlashCard</code>(s). This allows ease of
+search for "Bad" rated <code>FlashCard</code>(s) based on the date stored.</p>
 </li>
 <li>
 <p><code>BadCommand</code>&#8201;&#8212;&#8201;Contains a <code>ObservableList</code> of <code>Deadline</code> objects. The list will be initialised from the storage
@@ -703,7 +703,7 @@ the <code>Deadline</code> that will be added.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>In addition, two Exception classes are added to handle possible runtime errors while adding new "Bad" <code>FlashCards</code>.
+<p>In addition, two Exception classes are added to handle possible runtime errors while adding new "Bad" <code>FlashCard</code>(s).
 This is done to ensure that the user specified "Bad" <code>FlashCard</code> is valid for storage and processing.</p>
 </div>
 <div class="ulist">
@@ -732,12 +732,6 @@ i.e. bad 2
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Given below is an example usage scenario of <code>bad INDEX</code> :</p>
-</div>
-<div class="paragraph">
-<p>The user executes <code>bad 2</code> to rate the second <code>FlashCard</code> in the list as "Bad".</p>
-</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design considerations</a></h4>
@@ -746,8 +740,8 @@ i.e. bad 2
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1(current choice):</strong> Use a <code>HashMap</code> with the specified date as the key. Store <code>FlashCard</code> as an
-<code>ArrayList</code>. Use of the Google Gson library to save and fetch <code>HashMap</code> from and to Json format.</p>
+<p><strong>Alternative 1(current choice):</strong> Use a <code>HashMap</code> with the specified date as the key and the values as <code>ArrayList</code> of
+<code>FlashCard</code>(s). Use of the Google Gson library to save and fetch <code>HashMap</code> from and to Json format.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -755,21 +749,23 @@ i.e. bad 2
 referred using the date as key. Can fetch more than just the answer of the <code>FlashCard</code></p>
 </li>
 <li>
-<p>Cons: Separated from the <code>FlashCard</code> <code>UniqueFlashCardList</code>, which might confuse the user</p>
+<p>Cons: Separated from the <code>FlashCard</code> <code>UniqueFlashCardList</code>, which might confuse the user as there will be two
+different lists of <code>FlashCard</code></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p><strong>Alternative 2:</strong> Use similar implementation as how <code>FlashCard</code> and <code>Deadline</code> objects are stored in storage;
-use a <code>ObservableList</code> that can be displayed in GUI.</p>
+use an <code>ObservableList</code> that can be displayed in GUI.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easier to implement, clearer for user to see</p>
+<p>Pros: Easier to implement, clearer for user to see and fetch these "Bad" rated <code>FlashCard</code>(s)</p>
 </li>
 <li>
-<p>Cons: Difficult to manipulate in the future, especially when we want to implement</p>
+<p>Cons: Difficult to manipulate in the future, especially when we want to implement automated test reminders for these
+"Bad" rated <code>FlashCard</code>(s). A <code>HashMap</code> will allow easy fetching using the specified date as key</p>
 </li>
 </ul>
 </div>
@@ -1035,7 +1031,7 @@ when the user tries to <code>export</code> to a document file:</p>
 <h3 id="test-mode"><a class="link" href="#test-mode">4.5. Test mode</a></h3>
 <div class="paragraph">
 <p>Test mode allows users to start a flash card test from a selected list of tags. If no parameters are provided, all
-flashcards contained in the system will be tested.</p>
+'FlashCard'(s) contained in the system will be tested.</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram shows the typical scenario of a <code>FlashCard</code> test. Note that special commands such as
@@ -1237,7 +1233,7 @@ the list of <code>FlashCards</code>, hence reducing the potential for bugs and s
 <p><code>StatsWindow</code>&#8201;&#8212;&#8201;Builds the statistics window display.</p>
 </li>
 <li>
-<p><code>Model</code>&#8201;&#8212;&#8201;To provide a list of FlashCards given a rating predicate and the statistics from test mode.</p>
+<p><code>Model</code>&#8201;&#8212;&#8201;To provide a list of 'FlashCard'(s) given a rating predicate and the statistics from test mode.</p>
 </li>
 <li>
 <p><code>Stage</code>&#8201;&#8212;&#8201;To create the pop-up window.</p>
@@ -1286,7 +1282,7 @@ the list of <code>FlashCards</code>, hence reducing the potential for bugs and s
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (Current choice):</strong> Collect total number of good/hard/easy flashcards using predicates and those completed in test mode using the model.</p>
+<p><strong>Alternative 1 (Current choice):</strong> Collect total number of good/hard/easy 'FlashCard'(s) using predicates and those completed in test mode using the model.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1306,7 +1302,7 @@ the list of <code>FlashCards</code>, hence reducing the potential for bugs and s
 <p>Pros: This allows the collection of all statistics with minimal methods involved.</p>
 </li>
 <li>
-<p>Cons: This requires constant updating of the model when new FlashCards are added, removed or edited.</p>
+<p>Cons: This requires constant updating of the model when new 'FlashCard'(s) are added, removed or edited.</p>
 </li>
 </ul>
 </div>
@@ -1724,16 +1720,16 @@ the list of <code>FlashCards</code>, hence reducing the potential for bugs and s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list all flashcards in a <a href="#category">category</a></p>
+<p>User requests to list all 'FlashCard'(s) in a <a href="#category">category</a></p>
 </li>
 <li>
-<p>System shows a list of flashcards with index</p>
+<p>System shows a list of 'FlashCard'(s) with index</p>
 </li>
 <li>
-<p>User requests to delete a flashcard in the list by providing <a href="#category">category</a> and index</p>
+<p>User requests to delete a 'FlashCard' in the list by providing <a href="#category">category</a> and index</p>
 </li>
 <li>
-<p>System deletes the flashcard</p>
+<p>System deletes the 'FlashCard'</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1895,7 +1891,7 @@ the list of <code>FlashCards</code>, hence reducing the potential for bugs and s
 <dl>
 <dt class="hdlist1"><a id="category"></a> Category</dt>
 <dd>
-<p>A tag that can be assigned to a flashcard for better categorisation</p>
+<p>A tag that can be assigned to a 'FlashCard' for better categorisation</p>
 </dd>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
 <dd>
@@ -1907,7 +1903,7 @@ the list of <code>FlashCards</code>, hence reducing the potential for bugs and s
 </dd>
 <dt class="hdlist1"><a id="test"></a> Test</dt>
 <dd>
-<p>The state in which the user is shown their flashcards one-by-one and in succession, allowing them to test their understanding of the covered content</p>
+<p>The state in which the user is shown their 'FlashCard'(s) one-by-one and in succession, allowing them to test their understanding of the covered content</p>
 </dd>
 </dl>
 </div>
@@ -2014,11 +2010,11 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a flashCard while all flashCards are listed</p>
+<p>Deleting a 'FlashCard' while all 'FlashCard'(s) are listed</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all flashCards using the <code>list</code> command. Multiple flashCards in the list.</p>
+<p>Prerequisites: List all 'FlashCard'(s) using the <code>list</code> command. Multiple 'FlashCard'(s) in the list.</p>
 </li>
 <li>
 <p>Test case: <code>delete 1</code><br>
@@ -2026,7 +2022,7 @@ Expected: First contact is deleted from the list. Details of the deleted contact
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
-Expected: No flashCard is deleted. Error details shown in the status message. Status bar remains the same.</p>
+Expected: No 'FlashCard' is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
@@ -2212,4 +2208,4 @@ Expected: Application starts up as per normal. No data is loaded.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:13:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:23:01 UTC</div></div></div></body></html>

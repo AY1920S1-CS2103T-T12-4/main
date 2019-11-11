@@ -53,6 +53,45 @@ can help you manage your flashcards much more efficiently than traditional GUI a
 <p>Interested? You should be! KFC is perfect for NUS Computing students. We even have additional
 features not available with most flashcard managers that we&#8217;re sure you&#8217;ll love. Enjoy!</p>
 </div>
+<div class="paragraph">
+<p>Please also note the following icons, which will indicate points of interest throughout this document.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A point of information that you may wish to note
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A tip or suggestion
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+A cautionary word of advice
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -80,7 +119,6 @@ features not available with most flashcard managers that we&#8217;re sure you&#8
 </li>
 </ol>
 </div>
-<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
@@ -115,46 +153,6 @@ features not available with most flashcard managers that we&#8217;re sure you&#8
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>Please also note the following icons, which will indicate points of interest throughout this document.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-A point of information that you may wish to note
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-A tip or suggestion
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-A cautionary word of advice
-</td>
-</tr>
-</table>
-</div>
-<div style="page-break-after: always;"></div>
 <div class="sect2">
 <h3 id="add-new-flashcard-code-add-q-question-a-answer-c-category-code"><a class="link" href="#add-new-flashcard-code-add-q-question-a-answer-c-category-code">3.1. Add new FlashCard: <code>add q&gt;QUESTION a&gt;ANSWER [c&gt;CATEGORY]&#8230;&#8203;</code></a></h3>
 <div class="paragraph">
@@ -677,7 +675,7 @@ saving you extra time.</p>
 <p>You can use this command to export all your FlashCards in a particular category, to an external file.
 This may be useful if you wish to publish your FlashCards somewhere, print them out, or share them with a friend.
 The file will be located at the file path that you specify, and the format of the file will be inferred from the
-extension. We currently support exporting to JSON (.json) and document (.docx) file formats.<br>
+extension. We currently support exporting to JSON ('.json') and document ('.docx') file formats.<br>
 Example: <code>export c&gt;CS2105 p&gt;C:\Documents\cs2105.json</code></p>
 </div>
 <div class="paragraph">
@@ -703,7 +701,7 @@ Example: <code>export c&gt;CS2105 p&gt;C:\Documents\cs2105.json</code></p>
 </div>
 </li>
 <li>
-<p>Navigate to the directory that you specified in the command (in this case, it would be 'C:\Documents'). Sure enough, your exported file is there!</p>
+<p>Using your file explorer, navigate to the directory that you specified in the command (in this case, it would be <code>C:\Documents</code>). Sure enough, your exported file is there!</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/ExportDemo3.png" alt="ExportDemo3" width="600">
@@ -712,6 +710,33 @@ Example: <code>export c&gt;CS2105 p&gt;C:\Documents\cs2105.json</code></p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>Please refer to the table below for a summary of the file formats that we support exporting to:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Format</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Document ('.docx')</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSON ('.json')</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Intended purpose</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For use as a cheat sheet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For sharing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>What is copied from each FlashCard</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Question and answer only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Question, answer, and the category which you specified in the export command</p></td>
+</tr>
+</tbody>
+</table>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -719,7 +744,7 @@ Example: <code>export c&gt;CS2105 p&gt;C:\Documents\cs2105.json</code></p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Only the questions and answers of FlashCards will be exported.
+If you&#8217;re on a Unix-based operating system (e.g. Mac OS, Linux), any absolute paths that you specify will have to begin from the root directory <code>/</code>, not the user directory <code>~</code>. For example, if you were on a Mac and your username was "jason", and you wanted to export to a document file on your desktop, the file path would be <code>/Users/jason/Desktop/document.docx</code>.
 </td>
 </tr>
 </table>
@@ -732,32 +757,11 @@ Only the questions and answers of FlashCards will be exported.
 </td>
 <td class="content">
 Your file paths must be comprised solely of alphanumeric characters, spaces, and the following characters: <code>~\/-_!:[]()</code><br>
-It must also end in either <code>.json</code> or <code>.docx</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-Do note that some directories may be protected by your operating system (<code>C:\</code> on Windows, <code>/</code> on Unix). You may not be allowed to save files to these directories.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Use this to export your flashcards into an easily-printable cheat sheet! Use them for your assessments or
-self-learning.
+It must also end in one of the supported file extensions - either <code>.json</code> or <code>.docx</code>.<br>
+<br>
+Do note that some directories may be protected by your operating system (<code>C:\</code> on Windows, <code>/</code> on Unix). You may not be allowed to save files to these directories.<br>
+<br>
+Please take care not to modify exported JSON files - your friends might have trouble importing them otherwise.
 </td>
 </tr>
 </table>
@@ -767,11 +771,11 @@ self-learning.
 <h3 id="import-flashcards-from-a-json-file-code-import-p-file_path-code"><a class="link" href="#import-flashcards-from-a-json-file-code-import-p-file_path-code">3.14. Import flashcards from a JSON file: <code>import p&gt;FILE_PATH</code></a></h3>
 <div class="paragraph">
 <p>You can use this command to import FlashCards from a file that you or someone else had exported to earlier.
-We currently only support importing from JSON (.json) files.<br>
+We currently only support importing from JSON ('.json') files.<br>
 Example: <code>import p&gt;C:\Downloads\cs2105.json</code></p>
 </div>
 <div class="paragraph">
-<p>Suppose your friend has kindly exported some of his FlashCards for you to use. You have download the <code>.json</code> file that he sent you,
+<p>Suppose that your friend has kindly exported some of his FlashCards for you to use. You have download the JSON file that he sent you,
 and it&#8217;s currently located at the following path: <code>C:\Downloads\cs2105.json</code>.
 Your next step is to get those FlashCards into your copy of KFC. Here&#8217;s how you&#8217;d go about this:</p>
 </div>
@@ -803,7 +807,7 @@ Furthermore, the category list on the left will now display the category of the 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Duplicate FlashCards will not be imported. You will be notified when we detect duplicate FlashCards in the file you provide.
+Duplicate FlashCards will not be imported. <em>KFC</em> will notify you if it detects duplicate FlashCards in the provided file.
 </td>
 </tr>
 </table>
@@ -1100,4 +1104,4 @@ e.g.  <code>start Mathematics</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 14:07:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 04:53:30 UTC</div></div></div></body></html>

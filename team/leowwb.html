@@ -4,9 +4,9 @@
 <h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document details the various contributions that I have made to my team project, <em>KeyboardFlashCards</em>. Done as part of a second-year software engineering module,
+<p>This document details the various contributions that I have made to my team project, <em>KeyboardFlashCards</em> (KFC). Done as part of a second-year software engineering module,
 the project requires that students work in teams to morph a desktop addressbook application into another product. The
-project is required to conform to a number of constraints, the most significant being that the product must have primarily utilize a CLI (command-line interface); this
+project is required to conform to a number of constraints, the most significant being that the product must primarily utilize a CLI (command-line interface); this
 means that the primary means of user input to the product must be through the typing of commands.</p>
 </div>
 <div class="paragraph">
@@ -18,9 +18,8 @@ students (including myself). All are students in the National University of Sing
 computing students (in particular, NUS School of Computing students), who will be able to use it to
 enhance their learning experience. It does this by simulating a real deck of flashcards on the user&#8217;s
 computer, complete with features including creation, editing, deletion, revision, and sharing of
-flashcards. The application is written in the Java programming language, and has a GUI (graphical
-user interface) created with the JavaFX library. It has roughly 17 KLoC, up from the original
-addressbook application&#8217;s 10 KLoC.</p>
+flashcards. The application is written in the Java programming language, and has an approximate 25 KLoC
+(for comparison, the original addressbook application had about 10 KLoC).</p>
 </div>
 <div class="paragraph">
 <p>Here is a screenshot of our project:</p>
@@ -34,10 +33,12 @@ addressbook application&#8217;s 10 KLoC.</p>
 <p><em>Figure 1. The graphical user interface of <strong>KeyboardFlashCards</strong></em></p>
 </div>
 <div class="paragraph">
-<p>Please note the following symbols and formatting, which will appear throughout the rest of the document:
-NOTE: A point of information to take note of
-TIP: A tip or suggestion
-CAUTION: A cautionary piece of advice</p>
+<p>Please note the following symbols and formatting, which will appear throughout the rest of the document:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/leowwbPppAdmonitions.png" alt="leowwbPppAdmonitions" width="80%">
+</div>
 </div>
 </div>
 </div>
@@ -50,14 +51,14 @@ CAUTION: A cautionary piece of advice</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This section is a summary of the contributions I have made to the team project. It includes code, documentation, and various helpful contributions.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This section is a summary of the contributions I have made to the team project. It includes code, documentation, and other types of helpful contributions.</em></p></td>
 </tr>
 </tbody>
 </table>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement #1</strong>: I added <strong>the ability to export flashcards to various file formats</strong>.</p>
+<p><strong>Major enhancement #1</strong>: I added the ability to <strong>export flashcards to various file formats</strong>.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -85,7 +86,7 @@ these are Apache POI and Jackson, respectively.</p>
 </div>
 </li>
 <li>
-<p><strong>Major enhancement #2: I added *the ability to import flashcards from an external file</strong>.</p>
+<p><strong>Major enhancement #2</strong>: I added the ability to <strong>import flashcards from an external file</strong>.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -93,7 +94,7 @@ these are Apache POI and Jackson, respectively.</p>
 The imported flashcards are added to the application, and the user will be able to use them as if they were their own.</p>
 </li>
 <li>
-<p>Justification: This feature, when used in combination with the <code>export</code> feature, allows users to share their flashcards with
+<p>Justification: This feature, when used in combination with the Export feature, allows users to share their flashcards with
 one another.</p>
 </li>
 <li>
@@ -102,14 +103,14 @@ there&#8217;s no good reason for the user to have two copies of the same flashca
 The user will be notified if a duplicate is detected in a file while importing.</p>
 </li>
 <li>
-<p>Credits: All reading of flashcards from the <code>.json</code> format is done with the use of Jackson, an external library.</p>
+<p>Credits: All reading of flashcards from the '.json' format is done with the use of Jackson, an external library.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Code contributed</strong>: Please click on these links to see a sample of my code:
-[<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em> (reposense link??)</p>
+<p><strong>Code contributed</strong>:<br>
+<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=LeowWB&amp;sort=totalCommits&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByAuthors&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=LeowWB&amp;tabRepo=AY1920S1-CS2103T-T12-4%2Fmain%5Bmaster%5D">Please click here to view a sample of my code!</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong></p>
@@ -120,10 +121,21 @@ The user will be notified if a duplicate is detected in a file while importing.<
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.1</code> - <code>v1.2</code> (2 releases) on GitHub</p>
+<p>Managed releases v1.1 - v1.2 (2 releases) on GitHub</p>
 </li>
 <li>
-<p>Updated the project website with the team&#8217;s details (
+<p>Set up automatic publishing of the project&#8217;s documentation (using Travis CI)</p>
+</li>
+<li>
+<p>Oversaw the general integration of the various team members' work into the project</p>
+</li>
+<li>
+<p>Created and managed the team&#8217;s organization on GitHub (
+<a href="https://github.com/AY1920S1-CS2103T-T12-4">AY1920S1-CS2103T-T12-4</a>
+)</p>
+</li>
+<li>
+<p>Populated the project website with general information about the team (
 <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/19">#19</a>,
 <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/24">#24</a>
 )</p>
@@ -136,13 +148,18 @@ The user will be notified if a duplicate is detected in a file while importing.<
 <div class="ulist">
 <ul>
 <li>
-<p>Created the general framework that would be used by the User Guide (
+<p>Created an early framework for the User Guide (
 <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/19">#19</a>
 )</p>
 </li>
 <li>
 <p>Wrote the FAQ and an early version of the Command Summary section for the User Guide (
 <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/19">#19</a>
+)</p>
+</li>
+<li>
+<p>Wrote the Introduction section of the Developer Guide (
+<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/236">#236</a>
 )</p>
 </li>
 <li>
@@ -206,7 +223,7 @@ The user will be notified if a duplicate is detected in a file while importing.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>My team&#8217;s complete overhaul of the addressbook application meant that we also had to rewrite much of the User Guide. The following are excerpts of my contributions to this effort. They showcase my ability to write documentation that targets end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>My team&#8217;s complete overhaul of the addressbook application meant that we also had to rewrite much of the User Guide. The following are excerpts of my contributions to this effort. They showcase my ability to write jargon-free documentation that is suitable to be read by end-users.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -219,7 +236,7 @@ The user will be notified if a duplicate is detected in a file while importing.<
 <p>You can use this command to export all your FlashCards in a particular category, to an external file.
 This may be useful if you wish to publish your FlashCards somewhere, print them out, or share them with a friend.
 The file will be located at the file path that you specify, and the format of the file will be inferred from the
-extension. We currently support exporting to JSON (.json) and document (.docx) file formats.<br>
+extension. We currently support exporting to JSON ('.json') and document ('.docx') file formats.<br>
 Example: <code>export c&gt;CS2105 p&gt;C:\Documents\cs2105.json</code></p>
 </div>
 <div class="paragraph">
@@ -245,7 +262,7 @@ Example: <code>export c&gt;CS2105 p&gt;C:\Documents\cs2105.json</code></p>
 </div>
 </li>
 <li>
-<p>Navigate to the directory that you specified in the command (in this case, it would be 'C:\Documents'). Sure enough, your exported file is there!</p>
+<p>Using your file explorer, navigate to the directory that you specified in the command (in this case, it would be <code>C:\Documents</code>). Sure enough, your exported file is there!</p>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ExportDemo3.png" alt="ExportDemo3" width="600">
@@ -254,6 +271,33 @@ Example: <code>export c&gt;CS2105 p&gt;C:\Documents\cs2105.json</code></p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>Please refer to the table below for a summary of the file formats that we support exporting to:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Format</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Document ('.docx')</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSON ('.json')</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Intended purpose</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For use as a cheat sheet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For sharing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>What is copied from each FlashCard</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Question and answer only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Question, answer, and the category which you specified in the export command</p></td>
+</tr>
+</tbody>
+</table>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -261,7 +305,7 @@ Example: <code>export c&gt;CS2105 p&gt;C:\Documents\cs2105.json</code></p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Only the questions and answers of FlashCards will be exported.
+If you&#8217;re on a Unix-based operating system (e.g. Mac OS, Linux), any absolute paths that you specify will have to begin from the root directory <code>/</code>, not the user directory <code>~</code>. For example, if you were on a Mac and your username was "jason", and you wanted to export to a document file on your desktop, the file path would be <code>/Users/jason/Desktop/document.docx</code>.
 </td>
 </tr>
 </table>
@@ -274,32 +318,11 @@ Only the questions and answers of FlashCards will be exported.
 </td>
 <td class="content">
 Your file paths must be comprised solely of alphanumeric characters, spaces, and the following characters: <code>~\/-_!:[]()</code><br>
-It must also end in either <code>.json</code> or <code>.docx</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-Do note that some directories may be protected by your operating system (<code>C:\</code> on Windows, <code>/</code> on Unix). You may not be allowed to save files to these directories.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Use this to export your flashcards into an easily-printable cheat sheet! Use them for your assessments or
-self-learning.
+It must also end in one of the supported file extensions - either <code>.json</code> or <code>.docx</code>.<br>
+<br>
+Do note that some directories may be protected by your operating system (<code>C:\</code> on Windows, <code>/</code> on Unix). You may not be allowed to save files to these directories.<br>
+<br>
+Please take care not to modify exported JSON files - your friends might have trouble importing them otherwise.
 </td>
 </tr>
 </table>
@@ -309,11 +332,11 @@ self-learning.
 <h3 id="import-flashcards-from-a-json-file-code-import-p-file_path-code"><a class="link" href="#import-flashcards-from-a-json-file-code-import-p-file_path-code">Import flashcards from a JSON file: <code>import p&gt;FILE_PATH</code></a></h3>
 <div class="paragraph">
 <p>You can use this command to import FlashCards from a file that you or someone else had exported to earlier.
-We currently only support importing from JSON (.json) files.<br>
+We currently only support importing from JSON ('.json') files.<br>
 Example: <code>import p&gt;C:\Downloads\cs2105.json</code></p>
 </div>
 <div class="paragraph">
-<p>Suppose your friend has kindly exported some of his FlashCards for you to use. You have download the <code>.json</code> file that he sent you,
+<p>Suppose that your friend has kindly exported some of his FlashCards for you to use. You have download the JSON file that he sent you,
 and it&#8217;s currently located at the following path: <code>C:\Downloads\cs2105.json</code>.
 Your next step is to get those FlashCards into your copy of KFC. Here&#8217;s how you&#8217;d go about this:</p>
 </div>
@@ -345,7 +368,7 @@ Furthermore, the category list on the left will now display the category of the 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Duplicate FlashCards will not be imported. You will be notified when we detect duplicate FlashCards in the file you provide.
+Duplicate FlashCards will not be imported. <em>KFC</em> will notify you if it detects duplicate FlashCards in the provided file.
 </td>
 </tr>
 </table>
@@ -375,10 +398,17 @@ Duplicate FlashCards will not be imported. You will be notified when we detect d
 <div class="sect2">
 <h3 id="exporting-importing-of-flashcards"><a class="link" href="#exporting-importing-of-flashcards">Exporting/Importing of FlashCards</a></h3>
 <div class="sect3">
+<h4 id="about"><a class="link" href="#about">About</a></h4>
+<div class="paragraph">
+<p>Our application currently supports the exporting of <code>FlashCards</code> to two file formats ('.docx' and '.json'), and importing of <code>FlashCards</code> from one
+file format ('.json'). Through these features, a user can easily transfer their <em>KFC</em> data to an external file, and another user
+can just as easily transfer the same data back into their own copy of <em>KFC</em>.</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
-<p>Our application currently supports the exporting of <code>FlashCards</code> to two file formats (<code>.docx</code> and <code>.json</code>) and importing of <code>FlashCards</code> from one
-file format (<code>.json</code>). These mechanisms are primarily facilitated by the following classes:</p>
+<p>The Export/Import feature is primarily facilitated by the following classes:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -441,8 +471,7 @@ Once created, an <code>ExportPath</code> will expose the following relevant meth
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-Not all <code>ExportPath</code> subclasses will implement the <code>importFrom()</code> method. <code>DocumentPath</code>, for example, does not - this is because documents are
-relatively unstructured and impractical to import from, and there are other reasons for exporting to a document (e.g. to use as cheat sheet).
+Not all <code>ExportPath</code> subclasses will implement the <code>importFrom()</code> method. <code>DocumentPath</code>, for example, does not.
 </td>
 </tr>
 </table>
@@ -460,7 +489,7 @@ Instead, they will delegate the work to other utility classes, which, in turn, i
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The exporting/importing functionality is extremely easy to extend - support for new formats can be added simply through the creation of new subclasses of <code>ExportPath</code>.
+The exporting/importing functionality is extremely easy to extend - you can add support for a new format simply through the creation of new subclasses of <code>ExportPath</code>.
 </td>
 </tr>
 </table>
@@ -472,7 +501,7 @@ The exporting/importing functionality is extremely easy to extend - support for 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-All relevant classes can be found in the <code>seedu.address.model.export</code> package. The only exceptions are <code>ExportCommand</code>, <code>ImportCommand</code>, <code>ExportCommandParser</code>, and <code>ImportCommandParser</code>, which can be found in the <code>seedu.address.logic</code> package.
+You can find all relevant classes in the <code>seedu.address.model.export</code> package. The only exceptions are <code>ExportCommand</code>, <code>ImportCommand</code>, <code>ExportCommandParser</code>, and <code>ImportCommandParser</code>, which can be found in the <code>seedu.address.logic</code> package.
 </td>
 </tr>
 </table>
@@ -480,115 +509,49 @@ All relevant classes can be found in the <code>seedu.address.model.export</code>
 <div class="paragraph">
 <p>The following table shows the classes and methods that you may have to deal with when exporting to or importing from each format:</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 59%;">
-<colgroup>
-<col style="width: 22.2222%;">
-<col style="width: 38.8888%;">
-<col style="width: 38.889%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><strong>File format</strong></th>
-<th class="tableblock halign-left valign-top">Document</th>
-<th class="tableblock halign-left valign-top">JSON</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>File extension</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.docx</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.json</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>ExportPath</code> subclass</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DocumentPath</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>JsonExportPath</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><strong>Export utility class and method</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><code>DocumentExportUtil#exportFlashCardsToDocument( List&lt;FlashCard&gt;, DocumentPath)</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><code>JsonExportUtil#exportFlashCardsToJson( List&lt;FlashCard&gt;, JsonExportPath)</code></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><strong>Import utility class and method</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><em>None - importing not supported</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><code>JsonImportUtil#importFlashCardsFromJson( JsonExportPath)</code></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>External library used</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Apache POI</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Jackson</p></td>
-</tr>
-</tbody>
-</table>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ExportDgTable.png" alt="ExportDgTable" width="75%">
+</div>
+</div>
 <div class="paragraph">
-<p>The number of classes supporting the import/export feature is rather large. The following class diagram will help to clarify the associations
+<p><em>Table 1: Overview of classes and methods involved in the Export/Import feature</em></p>
+</div>
+<div class="paragraph">
+<p>The number of classes supporting the Export/Import feature is rather large. These classes also span more than one
+package in the application. The following class diagram will help you to better understand the associations and relationships
 between these classes:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ExportClassDiagram.png" alt="ExportClassDiagram" height="600">
+<img src="../images/ExportClassDiagram.png" alt="ExportClassDiagram">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 1: Class diagram showing the classes directly relevant to importing and exporting</em></p>
+<p><em>Figure 1: Class diagram of the classes directly relevant to importing and exporting</em></p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the export operation works when the user tries to export to a document (<code>.docx</code>) file:</p>
+<p>The following sequence diagram shows the classes, methods, and interactions involved
+when the user tries to <code>export</code> to a document file:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ExportSequenceDiagram.png" alt="ExportSequenceDiagram" width="600">
+<img src="../images/ExportSequenceDiagram.png" alt="ExportSequenceDiagram">
 </div>
 </div>
 <div class="paragraph">
 <p><em>Figure 2: Sequence diagram showing the process of exporting to a document file</em></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Due to a limitation of PlantUML, object lifelines in the diagram extend beyond the destroy markers. This, of course, should be ignored.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>The following activity diagrams provide a general overview of the events that occur when a user executes an <code>export</code> or <code>import</code> command:</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes an export command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ExportActivityDiagram.png" alt="ExportActivityDiagram" width="300">
-</div>
+<p><span class="image"><img src="../images/ExportActivityDiagram.png" alt="ExportActivityDiagram" width="440" height="518"></span>
+<span class="image"><img src="../images/ImportActivityDiagram.png" alt="ImportActivityDiagram" width="383" height="513"></span></p>
 </div>
 <div class="paragraph">
-<p><em>Figure 3: Activity diagram of when the user executes an export command</em></p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes an import command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ImportActivityDiagram.png" alt="ImportActivityDiagram" width="300">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4: Activity diagram of when the user executes an import command</em></p>
+<p><em>Left - Figure 3: Activity diagram of the execution of an <code>export</code> command</em><br>
+<em>Right - Figure 4: Activity diagram of the execution of an <code>import</code> command</em></p>
 </div>
 </div>
 <div class="sect3">
@@ -660,7 +623,7 @@ Due to a limitation of PlantUML, object lifelines in the diagram extend beyond t
 <p>Pros: Is easy to implement as it makes use of existing logic in <code>Model</code>; user receives immediate visual feedback regarding which specific <code>FlashCards</code> were exported</p>
 </li>
 <li>
-<p>Cons: May cause confusion - <code>export</code> command does not imply that the selected <code>FlashCards</code> will also be shown to the user</p>
+<p>Cons: May cause confusion - name of <code>export</code> command does not imply that the selected <code>FlashCards</code> will also be shown to the user</p>
 </li>
 </ul>
 </div>
@@ -692,90 +655,6 @@ Due to a limitation of PlantUML, object lifelines in the diagram extend beyond t
 </tr>
 </table>
 </div>
-</div>
-<div class="sect4">
-<h5 id="aspect-parsing-of-file-path-from-user-input"><a class="link" href="#aspect-parsing-of-file-path-from-user-input">Aspect: Parsing of file path from user input</a></h5>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The original AddressBook application, from which KeyboardFlashCards was morphed, delimited its command arguments using slash-containing flags
-(e.g. <code>c/CATEGORY</code>). This sometimes caused parsing problems due to the nature of file paths, which likewise contain slashes.
-</td>
-</tr>
-</table>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Read file path as-is, using the existing AddressBook parser</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Does not require further code changes</p>
-</li>
-<li>
-<p>Cons: Means that errors may occur for certain file paths</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Disallow user from selecting file path - instead, always export to and import from a specific directory</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Is somewhat easy to implement</p>
-</li>
-<li>
-<p>Cons: Requires user to navigate to the specified directory; requires a means of finding alternatives if the default directory does not exist</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 3:</strong> Ask user to replace slashes in file path with another character</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Is very easy to implement</p>
-</li>
-<li>
-<p>Cons: Greatly inconveniences the user; extra work must be done to restore the input to the original file path</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 4 (current choice):</strong> Overhaul the AddressBook parser to use <code>&gt;</code> rather than <code>/</code> as a delimiter</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Provides the user with the most power and convenience</p>
-</li>
-<li>
-<p>Cons: Might possibly break existing functional and test code; may require an additional button press from the user (<code>Shift</code>) in order to type <code>&gt;</code></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<strong>Alternative 4</strong> was preferred as it provides users with the greatest overall convenience.
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p><em>(end of extract from Developer Guide)</em></p>
 </div>
@@ -783,4 +662,4 @@ The original AddressBook application, from which KeyboardFlashCards was morphed,
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 14:07:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 04:53:30 UTC</div></div></div></body></html>

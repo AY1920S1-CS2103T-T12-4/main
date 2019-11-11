@@ -36,17 +36,17 @@
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
 <li><a href="#testing">6. Testing</a></li>
-<li><a href="#dev-ops">7. Dev Ops</a></li>
-<li><a href="#product-scope">Appendix A: Product Scope</a></li>
-<li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a></li>
-<li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
+<li><a href="#devops">7. DevOps</a></li>
+<li><a href="#product-scope">Appendix A: Product scope</a></li>
+<li><a href="#user-stories">Appendix B: User stories</a></li>
+<li><a href="#use-cases">Appendix C: Use cases</a></li>
+<li><a href="#non-functional-requirements">Appendix D: Non-functional requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
 <li><a href="#product-survey">Appendix F: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for manual testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-flashcard">G.2. Deleting a flashCard</a></li>
+<li><a href="#launch-and-shutdown">G.1. Launch and shutdown</a></li>
+<li><a href="#deleting-a-flashcard">G.2. Deleting a FlashCard</a></li>
 <li><a href="#saving-data">G.3. Saving data</a></li>
 </ul>
 </li>
@@ -736,7 +736,7 @@ i.e. bad 2
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-store-bad-flashcard-in-storage"><a class="link" href="#aspect-how-to-store-bad-flashcard-in-storage">Aspect: How to store "Bad" FlashCard in storage</a></h5>
 <div class="ulist">
@@ -1033,6 +1033,15 @@ when the user tries to <code>export</code> to a document file:</p>
 <p>Test mode allows users to start a flash card test from a selected list of tags. If no parameters are provided, all
 flashcards contained in the system will be tested.</p>
 </div>
+<div class="paragraph">
+<p>The following activity diagram shows the typical scenario of a <code>FlashCard</code> test. Note that special commands such as
+<code>skip</code> and <code>end</code> are omitted for brevity.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TestModeActivityDiagram.png" alt="TestModeActivityDiagram" width="600">
+</div>
+</div>
 <div class="sect3">
 <h4 id="implementation-6"><a class="link" href="#implementation-6">4.5.1. Implementation</a></h4>
 <div class="paragraph">
@@ -1041,18 +1050,45 @@ flashcards contained in the system will be tested.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>KeyboardFlashCardsParser</code> to control the flow of command in the entire program.</p>
+<p><code>KeyboardFlashCardsParser</code> to control the flow of command in the entire program</p>
 </li>
 <li>
-<p><code>StartCommandParser</code> to parse arguments for StartCommand.</p>
+<p><code>StartCommandParser</code> to parse arguments for StartCommand</p>
 </li>
 <li>
-<p><code>ModelManager</code> which stores <code>FlashCardTestModel</code>, an aggregation of <code>FlashCards</code>, to be used for test mode.</p>
+<p><code>ModelManager</code> which stores <code>FlashCardTestModel</code>, an aggregation of <code>FlashCards</code>, to be used for test mode</p>
 </li>
 <li>
-<p><code>CategoryContainsAnyKeywordsPredicate</code> to search and generate a list of <code>FlashCards</code> with relevant tags.</p>
+<p><code>CategoryContainsAnyKeywordsPredicate</code> to search and generate a list of <code>FlashCards</code> with relevant tags</p>
+</li>
+<li>
+<p><code>StartCommand</code> to set the application to test mode, starting the <code>FlashCard</code> test</p>
+</li>
+<li>
+<p><code>ShowAnswerCommand</code> allows the user to view the answer to the <code>FlashCard</code> currently tested</p>
+</li>
+<li>
+<p><code>NextQuestionCommand</code> is an abstract class that allows its subclasses to fetch the next <code>FlashCard</code></p>
+</li>
+<li>
+<p><code>RateQuestionCommand</code> extends <code>NextQuestionCommand</code>, and allows the users to rate the <code>FlashCard</code></p>
+</li>
+<li>
+<p><code>SkipQuestionCommand</code> extends <code>NextQuestionCommand</code>, and allows the users to skip the question</p>
+</li>
+<li>
+<p><code>EndTestCommand</code> allows the use to end the test mode anytime, enabling normal commands such as <code>listall</code></p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The following class diagram shows the structure of the <code>StartCommand</code> class.
+The class diagrams for other test commands are omitted due to similarities.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StartCommandClassDiagram.png" alt="StartCommandClassDiagram" width="600">
+</div>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows the intended case for the <code>start</code> command:</p>
@@ -1075,10 +1111,10 @@ flashcards contained in the system will be tested.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Very efficient, with O(1) complexity removing the head of the list every time a question is tested.</p>
+<p>Pros: Very efficient, with O(1) complexity removing the head of the list every time a question is tested</p>
 </li>
 <li>
-<p>Cons: Less memory efficient than <code>ArrayList</code>.</p>
+<p>Cons: Less memory efficient than <code>ArrayList</code></p>
 </li>
 </ul>
 </div>
@@ -1088,7 +1124,7 @@ flashcards contained in the system will be tested.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: More memory efficient than <code>LinkedList</code>.</p>
+<p>Pros: More memory efficient than <code>LinkedList</code></p>
 </li>
 <li>
 <p>Cons: To obtain the same performance as <code>LinkedList</code>, the last index/size of the <code>ArrayList</code> has to be constantly tracked.
@@ -1103,15 +1139,75 @@ This slightly decreases code readability compared to the <code>LinkedList</code>
 <ul>
 <li>
 <p>Pros: Use of <code>Queue</code> interface brings simplicity to code structure and readability while having the same performance
-as a <code>LinkedList</code> implementation.</p>
+as a <code>LinkedList</code> implementation</p>
 </li>
 <li>
-<p>Cons: There will be potential coupling by using <code>Queue</code> instead of <code>List</code> interface.</p>
+<p>Cons: Potential coupling by using <code>Queue</code> instead of <code>List</code> interface</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Alternative 1</strong> is preferred due to better readability while maintaining O(1) efficiency, i.e. <code>remove(0)</code>
+instead of <code>remove(list.size() - 1)</code> in <code>ArrayList</code> to remove either ends of the list.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Aspect: Hiding of the list of <code>FlashCards</code> during test mode:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current choice):</strong> Adding a new scene in test mode:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No need to mutate the <code>ObservableList</code> to hide the <code>FlashCards</code> as the
+new scene is layered on top of it</p>
+</li>
+<li>
+<p>Cons: Use of multiple scenes will be needed, hence the implementation will be slightly complicated</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Hiding and showing <code>FlashCards</code> by changing <code>ObservableList</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simple to implement</p>
+</li>
+<li>
+<p>Cons: Potentially interferes with other functions, such as the updating of statistics</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Alternative 1</strong> is preferred as it does not interfere with the <code>ObservableList</code> to hide/show
+the list of <code>FlashCards</code>, hence reducing the potential for bugs and side-effects.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -1381,7 +1477,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
+<h2 id="devops"><a class="link" href="#devops">7. DevOps</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="DevOps.html">here</a>.</p>
@@ -1389,7 +1485,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
+<h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product scope</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Target user profile</strong>:</p>
@@ -1419,7 +1515,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
+<h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User stories</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
@@ -1613,7 +1709,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
+<h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is <code>KeyboardFlashCards</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
@@ -1679,7 +1775,7 @@ as a <code>LinkedList</code> implementation.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-edit-flashcard" class="discrete">Use case: Edit Flashcard</h3>
+<h3 id="use-case-edit-flashcard" class="discrete">Use case: Edit FlashCard</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1750,7 +1846,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
+<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non-functional requirements</a></h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -1857,7 +1953,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for manual testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -1875,7 +1971,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1910,7 +2006,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-flashcard"><a class="link" href="#deleting-a-flashcard">G.2. Deleting a flashCard</a></h3>
+<h3 id="deleting-a-flashcard"><a class="link" href="#deleting-a-flashcard">G.2. Deleting a FlashCard</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1961,4 +2057,4 @@ Expected: Application starts up as per normal. No data is loaded.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:41:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:41:48 UTC</div></div></div></body></html>

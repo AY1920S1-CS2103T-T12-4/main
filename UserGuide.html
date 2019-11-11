@@ -22,17 +22,19 @@
 <li><a href="#list-all-flashcards-code-listall-code">3.6. List all FlashCards: <code>listall</code></a></li>
 <li><a href="#list-of-category-code-list-category-code">3.7. List of category : <code>list CATEGORY</code></a></li>
 <li><a href="#add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code">3.8. Add general deadlines reminders: <code>deadline t&gt;TASK d&gt;DUE DATE</code></a></li>
-<li><a href="#set-flashcard-as-bad-with-reminder-to-re-test-code-bad-index-code">3.9. Set Flashcard as "Bad", with reminder to re-test: <code>bad index</code></a></li>
-<li><a href="#remove-deadline-from-list-code-remove-index-code">3.10. Remove deadline from list: <code>remove index</code></a></li>
-<li><a href="#show-monthly-calendar-with-all-deadlines-code-calendar-code">3.11. Show monthly calendar with all deadlines: <code>calendar</code></a></li>
-<li><a href="#test-mode-code-start-code">3.12. Test mode: <code>start</code></a></li>
-<li><a href="#export-flashcards-to-a-file-code-export-c-category-p-file_path-code">3.13. Export flashcards to a file: <code>export c&gt;CATEGORY p&gt;FILE_PATH</code></a></li>
-<li><a href="#import-flashcards-from-a-json-file-code-import-p-file_path-code">3.14. Import flashcards from a JSON file: <code>import p&gt;FILE_PATH</code></a></li>
-<li><a href="#get-the-full-list-of-commands-code-help-code">3.15. Get the full list of commands: <code>help</code></a></li>
-<li><a href="#view-overall-statistics-code-stats-code">3.16. View overall statistics: <code>stats</code></a></li>
-<li><a href="#change-color-themes-code-theme-themename-code">3.17. Change color themes: <code>theme [THEMENAME]</code></a></li>
-<li><a href="#saving-the-data">3.18. Saving the data</a></li>
-<li><a href="#exit-code-exit-code">3.19. Exit: <code>exit</code></a></li>
+<li><a href="#remove-deadline-from-list-code-remove-index-code">3.9. Remove deadline from list: <code>remove index</code></a></li>
+<li><a href="#show-monthly-calendar-with-all-deadlines-code-calendar-code">3.10. Show monthly calendar with all deadlines: <code>calendar</code></a></li>
+<li><a href="#set-flashcard-as-bad-with-deadline-to-re-test-code-bad-index-code">3.11. Set Flashcard as "Bad", with deadline to re-test: <code>bad index</code></a></li>
+<li><a href="#list-all-bad-flashcards-for-a-specific-date-code-bad-d-date-code">3.12. List all "Bad" FlashCards for a specific date <code>bad d&gt;DATE</code></a></li>
+<li><a href="#remove-a-specific-bad-flashcard-for-a-specific-date-code-bad-d-date-i-index-code">3.13. Remove a specific "Bad" FlashCard for a specific date <code>bad d&gt;DATE i&gt;INDEX</code></a></li>
+<li><a href="#test-mode-code-start-code">3.14. Test mode: <code>start</code></a></li>
+<li><a href="#export-flashcards-to-a-file-code-export-c-category-p-file_path-code">3.15. Export flashcards to a file: <code>export c&gt;CATEGORY p&gt;FILE_PATH</code></a></li>
+<li><a href="#import-flashcards-from-a-json-file-code-import-p-file_path-code">3.16. Import flashcards from a JSON file: <code>import p&gt;FILE_PATH</code></a></li>
+<li><a href="#get-the-full-list-of-commands-code-help-code">3.17. Get the full list of commands: <code>help</code></a></li>
+<li><a href="#view-overall-statistics-code-stats-code">3.18. View overall statistics: <code>stats</code></a></li>
+<li><a href="#change-color-themes-code-theme-themename-code">3.19. Change color themes: <code>theme [THEMENAME]</code></a></li>
+<li><a href="#saving-the-data">3.20. Saving the data</a></li>
+<li><a href="#exit-code-exit-code">3.21. Exit: <code>exit</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -519,7 +521,7 @@ Note: [DUE DATE] has to be in dd/MM/yyyy format.</p>
 </div>
 <div class="paragraph">
 <p>You can refer to the example below:
-<code>deadline t&gt;CS2103 Exam d&gt;10/11/2019</code></p>
+<code>deadline t&gt;CS2103 Exam d&gt;10/12/2019</code></p>
 </div>
 <div class="paragraph">
 <p>Key the above mentioned into the command box</p>
@@ -537,53 +539,33 @@ Note: [DUE DATE] has to be in dd/MM/yyyy format.</p>
 <img src="images/deadline-entered.png" alt="deadline entered" width="600">
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note that deadlines entered will be sorted in ascending order i.e. Earliest deadline on index 1
+</td>
+</tr>
+</table>
 </div>
-<div class="sect2">
-<h3 id="set-flashcard-as-bad-with-reminder-to-re-test-code-bad-index-code"><a class="link" href="#set-flashcard-as-bad-with-reminder-to-re-test-code-bad-index-code">3.9. Set Flashcard as "Bad", with reminder to re-test: <code>bad index</code></a></h3>
-<div class="paragraph">
-<p>Sets a specific flashcard as a "bad" flashcard. The flashcard will be stored as a deadline in the list on the right-side pane.</p>
-</div>
-<div class="paragraph">
-<p><code>bad 2</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Removes the deadline at the specified <code>INDEX</code> from the list. The index refers to the index number shown in the displayed deadline list on the right-sde pane. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>You can refer to the example below:</p>
-</div>
-<div class="paragraph">
-<p><code>bad 2</code></p>
-</div>
-<div class="paragraph">
-<p>Key the above mentioned into the command box</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/BadFlashcard.png" alt="BadFlashcard" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>The command will add the 2nd flashcard on the list, "How to declare a pointer in C?" as a 'bad' flashcard.
-After which, the result box will show the success message.
-A new deadline will now be shown at the right side-bar, 3 days later from the day it was entered.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/BadFlashcardAdded.png" alt="BadFlashcardAdded" width="600">
-</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Deadlines can only be after the current date. Earlier dates are invalid.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remove-deadline-from-list-code-remove-index-code"><a class="link" href="#remove-deadline-from-list-code-remove-index-code">3.10. Remove deadline from list: <code>remove index</code></a></h3>
+<h3 id="remove-deadline-from-list-code-remove-index-code"><a class="link" href="#remove-deadline-from-list-code-remove-index-code">3.9. Remove deadline from list: <code>remove index</code></a></h3>
 <div class="paragraph">
 <p>Removes a specific deadline into the deadline list. The list on the right-side pane will no longer have the deadline.</p>
 </div>
@@ -601,20 +583,183 @@ A new deadline will now be shown at the right side-bar, 3 days later from the da
 </div>
 </div>
 </div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+When a deadline of re-test questions is removed, the list of questions will still be stored in the specific date.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
-<h3 id="show-monthly-calendar-with-all-deadlines-code-calendar-code"><a class="link" href="#show-monthly-calendar-with-all-deadlines-code-calendar-code">3.11. Show monthly calendar with all deadlines: <code>calendar</code></a></h3>
+<h3 id="show-monthly-calendar-with-all-deadlines-code-calendar-code"><a class="link" href="#show-monthly-calendar-with-all-deadlines-code-calendar-code">3.10. Show monthly calendar with all deadlines: <code>calendar</code></a></h3>
 <div class="paragraph">
 <p>Shows the calendar filled with all deadlines in the month. The calendar will be shown as a new window pop-up.</p>
 </div>
 <div class="paragraph">
 <p><code>calendar</code></p>
 </div>
+<div class="paragraph">
+<p>The calendar will pop up, seen below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/calendar.png" alt="calendar" width="400" height="500">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Calendar does not show the specific deadline names, but an overview of all your deadlines for the month ahead.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
-<h3 id="test-mode-code-start-code"><a class="link" href="#test-mode-code-start-code">3.12. Test mode: <code>start</code></a></h3>
+<h3 id="set-flashcard-as-bad-with-deadline-to-re-test-code-bad-index-code"><a class="link" href="#set-flashcard-as-bad-with-deadline-to-re-test-code-bad-index-code">3.11. Set Flashcard as "Bad", with deadline to re-test: <code>bad index</code></a></h3>
+<div class="paragraph">
+<p>Sets a specific flashcard as a "bad" flashcard. The flashcard will be stored as a deadline in the list on the right-side pane.</p>
+</div>
+<div class="paragraph">
+<p><code>bad 2</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Sets the FlashCard specified at <code>INDEX</code> as 'bad'. The index refers to the index number shown in the displayed deadline list on the right-sde pane. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can refer to the example below.</p>
+</div>
+<div class="paragraph">
+<p><code>bad 2</code></p>
+</div>
+<div class="paragraph">
+<p>Key the above mentioned into the command box</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BadFlashcard.png" alt="BadFlashcard" width="550">
+</div>
+</div>
+<div class="paragraph">
+<p>The command will add the 2nd flashcard on the list, "How to declare a pointer in C?" as a 'bad' flashcard.
+After which, the result box will show the success message.
+A new deadline will now be shown at the right side-bar, 3 days later from the day it was entered.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BadFlashcardAdded.png" alt="BadFlashcardAdded" width="550">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Bad Questions will be added to a deadline which is due 3 days later. This is an approximated value that based on
+the theory of <a href="https://en.wikipedia.org/wiki/Spaced_repetition">Spaced Repetition</a>, referring to Ebbinghaus Forgetting Curve by Hermann Ebbinghaus who hypothesised this theory in 1985.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-all-bad-flashcards-for-a-specific-date-code-bad-d-date-code"><a class="link" href="#list-all-bad-flashcards-for-a-specific-date-code-bad-d-date-code">3.12. List all "Bad" FlashCards for a specific date <code>bad d&gt;DATE</code></a></h3>
+<div class="paragraph">
+<p>List all the "Bad" rated FlashCards from a specific date. The FlashCard Questions will be shown.</p>
+</div>
+<div class="paragraph">
+<p><code>listbad d&gt;12/11/2019</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/listbad.png" alt="listbad" width="600">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The automated test mode for the "Bad" FlashCards is not functional at this point and will be implemented in KFC v2.0.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="remove-a-specific-bad-flashcard-for-a-specific-date-code-bad-d-date-i-index-code"><a class="link" href="#remove-a-specific-bad-flashcard-for-a-specific-date-code-bad-d-date-i-index-code">3.13. Remove a specific "Bad" FlashCard for a specific date <code>bad d&gt;DATE i&gt;INDEX</code></a></h3>
+<div class="paragraph">
+<p>You can remove a specific "Bad" rated <code>FlashCard</code> from the list</p>
+</div>
+<div class="paragraph">
+<p><code>removebad d&gt;12/11/2019 i&gt;2</code></p>
+</div>
+<div class="paragraph">
+<p>You can refer to the example above.</p>
+</div>
+<div class="paragraph">
+<p>As seen from before, after listing all the "Bad" rated FlashCards for a specific date using <code>listbad d&gt;12/11/2019</code>, you can observe the full list as seen below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/listbad.png" alt="listbad" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Afterwards, you can choose to remove as specific "Bad" rated FlashCard from that list. Using the example <code>removebad d&gt;12/11/2019 i&gt;2</code>, you can observe this.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/removebad.png" alt="removebad" width="550">
+</div>
+</div>
+<div class="paragraph">
+<p>Once removed, a success message will be shown!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/removebadsuccess.png" alt="removebadsuccess" width="550">
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Using the <code>remove</code> command to remove a "ToDo: Bad Questions" Deadline does not remove all the "Bad" <code>FlashCard</code> stored for that date.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="test-mode-code-start-code"><a class="link" href="#test-mode-code-start-code">3.14. Test mode: <code>start</code></a></h3>
 <div class="sect3">
-<h4 id="start-command-code-start-category-code"><a class="link" href="#start-command-code-start-category-code">3.12.1. Start command: <code>start [category]</code></a></h4>
+<h4 id="start-command-code-start-category-code"><a class="link" href="#start-command-code-start-category-code">3.14.1. Start command: <code>start [category]</code></a></h4>
 <div class="paragraph">
 <p>This command starts the flashcard test mode. If no parameter is supplied, the application will test all
 available FlashCards.</p>
@@ -641,13 +786,13 @@ be tested.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="see-flashcard-answer-code-ans-code"><a class="link" href="#see-flashcard-answer-code-ans-code">3.12.2. See flashcard answer: <code>ans</code></a></h4>
+<h4 id="see-flashcard-answer-code-ans-code"><a class="link" href="#see-flashcard-answer-code-ans-code">3.14.2. See flashcard answer: <code>ans</code></a></h4>
 <div class="paragraph">
 <p>This command allows you to check the answer of the flashcard question.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="rate-flashcard-code-rate-easy-good-hard-code"><a class="link" href="#rate-flashcard-code-rate-easy-good-hard-code">3.12.3. Rate flashcard: <code>rate [easy/good/hard]</code></a></h4>
+<h4 id="rate-flashcard-code-rate-easy-good-hard-code"><a class="link" href="#rate-flashcard-code-rate-easy-good-hard-code">3.14.3. Rate flashcard: <code>rate [easy/good/hard]</code></a></h4>
 <div class="paragraph">
 <p>This command rates the flashcard, depending on how well you answered the question i.e. easy, good, hard.</p>
 </div>
@@ -656,21 +801,21 @@ be tested.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="skip-question-code-skip-code"><a class="link" href="#skip-question-code-skip-code">3.12.4. Skip question: <code>skip</code></a></h4>
+<h4 id="skip-question-code-skip-code"><a class="link" href="#skip-question-code-skip-code">3.14.4. Skip question: <code>skip</code></a></h4>
 <div class="paragraph">
 <p>If you would like to manually filter and skip questions, the <code>skip</code> command helps you to skip FlashCards,
 saving you extra time.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="end-test-code-end-code"><a class="link" href="#end-test-code-end-code">3.12.5. End test: <code>end</code></a></h4>
+<h4 id="end-test-code-end-code"><a class="link" href="#end-test-code-end-code">3.14.5. End test: <code>end</code></a></h4>
 <div class="paragraph">
 <p>You can stop the test any time simply by typing <code>end</code>.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-flashcards-to-a-file-code-export-c-category-p-file_path-code"><a class="link" href="#export-flashcards-to-a-file-code-export-c-category-p-file_path-code">3.13. Export flashcards to a file: <code>export c&gt;CATEGORY p&gt;FILE_PATH</code></a></h3>
+<h3 id="export-flashcards-to-a-file-code-export-c-category-p-file_path-code"><a class="link" href="#export-flashcards-to-a-file-code-export-c-category-p-file_path-code">3.15. Export flashcards to a file: <code>export c&gt;CATEGORY p&gt;FILE_PATH</code></a></h3>
 <div class="paragraph">
 <p>You can use this command to export all your FlashCards in a particular category, to an external file.
 This may be useful if you wish to publish your FlashCards somewhere, print them out, or share them with a friend.
@@ -768,7 +913,7 @@ Please take care not to modify exported JSON files - your friends might have tro
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-flashcards-from-a-json-file-code-import-p-file_path-code"><a class="link" href="#import-flashcards-from-a-json-file-code-import-p-file_path-code">3.14. Import flashcards from a JSON file: <code>import p&gt;FILE_PATH</code></a></h3>
+<h3 id="import-flashcards-from-a-json-file-code-import-p-file_path-code"><a class="link" href="#import-flashcards-from-a-json-file-code-import-p-file_path-code">3.16. Import flashcards from a JSON file: <code>import p&gt;FILE_PATH</code></a></h3>
 <div class="paragraph">
 <p>You can use this command to import FlashCards from a file that you or someone else had exported to earlier.
 We currently only support importing from JSON ('.json') files.<br>
@@ -814,7 +959,7 @@ Duplicate FlashCards will not be imported. <em>KFC</em> will notify you if it de
 </div>
 </div>
 <div class="sect2">
-<h3 id="get-the-full-list-of-commands-code-help-code"><a class="link" href="#get-the-full-list-of-commands-code-help-code">3.15. Get the full list of commands: <code>help</code></a></h3>
+<h3 id="get-the-full-list-of-commands-code-help-code"><a class="link" href="#get-the-full-list-of-commands-code-help-code">3.17. Get the full list of commands: <code>help</code></a></h3>
 <div class="paragraph">
 <p>This command allows you to view all the commands available in the application.<br>
 <code>help</code></p>
@@ -852,7 +997,7 @@ Duplicate FlashCards will not be imported. <em>KFC</em> will notify you if it de
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-overall-statistics-code-stats-code"><a class="link" href="#view-overall-statistics-code-stats-code">3.16. View overall statistics: <code>stats</code></a></h3>
+<h3 id="view-overall-statistics-code-stats-code"><a class="link" href="#view-overall-statistics-code-stats-code">3.18. View overall statistics: <code>stats</code></a></h3>
 <div class="paragraph">
 <p>This command allows you to view three different type of statistics.<br>
 <code>stats</code></p>
@@ -899,7 +1044,7 @@ Duplicate FlashCards will not be imported. <em>KFC</em> will notify you if it de
 </div>
 </div>
 <div class="sect2">
-<h3 id="change-color-themes-code-theme-themename-code"><a class="link" href="#change-color-themes-code-theme-themename-code">3.17. Change color themes: <code>theme [THEMENAME]</code></a></h3>
+<h3 id="change-color-themes-code-theme-themename-code"><a class="link" href="#change-color-themes-code-theme-themename-code">3.19. Change color themes: <code>theme [THEMENAME]</code></a></h3>
 <div class="paragraph">
 <p>This command allows you to change the theme of the app.</p>
 </div>
@@ -950,14 +1095,14 @@ Duplicate FlashCards will not be imported. <em>KFC</em> will notify you if it de
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.18. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.20. Saving the data</a></h3>
 <div class="paragraph">
 <p>Flashcard data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exit-code-exit-code"><a class="link" href="#exit-code-exit-code">3.19. Exit: <code>exit</code></a></h3>
+<h3 id="exit-code-exit-code"><a class="link" href="#exit-code-exit-code">3.21. Exit: <code>exit</code></a></h3>
 <div class="paragraph">
 <p>This command allows you to exit the application.</p>
 </div>
@@ -1104,4 +1249,4 @@ e.g.  <code>start Mathematics</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 05:49:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 06:13:20 UTC</div></div></div></body></html>

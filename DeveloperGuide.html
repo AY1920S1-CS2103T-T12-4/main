@@ -24,13 +24,14 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#add-feature">4.1. Add feature</a></li>
-<li><a href="#deadline-feature">4.2. Deadline feature</a></li>
-<li><a href="#exporting-importing-of-flashcards">4.3. Exporting/Importing of FlashCards</a></li>
-<li><a href="#test-mode">4.4. Test mode</a></li>
-<li><a href="#statistics-feature">4.5. Statistics feature</a></li>
-<li><a href="#help-feature">4.6. Help feature</a></li>
-<li><a href="#logging">4.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
+<li><a href="#add-and-remove-deadline-feature">4.2. Add and Remove Deadline feature</a></li>
+<li><a href="#bad-code-flashcard-code-feature">4.3. Bad <code>FlashCard</code> feature</a></li>
+<li><a href="#exporting-importing-of-flashcards">4.4. Exporting/Importing of FlashCards</a></li>
+<li><a href="#test-mode">4.5. Test mode</a></li>
+<li><a href="#statistics-feature">4.6. Statistics feature</a></li>
+<li><a href="#help-feature">4.7. Help feature</a></li>
+<li><a href="#logging">4.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -510,12 +511,62 @@ In addition, there was limited time.
 </div>
 </div>
 <div class="sect2">
-<h3 id="deadline-feature"><a class="link" href="#deadline-feature">4.2. Deadline feature</a></h3>
+<h3 id="add-and-remove-deadline-feature"><a class="link" href="#add-and-remove-deadline-feature">4.2. Add and Remove Deadline feature</a></h3>
 <div class="sect3">
 <h4 id="implementation-3"><a class="link" href="#implementation-3">4.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The deadline feature allows the user to add tasks with specific due dates, with a compulsory field
 of <code>TASK</code> and <code>DUE DATE</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following are new classes used to integrate the Deadline feature.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Deadline</code>&#8201;&#8212;&#8201;Object class, containing important information such as the <code>Task</code> and <code>DueDate</code>.</p>
+</li>
+<li>
+<p><code>UniqueDeadlineList</code>&#8201;&#8212;&#8201;Contains a <code>ObservableList</code> of <code>Deadline</code> objects. The list will be initialised from the storage
+at start up of application. A <code>Comparator</code> class was added to arrange the list according to ascending <code>DueDate</code>.</p>
+</li>
+<li>
+<p><code>DeadlineCommand</code>&#8201;&#8212;&#8201; Embodies the <code>Deadline</code> command by the user. It will hold all the information about
+the <code>Deadline</code> that will be added.</p>
+</li>
+<li>
+<p><code>DeadlineCommandParser</code>&#8201;&#8212;&#8201;Parses user input and uses it to construct a <code>DeadlineCommand</code> instance.</p>
+</li>
+<li>
+<p><code>RemoveCommand</code>&#8201;&#8212;&#8201; Holds information on which <code>Deadline</code> to be removed. Contains an <code>Index</code> object.</p>
+</li>
+<li>
+<p><code>RemoveCommandParser</code>&#8201;&#8212;&#8201;Parses user input and uses it to construct a <code>RemoveCommand</code> instance.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition, various Exception classes are added to handle possible runtime errors while adding or removing <code>Deadline</code>.
+This is done to ensure that the user specified <code>Deadline</code> is valid for storage and processing.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DuplicateDeadlineException</code>&#8201;&#8212;&#8201;This exception is thrown when the user attempts to add an identical <code>Deadline</code> object
+is added into the existing <code>UniqueDeadlineList</code>.</p>
+</li>
+<li>
+<p><code>DeadlineNotFoundException</code>&#8201;&#8212;&#8201;This exception is thrown when the user attempts to remove a <code>Deadline</code> object that does
+not exist in the <code>UniqueDeadlineList</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For the add <code>Deadline</code> feature - <code>deadline</code>, the following are the prefixes for each field<br>
+- t&gt; : <code>TASK</code><br>
+- d&gt; : <code>DUE DATE</code>
+- For <code>DUE DATE</code> : Date format must be in dd/MM/yyyy
+i.e. 01/01/2020</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -524,34 +575,39 @@ of <code>TASK</code> and <code>DUE DATE</code>.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Following are the prefixes for each field:<br>
-- t&gt; : <code>TASK</code><br>
-- d&gt; : <code>DUE DATE</code>
-- For <code>DUE DATE</code> : Date format must be in dd/MM/yyyy
-i.e. 01/01/2019
+The upper cased <code>Deadline</code> represents the object class that contains <code>Task</code> and <code>DueDate</code>, while the lower-cased
+<code>deadline</code> represents the command used to add <code>Deadline</code> objects into our storage.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario of <code>deadline</code> :</p>
+<p>Given below is an example usage scenario of <code>deadline</code> command:</p>
 </div>
 <div class="paragraph">
-<p>The user executes <code>deadline t&gt;Complete Homework d&gt;04/10/2019</code> to add new deadline to the task
-of completing homework by the 4th October 2019.</p>
+<p>The user executes <code>deadline t&gt;Complete Homework d&gt;04/10/2020</code> to add new deadline to the task
+of completing homework by the 4th October 2020.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The deadline feature does not allow adding of duplicate/identical deadlines. Also, new deadlines must
+be later than the current date.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the deadline operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeadlineSequenceDiagram.png" alt="DeadlineSequenceDiagram" height="300">
+<img src="images/DeadlineSequenceDiagram.png" alt="DeadlineSequenceDiagram">
 </div>
-</div>
-<div class="paragraph">
-<p>The deadline feature does not allow adding of duplicate/identical deadlines.
-i.e. A duplicated/identical deadline is one that has identical fields for both the task and the due date.
-If the duplicated/identical deadline exists in the storage, an error will be shown.</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes a deadline command:</p>
@@ -560,6 +616,10 @@ If the duplicated/identical deadline exists in the storage, an error will be sho
 <div class="content">
 <img src="images/DeadlineActivityDiagram.png" alt="DeadlineActivityDiagram" width="320" height="480">
 </div>
+</div>
+<div class="paragraph">
+<p>The Remove Deadline command <code>remove</code> works in a similar way, and hence the Sequence and Activity diagrams
+will be omitted for redundancy.</p>
 </div>
 </div>
 <div class="sect3">
@@ -574,7 +634,7 @@ prefixes like <code>t&gt;</code> and <code>d&gt;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easier to implement.</p>
+<p>Pros: Easier to implement</p>
 </li>
 <li>
 <p>Cons: User might miss the prefixes hence adding wrong deadlines</p>
@@ -584,14 +644,14 @@ prefixes like <code>t&gt;</code> and <code>d&gt;</code></p>
 </li>
 <li>
 <p><strong>Alternative 2:</strong> Make use of the GUI. after user execute <code>deadline</code> command,
-an <strong>add deadline window</strong> would pop up with a section for individual fields.</p>
+an <strong>add deadline window</strong> would pop up with a section for individual fields</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: More user friendly.</p>
+<p>Pros: More user friendly</p>
 </li>
 <li>
-<p>Cons: Difficult to implement.</p>
+<p>Cons: Difficult to implement. Might be slower for the user to key in deadlines as compared to using a one liner with prefixes</p>
 </li>
 </ul>
 </div>
@@ -602,9 +662,124 @@ an <strong>add deadline window</strong> would pop up with a section for individu
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting-importing-of-flashcards"><a class="link" href="#exporting-importing-of-flashcards">4.3. Exporting/Importing of FlashCards</a></h3>
+<h3 id="bad-code-flashcard-code-feature"><a class="link" href="#bad-code-flashcard-code-feature">4.3. Bad <code>FlashCard</code> feature</a></h3>
 <div class="sect3">
-<h4 id="about"><a class="link" href="#about">4.3.1. About</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.3.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>bad</code> feature allows the user to rate specific <code>FlashCards</code> as 'bad' if they did not perform well on them.
+These rated FlashCards will then we stored as a <code>Deadline</code> dated 3 days later, where the user will then be reminded to
+re-test them.</p>
+</div>
+<div class="paragraph">
+<p>This is a simple implementation of a type of <a href="https://en.wikipedia.org/wiki/Evidence-based_education">evidence-based</a>
+learning technique known as <a href="https://en.wikipedia.org/wiki/Spaced_repetition">Spaced Repetition</a>. This is used as a form of
+active recall technique which is said to overcome forgetting, theorised by Hermann Ebbinghaus, and his theory of
+<a href="https://en.wikipedia.org/wiki/Forgetting_curve">Forgetting Curve</a>.</p>
+</div>
+<div class="paragraph">
+<p>The following are new classes used to integrate the Bad <code>FlashCard</code> feature.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BadQuestions</code>&#8201;&#8212;&#8201;Main object class for the feature. Makes use of a <code>HashMap</code> of key-value pairing of a Date <code>String</code>
+that is converted to a <code>LocalDate</code> class as the key, and the value is a <code>ArrayList</code> of <code>FlashCards</code>. This allows ease of
+search for "Bad" rated <code>FlashCards</code> based on the date stored.</p>
+</li>
+<li>
+<p><code>BadCommand</code>&#8201;&#8212;&#8201;Contains a <code>ObservableList</code> of <code>Deadline</code> objects. The list will be initialised from the storage
+at start up of application. A <code>Comparator</code> class was added to arrange the list according to ascending <code>DueDate</code>.</p>
+</li>
+<li>
+<p><code>ListBadCommand</code>&#8201;&#8212;&#8201; Embodies the <code>Deadline</code> command by the user. It will hold all the information about
+the <code>Deadline</code> that will be added.</p>
+</li>
+<li>
+<p><code>RemoveBadCommand</code>&#8201;&#8212;&#8201;Parses user input and uses it to construct a <code>DeadlineCommand</code> instance.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition, two Exception classes are added to handle possible runtime errors while adding new Deadlines.
+This is done to ensure that the user specified Deadline is valid for storage and processing.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NoBadFlashCardException</code>&#8201;&#8212;&#8201;This exception is thrown when the user attempts to add an identical <code>Deadline</code> object
+is added into the existing <code>UniqueDeadlineList</code>.</p>
+</li>
+<li>
+<p><code>DuplicateFlashCardAndDeadlineException</code>&#8201;&#8212;&#8201;This exception is thrown when the user attempts to add an identical <code>Deadline</code> object
+is added into the existing <code>UniqueDeadlineList</code>.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Following are the prefixes for each field:<br>
+- <code>bad INDEX</code><br>
+i.e. bad 2
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of <code>bad INDEX</code> :</p>
+</div>
+<div class="paragraph">
+<p>The user executes <code>bad 2</code> to rate the second <code>FlashCard</code> as a "Bad".</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-store-bad-flashcard-in-storage"><a class="link" href="#aspect-how-to-store-bad-flashcard-in-storage">Aspect: How to store "Bad" FlashCard in storage</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Use a <code>HashMap</code> with the specified date as the key. Store <code>FlashCard</code> as an
+<code>ArrayList</code>. Use of the Google Gson library to save and fetch <code>HashMap</code> from and to Json format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier for searching and sorting purposes, as entire <code>FlashCard</code> object is stored and easily
+referred using the date as key. Can fetch more than just the answer of the <code>FlashCard</code></p>
+</li>
+<li>
+<p>Cons: Separated from the <code>FlashCard</code> <code>UniqueFlashCardList</code>, which might confuse the user</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use similar implementation as how <code>FlashCard</code> and <code>Deadline</code> objects are stored in storage;
+use a <code>ObservableList</code> that can be displayed in GUI.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement, clearer for user to see</p>
+</li>
+<li>
+<p>Cons: Difficult to manipulate in the future, especially when we want to implement</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exporting-importing-of-flashcards"><a class="link" href="#exporting-importing-of-flashcards">4.4. Exporting/Importing of FlashCards</a></h3>
+<div class="sect3">
+<h4 id="about"><a class="link" href="#about">4.4.1. About</a></h4>
 <div class="paragraph">
 <p>Our application currently supports the exporting of <code>FlashCards</code> to two file formats ('.docx' and '.json'), and importing of <code>FlashCards</code> from one
 file format ('.json'). Through these features, a user can easily transfer their <em>KFC</em> data to an external file, and another user
@@ -612,7 +787,7 @@ can just as easily transfer the same data back into their own copy of <em>KFC</e
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">4.3.2. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">4.4.2. Implementation</a></h4>
 <div class="paragraph">
 <p>The Export/Import feature is primarily facilitated by the following classes:</p>
 </div>
@@ -686,19 +861,8 @@ Not all <code>ExportPath</code> subclasses will implement the <code>importFrom()
 <p>Because <code>ExportPath</code> follows the factory pattern, any class that deals with <code>ExportPath</code> or its subclasses need not know which particular subclass it is
 dealing with exactly. Each <code>ExportPath</code> subclass will implement its own <code>export</code> and <code>import</code> methods, which, when called, will perform the required operations
 without any further hassle. Of course, due to the Separation of Concerns principle, the <code>ExportPath</code> subclasses will not handle these directly.
-Instead, they will delegate the work to other utility classes, which, in turn, interface with the external libraries necessary to complete the task.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The exporting/importing functionality is extremely easy to extend - you can add support for a new format simply through the creation of new subclasses of <code>ExportPath</code>.
-</td>
-</tr>
-</table>
+Instead, they will delegate the work to other utility classes, which, in turn, interface with the external libraries necessary to complete the task.
+TIP: The exporting/importing functionality is extremely easy to extend - you can add support for a new format simply through the creation of new subclasses of <code>ExportPath</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -761,7 +925,7 @@ when the user tries to <code>export</code> to a document file:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.3. Design considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.3. Design considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
@@ -865,13 +1029,13 @@ when the user tries to <code>export</code> to a document file:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="test-mode"><a class="link" href="#test-mode">4.4. Test mode</a></h3>
+<h3 id="test-mode"><a class="link" href="#test-mode">4.5. Test mode</a></h3>
 <div class="paragraph">
 <p>Test mode allows users to start a flash card test from a selected list of tags. If no parameters are provided, all
 flashcards contained in the system will be tested.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">4.4.1. Implementation</a></h4>
+<h4 id="implementation-6"><a class="link" href="#implementation-6">4.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>This feature is supported by the following classes:</p>
 </div>
@@ -901,7 +1065,7 @@ flashcards contained in the system will be tested.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.2. Design considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.2. Design considerations</a></h4>
 <div class="paragraph">
 <p>Aspect: Data structure to support <code>FlashCardTestModel</code>:</p>
 </div>
@@ -953,12 +1117,12 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="statistics-feature"><a class="link" href="#statistics-feature">4.5. Statistics feature</a></h3>
+<h3 id="statistics-feature"><a class="link" href="#statistics-feature">4.6. Statistics feature</a></h3>
 <div class="paragraph">
 <p>The statistics feature allows users to view the overall statistics in a single pop-up window.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-6"><a class="link" href="#implementation-6">4.5.1. Implementation</a></h4>
+<h4 id="implementation-7"><a class="link" href="#implementation-7">4.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>This feature is supported by the following classes:</p>
 </div>
@@ -1013,7 +1177,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.2. Design considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.2. Design considerations</a></h4>
 <div class="paragraph">
 <p>The following aspect was a consideration when designing the statistics feature.</p>
 </div>
@@ -1056,12 +1220,12 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="help-feature"><a class="link" href="#help-feature">4.6. Help feature</a></h3>
+<h3 id="help-feature"><a class="link" href="#help-feature">4.7. Help feature</a></h3>
 <div class="paragraph">
 <p>The help feature allows a user to refer to a summary of commands supported by the application.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-7"><a class="link" href="#implementation-7">4.6.1. Implementation</a></h4>
+<h4 id="implementation-8"><a class="link" href="#implementation-8">4.7.1. Implementation</a></h4>
 <div class="paragraph">
 <p>This feature is supported by the following classes:</p>
 </div>
@@ -1113,7 +1277,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.2. Design considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.7.2. Design considerations</a></h4>
 <div class="paragraph">
 <p>The following aspect was a consideration when designing the help feature.</p>
 </div>
@@ -1156,14 +1320,14 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.7. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1194,7 +1358,7 @@ as a <code>LinkedList</code> implementation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1805,4 +1969,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 05:49:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 06:13:20 UTC</div></div></div></body></html>

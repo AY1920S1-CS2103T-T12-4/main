@@ -3,57 +3,130 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">KeyboardFlashCards</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T12-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Dalson Tan - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-keyboardflashcards"><a class="link" href="#project-keyboardflashcards">PROJECT: KeyboardFlashCards</a></h2>
 <div class="sectionbody">
-<hr>
+
 </div>
 </div>
 <div class="sect1">
 <h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This project portfolio&#8230;&#8203;</p>
+<p>This project portfolio highlights the contributions I have made in for my project, <em>KeyboardFlashCards</em>, also know as KFC.
+A key part of our software engineering module in the National University of Singapore, we started of by morphing an addressbook
+application into our very own product, a Flashcard manager using purely the Command-Line Interface (CLI).
+This was a key requirement of the project, as we had to ensure users are to only utilise the application by keying in commands
+exclusively using the keyboard. In addition, this is a desktop application, used only on the computer.</p>
+</div>
+<div class="paragraph">
+<p>This is a 6 week software engineering project, where we worked in a team of 5 students from the NUS School of Computing.
+Our team consists of 3 Computer Science Second Year students and 2 Computer Engineering Final Year students (myself included).</p>
+</div>
+<div class="paragraph">
+<p>Our finalised product, <em>KeyboardFlashCards</em> is a educational tool that aims to make remembering things easy. We wanted
+to provide an efficient way to study to our peers to NUS School of Computing. As such, we came up with an easy to use,
+FlashCard manager using CLI for efficient and quick storage of important questions to aid revision.</p>
+</div>
+<div class="paragraph">
+<p>Note the following symbols and formatting used in this document.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This section explains the i.e. prefixes used in our application and what it represents,
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+This section is used clarify certain possible assumptions the user/developer might have
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section shows a summary of the personal contributions I had on our project. Contributions included enhancements to
+the application with new major and minor features, project management implementations and additions to the documentation
+in the User Guide and Developer Guide.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement #1</strong>: added <strong>the ability to store deadlines in a schedule</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: This feature allows the user to store specific tasks as deadlines that will be reminded to the user.
+The user can now add specific dates that are important to their study and revision i.e. Exam dates, revision dates.
+In addition, the user can have an overview of all upcoming deadlines by looking at the pop-up calendar.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: This feature improves the product significantly as the user can now ensure they would not miss
+important dates and can now allocate their study and revision schedule according to these dates.</p>
 </li>
 <li>
 <p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
 </li>
 <li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Credits: Credit goes to <a href="https://github.com/SirGoose3432/javafx-calendar">SirGoose3232</a> for the JavaFX Calendar GUI which was adapted before adding deadlines.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
-</li>
-<li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
-</li>
-<li>
-<p><strong>Other contributions</strong>:</p>
+<p><strong>Major enhancement #2</strong>: added <strong>the ability to perform spaced repetition of FlashCards</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
+<p>What it does: This feature allows the user to store specific tasks as deadlines that will be reminded to the user.
+The user can now add specific dates that are important to their study and revision i.e. Exam dates, revision dates.
+In addition, the user can have an overview of all upcoming deadlines by looking at the pop-up calendar.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly as the user keep track of FlashCard questions that they
+are weak at and be reminded to do these questions again.
+important dates and can now allocate their study and revision schedule according to these dates.</p>
+</li>
+<li>
+<p>Highlights: This feature is not included by chance. I wanted to incorporate an effective way to revise that is proven
+by research. I decided to implement spaced repetition as it was an <a href="https://en.wikipedia.org/wiki/Evidence-based_education">evidence-based</a>
+learning technique</p>
+</li>
+<li>
+<p>Credits: Credit goes to the theory of <a href="https://en.wikipedia.org/wiki/Forgetting_curve">Forgetting curve</a> by
+Hermann Ebbinghaus, who theorised that training in mnemonic techniques can help overcome speed of forgetting.
+One effective way is the use of active recall, especially using <a href="https://en.wikipedia.org/wiki/Spaced_repetition">Spaced Repetition</a>
+I implemented a simple version of spaced repetition through rating of "Bad" FlashCards.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=dalsontws&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=dalsontws&amp;tabRepo=AY1920S1-CS2103T-T12-4%2Fmain%5Bmaster%5D/">Contributed code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Project management</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allocated various tasks and issues to the team (<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+author%3Adalsontws/">Issues</a>)</p>
 </li>
 </ul>
 </div>
@@ -63,52 +136,44 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Added new panel with Deadlines the GUI color scheme (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/105/">#105</a>, <a href="https://github.com">#34</a>)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Documentation:</p>
+<p>Documentation</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Did cosmetic tweaks to existing contents of the User Guide: (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/147/">#147</a>)</p>
+</li>
+<li>
+<p>Added the value proposition of our product, our target user profiles and user stories: (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/31">#31</a>)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Community:</p>
+<p>Community</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>PRs reviewed (with non-trivial review comments): (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/151/">#151</a>)</p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+<p>Reported bugs and suggestions for other teams in the class (Pull requests <a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/23/">23</a>
+<a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/53/">53</a>, <a href="https://github.com/nus-cs2103-AY1920S1/duke/pull/177/">177</a>, <a href="https://github.com/nus-cs2103-AY1920S1/duke">246</a>)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Tools:</p>
+<p>Tools</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Integrated a third party library (Gson) to the project (<a href="https://github.com/AY1920S1-CS2103T-T12-4/main/pull/150/">#150</a>)</p>
 </li>
 </ul>
 </div>
@@ -117,9 +182,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -136,6 +198,249 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code"><a class="link" href="#add-general-deadlines-reminders-code-deadline-t-task-d-due-date-code">Add general deadlines reminders: <code>deadline t&gt;TASK d&gt;DUE DATE</code></a></h3>
+<div class="paragraph">
+<p>This command adds a general deadline into a list of deadlines. The list will be display on the right-side pane.
+Note: [DUE DATE] has to be in dd/MM/yyyy format.</p>
+</div>
+<div class="paragraph">
+<p>You can refer to the example below:
+<code>deadline t&gt;CS2103 Exam d&gt;10/12/2019</code></p>
+</div>
+<div class="paragraph">
+<p>Key the above mentioned into the command box</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/deadline-entry.png" alt="deadline entry" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>After which, the result box will show the success message. The new deadline will now be shown at the right side-bar.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/deadline-entered.png" alt="deadline entered" width="600">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note that deadlines entered will be sorted in ascending order i.e. Earliest deadline on index 1
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Deadlines can only be after the current date. Earlier dates are invalid.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="remove-deadline-from-list-code-remove-index-code"><a class="link" href="#remove-deadline-from-list-code-remove-index-code">Remove deadline from list: <code>remove index</code></a></h3>
+<div class="paragraph">
+<p>Removes a specific deadline into the deadline list. The list on the right-side pane will no longer have the deadline.</p>
+</div>
+<div class="paragraph">
+<p><code>remove 2</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Removes the deadline at the specified <code>INDEX</code> from the list. The index refers to the index number shown in the displayed deadline list on the right-sde pane. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+When a deadline of re-test questions is removed, the list of questions will still be stored in the specific date.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="show-monthly-calendar-with-all-deadlines-code-calendar-code"><a class="link" href="#show-monthly-calendar-with-all-deadlines-code-calendar-code">Show monthly calendar with all deadlines: <code>calendar</code></a></h3>
+<div class="paragraph">
+<p>Shows the calendar filled with all deadlines in the month. The calendar will be shown as a new window pop-up.</p>
+</div>
+<div class="paragraph">
+<p><code>calendar</code></p>
+</div>
+<div class="paragraph">
+<p>The calendar will pop up, seen below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/calendar.png" alt="calendar" width="400" height="500">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Calendar does not show the specific deadline names, but an overview of all your deadlines for the month ahead.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="set-flashcard-as-bad-with-deadline-to-re-test-code-bad-index-code"><a class="link" href="#set-flashcard-as-bad-with-deadline-to-re-test-code-bad-index-code">Set Flashcard as "Bad", with deadline to re-test: <code>bad index</code></a></h3>
+<div class="paragraph">
+<p>Sets a specific flashcard as a "bad" flashcard. The flashcard will be stored as a deadline in the list on the right-side pane.</p>
+</div>
+<div class="paragraph">
+<p><code>bad 2</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Sets the FlashCard specified at <code>INDEX</code> as 'bad'. The index refers to the index number shown in the displayed deadline list on the right-sde pane. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can refer to the example below.</p>
+</div>
+<div class="paragraph">
+<p><code>bad 2</code></p>
+</div>
+<div class="paragraph">
+<p>Key the above mentioned into the command box</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BadFlashcard.png" alt="BadFlashcard" width="550">
+</div>
+</div>
+<div class="paragraph">
+<p>The command will add the 2nd flashcard on the list, "How to declare a pointer in C?" as a 'bad' flashcard.
+After which, the result box will show the success message.
+A new deadline will now be shown at the right side-bar, 3 days later from the day it was entered.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BadFlashcardAdded.png" alt="BadFlashcardAdded" width="550">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Bad Questions will be added to a deadline which is due 3 days later. This is an approximated value that based on
+the theory of <a href="https://en.wikipedia.org/wiki/Spaced_repetition">Spaced Repetition</a>, referring to Ebbinghaus Forgetting Curve by Hermann Ebbinghaus who hypothesised this theory in 1985.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-all-bad-flashcards-for-a-specific-date-code-bad-d-date-code"><a class="link" href="#list-all-bad-flashcards-for-a-specific-date-code-bad-d-date-code">List all "Bad" FlashCards for a specific date <code>bad d&gt;DATE</code></a></h3>
+<div class="paragraph">
+<p>List all the "Bad" rated FlashCards from a specific date. The FlashCard Questions will be shown.</p>
+</div>
+<div class="paragraph">
+<p><code>listbad d&gt;12/11/2019</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/listbad.png" alt="listbad" width="600">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The automated test mode for the "Bad" FlashCards is not functional at this point and will be implemented in KFC v2.0.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="remove-a-specific-bad-flashcard-for-a-specific-date-code-bad-d-date-i-index-code"><a class="link" href="#remove-a-specific-bad-flashcard-for-a-specific-date-code-bad-d-date-i-index-code">Remove a specific "Bad" FlashCard for a specific date <code>bad d&gt;DATE i&gt;INDEX</code></a></h3>
+<div class="paragraph">
+<p>You can remove a specific "Bad" rated <code>FlashCard</code> from the list</p>
+</div>
+<div class="paragraph">
+<p><code>removebad d&gt;12/11/2019 i&gt;2</code></p>
+</div>
+<div class="paragraph">
+<p>You can refer to the example above.</p>
+</div>
+<div class="paragraph">
+<p>As seen from before, after listing all the "Bad" rated FlashCards for a specific date using <code>listbad d&gt;12/11/2019</code>, you can observe the full list as seen below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/listbad.png" alt="listbad" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Afterwards, you can choose to remove as specific "Bad" rated FlashCard from that list. Using the example <code>removebad d&gt;12/11/2019 i&gt;2</code>, you can observe this.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/removebad.png" alt="removebad" width="550">
+</div>
+</div>
+<div class="paragraph">
+<p>Once removed, a success message will be shown!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/removebadsuccess.png" alt="removebadsuccess" width="550">
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Using the <code>remove</code> command to remove a "ToDo: Bad Questions" Deadline does not remove all the "Bad" <code>FlashCard</code> stored for that date.
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -152,101 +457,270 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="test-mode"><a class="link" href="#test-mode">Test mode</a></h3>
-<div class="paragraph">
-<p>Test mode allows users to start a flash card test from a selected list of tags. If no parameters are provided, all
-flashcards contained in the system will be tested.</p>
-</div>
+<h3 id="add-and-remove-deadline-feature"><a class="link" href="#add-and-remove-deadline-feature">Add and Remove Deadline feature</a></h3>
 <div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
-<p>This feature is supported by the following classes:</p>
+<p>The deadline feature allows the user to add tasks with specific due dates, with a compulsory field
+of <code>TASK</code> and <code>DUE DATE</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following are new classes used to integrate the Deadline feature.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>KeyboardFlashCardsParser</code> to control the flow of command in the entire program.</p>
+<p><code>Deadline</code>&#8201;&#8212;&#8201;Object class, containing important information such as the <code>Task</code> and <code>DueDate</code>.</p>
 </li>
 <li>
-<p><code>StartCommandParser</code> to parse arguments for StartCommand.</p>
+<p><code>UniqueDeadlineList</code>&#8201;&#8212;&#8201;Contains a <code>ObservableList</code> of <code>Deadline</code> objects. The list will be initialised from the storage
+at start up of application. A <code>Comparator</code> class was added to arrange the list according to ascending <code>DueDate</code>.</p>
 </li>
 <li>
-<p><code>ModelManager</code> which stores <code>FlashCardTestModel</code>, an aggregation of <code>FlashCards</code>, to be used for test mode.</p>
+<p><code>DeadlineCommand</code>&#8201;&#8212;&#8201; Embodies the <code>Deadline</code> command by the user. It will hold all the information about
+the <code>Deadline</code> that will be added.</p>
 </li>
 <li>
-<p><code>CategoryContainsAnyKeywordsPredicate</code> to search and generate a list of <code>FlashCards</code> with relevant tags.</p>
+<p><code>DeadlineCommandParser</code>&#8201;&#8212;&#8201;Parses user input and uses it to construct a <code>DeadlineCommand</code> instance.</p>
+</li>
+<li>
+<p><code>RemoveCommand</code>&#8201;&#8212;&#8201; Holds information on which <code>Deadline</code> to be removed. Contains an <code>Index</code> object.</p>
+</li>
+<li>
+<p><code>RemoveCommandParser</code>&#8201;&#8212;&#8201;Parses user input and uses it to construct a <code>RemoveCommand</code> instance.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows the intended case for the <code>start</code> command:</p>
+<p>In addition, various Exception classes are added to handle possible runtime errors while adding or removing <code>Deadline</code>.
+This is done to ensure that the user specified <code>Deadline</code> is valid for storage and processing.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DuplicateDeadlineException</code>&#8201;&#8212;&#8201;This exception is thrown when the user attempts to add an identical <code>Deadline</code> object
+is added into the existing <code>UniqueDeadlineList</code>.</p>
+</li>
+<li>
+<p><code>DeadlineNotFoundException</code>&#8201;&#8212;&#8201;This exception is thrown when the user attempts to remove a <code>Deadline</code> object that does
+not exist in the <code>UniqueDeadlineList</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For the add <code>Deadline</code> feature - <code>deadline</code>, the following are the prefixes for each field<br>
+- t&gt; : <code>TASK</code><br>
+- d&gt; : <code>DUE DATE</code>
+- For <code>DUE DATE</code> : Date format must be in dd/MM/yyyy
+i.e. 01/01/2020</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The upper cased <code>Deadline</code> represents the object class that contains <code>Task</code> and <code>DueDate</code>, while the lower-cased
+<code>deadline</code> represents the command used to add <code>Deadline</code> objects into our storage.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of <code>deadline</code> command:</p>
+</div>
+<div class="paragraph">
+<p>The user executes <code>deadline t&gt;Complete Homework d&gt;04/10/2020</code> to add new deadline to the task
+of completing homework by the 4th October 2020.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The deadline feature does not allow adding of duplicate/identical deadlines. Also, new deadlines must
+be later than the current date.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the deadline operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/StartSequenceDiagram.png" alt="StartSequenceDiagram" width="600">
+<img src="../images/DeadlineSequenceDiagram.png" alt="DeadlineSequenceDiagram">
 </div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a deadline command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeadlineActivityDiagram.png" alt="DeadlineActivityDiagram" width="320" height="480">
+</div>
+</div>
+<div class="paragraph">
+<p>The Remove Deadline command <code>remove</code> works in a similar way, and hence the Sequence and Activity diagrams
+will be omitted for redundancy.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-implement-deadline"><a class="link" href="#aspect-how-to-implement-deadline">Aspect: How to implement Deadline</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Use command <code>deadline</code> together with
+prefixes like <code>t&gt;</code> and <code>d&gt;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement</p>
+</li>
+<li>
+<p>Cons: User might miss the prefixes hence adding wrong deadlines</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Make use of the GUI. after user execute <code>deadline</code> command,
+an <strong>add deadline window</strong> would pop up with a section for individual fields</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More user friendly</p>
+</li>
+<li>
+<p>Cons: Difficult to implement. Might be slower for the user to key in deadlines as compared to using a one liner with prefixes</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="bad-code-flashcard-code-feature"><a class="link" href="#bad-code-flashcard-code-feature">Bad <code>FlashCard</code> feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
 <div class="paragraph">
-<p>Aspect: Data structure to support <code>FlashCardTestModel</code>:</p>
+<p>The <code>bad</code> feature allows the user to rate specific <code>FlashCards</code> as 'bad' if they did not perform well on them.
+These rated FlashCards will then we stored as a <code>Deadline</code> dated 3 days later, where the user will then be reminded to
+re-test them.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (Current choice):</strong> <code>LinkedList</code> implementation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Very efficient, with O(1) complexity removing the head of the list every time a question is tested.</p>
-</li>
-<li>
-<p>Cons: Less memory efficient than <code>ArrayList</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> ArrayList implementation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: More memory efficient than <code>LinkedList</code>.</p>
-</li>
-<li>
-<p>Cons: To obtain the same performance as <code>LinkedList</code>, the last index/size of the <code>ArrayList</code> has to be constantly tracked.
-This slightly decreases code readability compared to the <code>LinkedList</code> implementation.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 3:</strong> Queue interface:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Use of <code>Queue</code> interface brings simplicity to code structure and readability while having the same performance
-as a <code>LinkedList</code> implementation.</p>
-</li>
-<li>
-<p>Cons: There will be potential coupling by using <code>Queue</code> instead of <code>List</code> interface.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>This is a simple implementation of a type of <a href="https://en.wikipedia.org/wiki/Evidence-based_education">evidence-based</a>
+learning technique known as <a href="https://en.wikipedia.org/wiki/Spaced_repetition">Spaced Repetition</a>. This is used as a form of
+active recall technique which is said to overcome forgetting, theorised by Hermann Ebbinghaus, and his theory of
+<a href="https://en.wikipedia.org/wiki/Forgetting_curve">Forgetting Curve</a>.</p>
+</div>
+<div class="paragraph">
+<p>The following are new classes used to integrate the Bad <code>FlashCard</code> feature.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BadQuestions</code>&#8201;&#8212;&#8201;Main object class for the feature. Makes use of a <code>HashMap</code> of key-value pairing of a Date <code>String</code>
+that is converted to a <code>LocalDate</code> class as the key, and the value is a <code>ArrayList</code> of <code>FlashCards</code>. This allows ease of
+search for "Bad" rated <code>FlashCards</code> based on the date stored.</p>
+</li>
+<li>
+<p><code>BadCommand</code>&#8201;&#8212;&#8201;Contains a <code>ObservableList</code> of <code>Deadline</code> objects. The list will be initialised from the storage
+at start up of application. A <code>Comparator</code> class was added to arrange the list according to ascending <code>DueDate</code>.</p>
+</li>
+<li>
+<p><code>ListBadCommand</code>&#8201;&#8212;&#8201; Embodies the <code>Deadline</code> command by the user. It will hold all the information about
+the <code>Deadline</code> that will be added.</p>
+</li>
+<li>
+<p><code>RemoveBadCommand</code>&#8201;&#8212;&#8201;Parses user input and uses it to construct a <code>DeadlineCommand</code> instance.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition, two Exception classes are added to handle possible runtime errors while adding new Deadlines.
+This is done to ensure that the user specified Deadline is valid for storage and processing.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NoBadFlashCardException</code>&#8201;&#8212;&#8201;This exception is thrown when the user attempts to add an identical <code>Deadline</code> object
+is added into the existing <code>UniqueDeadlineList</code>.</p>
+</li>
+<li>
+<p><code>DuplicateFlashCardAndDeadlineException</code>&#8201;&#8212;&#8201;This exception is thrown when the user attempts to add an identical <code>Deadline</code> object
+is added into the existing <code>UniqueDeadlineList</code>.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Following are the prefixes for each field:<br>
+- <code>bad INDEX</code><br>
+i.e. bad 2
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of <code>bad INDEX</code> :</p>
+</div>
+<div class="paragraph">
+<p>The user executes <code>bad 2</code> to rate the second <code>FlashCard</code> as a "Bad".</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 05:49:16 UTC</div></div></div></body></html>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-store-bad-flashcard-in-storage"><a class="link" href="#aspect-how-to-store-bad-flashcard-in-storage">Aspect: How to store "Bad" FlashCard in storage</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Use a <code>HashMap</code> with the specified date as the key. Store <code>FlashCard</code> as an
+<code>ArrayList</code>. Use of the Google Gson library to save and fetch <code>HashMap</code> from and to Json format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier for searching and sorting purposes, as entire <code>FlashCard</code> object is stored and easily
+referred using the date as key. Can fetch more than just the answer of the <code>FlashCard</code></p>
+</li>
+<li>
+<p>Cons: Separated from the <code>FlashCard</code> <code>UniqueFlashCardList</code>, which might confuse the user</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use similar implementation as how <code>FlashCard</code> and <code>Deadline</code> objects are stored in storage;
+use a <code>ObservableList</code> that can be displayed in GUI.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement, clearer for user to see</p>
+</li>
+<li>
+<p>Cons: Difficult to manipulate in the future, especially when we want to implement</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 06:13:20 UTC</div></div></div></body></html>

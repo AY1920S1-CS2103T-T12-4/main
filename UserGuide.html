@@ -583,11 +583,11 @@ Deadlines can only be after the current date. Earlier dates are invalid.
 </div>
 </div>
 </div>
-<div class="admonitionblock caution">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 When a deadline of re-test questions is removed, the list of questions will still be stored in the specific date.
@@ -738,11 +738,11 @@ The automated test mode for the "Bad" <code>FlashCard</code> is not functional a
 <img src="images/removebadsuccess.png" alt="removebadsuccess" width="600">
 </div>
 </div>
-<div class="admonitionblock caution">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 Using the <code>remove</code> command to remove a "ToDo: Bad Questions" Deadline does not remove all the "Bad" <code>FlashCard</code> stored for that date.
@@ -1209,31 +1209,34 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Add new flashcard - <code>add q&gt;QUESTION a&gt;ANSWER [c&gt;CATEGORY]…​</code><br>
+<p>Add new <code>FlashCard</code> - <code>add q&gt;QUESTION a&gt;ANSWER [c&gt;CATEGORY]…​</code><br>
 e.g. <code>add q&gt;1+1 a&gt;2</code></p>
 </li>
 <li>
-<p>Set a flashcard as bad - <code>bad INDEX</code><br>
+<p>Set a <code>FlashCard</code> as bad - <code>bad INDEX</code><br>
 e.g.  <code>bad 2</code></p>
 </li>
 <li>
-<p>Show Calendar of Deadlines - <code>calendar</code></p>
+<p>Show Calendar of all <code>Deadline</code>(s) - <code>calendar</code></p>
 </li>
 <li>
-<p>Clear all the flashcard - <code>clear</code><br>
+<p>Clear all the <code>FlashCard</code> - <code>clear</code><br>
 e.g. <code>clear</code></p>
 </li>
 <li>
-<p>Edit an existing flashcard - <code>edit INDEX {fields wanted to edit}…​</code><br>
+<p>Add a new Deadline - <code>deadline t&gt;TASK d&gt;DUE DATE</code><br>
+e.g.  <code>deadline t&gt;Math Test d&gt;01/10/2020</code></p>
+</li>
+<li>
+<p>Delete an existing <code>FlashCard</code> - <code>delete INDEX</code><br>
+e.g.  <code>delete 10</code></p>
+</li>
+<li>
+<p>Edit an existing <code>FlashCard</code> - <code>edit INDEX {fields wanted to edit}…​</code><br>
 e.g.  <code>edit 2 c&gt;CS2103</code></p>
 </li>
 <li>
-<p>Add a new Deadline - <code>deadline t&gt;TASK d&gt;DUE DATE</code><br>
-e.g.  <code>deadline t&gt;Math Test d&gt;01/10/2019</code></p>
-</li>
-<li>
-<p>Delete an existing flashcard - <code>delete INDEX</code><br>
-e.g.  <code>delete 10</code></p>
+<p>End <code>FlashCard</code> test - <code>end</code></p>
 </li>
 <li>
 <p>Export all flashcards under a specific category, to a specific filepath - <code>export c&gt;CATEGORY p&gt;FILE_PATH</code><br>
@@ -1244,29 +1247,32 @@ e.g.  <code>export c&gt;CS2105 p&gt;C:\Users\User\Documents\cheat_sheet.docx</co
 e.g.  <code>help</code></p>
 </li>
 <li>
-<p>Import flashcards from a JSON file - <code>import p&gt;FILE_PATH</code><br>
+<p>Import <code>FlashCard</code>(s) from a JSON file - <code>import p&gt;FILE_PATH</code><br>
 e.g.  <code>import p&gt;C:\Users\User\Documents\flashcards.json</code></p>
 </li>
 <li>
-<p>List all flashcards - list</p>
+<p>List all <code>FlashCard</code>(s) - <code>list</code></p>
 </li>
 <li>
 <p>List all flashcards under a specific category - <code>list [category]</code><br>
 e.g.  <code>list Math</code></p>
 </li>
 <li>
-<p>List all flashcards - 'listall'</p>
+<p>List all <code>FlashCard</code>(s) - <code>listall</code></p>
 </li>
 <li>
-<p>Set user preference for reminders - <code>remind CATEGORY DD/MM HHmm</code><br>
-e.g.  <code>remind Math 04/10 1230</code></p>
+<p>List all "Bad" <code>FlashCard</code>(s) - <code>listbad</code></p>
 </li>
 <li>
-<p>Remove Deadline from list - <code>remove INDEX</code><br>
+<p>Remove <code>Deadline</code> from list - <code>remove INDEX</code><br>
 e.g.  <code>remove 2</code></p>
 </li>
 <li>
-<p>Search of flashcards - <code>search</code></p>
+<p>Remove a "Bad" rated <code>FlashCard</code> from list - <code>removebad INDEX</code><br>
+e.g.  <code>removebad 2</code></p>
+</li>
+<li>
+<p>Search for <code>FlashCard</code>(s) - <code>search</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -1282,7 +1288,7 @@ e.g.  <code>remove 2</code></p>
 </div>
 </li>
 <li>
-<p>Start a certain topic of flashcards - <code>start KEYWORD</code><br>
+<p>Start a certain topic of <code>FlashCard</code>(s) - <code>start KEYWORD</code><br>
 e.g.  <code>start Mathematics</code></p>
 </li>
 <li>
@@ -1291,10 +1297,7 @@ e.g.  <code>start Mathematics</code></p>
 <li>
 <p>Change theme - <code>theme dark</code></p>
 </li>
-<li>
-<p>Stop flashcard test - <code>end</code></p>
-</li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:20:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:37:24 UTC</div></div></div></body></html>

@@ -25,7 +25,7 @@
 <ul class="sectlevel2">
 <li><a href="#add-feature">4.1. Add feature</a></li>
 <li><a href="#add-and-remove-deadline-feature">4.2. Add and Remove Deadline feature</a></li>
-<li><a href="#bad-code-flashcard-code-feature">4.3. Bad <code>FlashCard</code> feature</a></li>
+<li><a href="#bad-flashcard-feature">4.3. Bad FlashCard feature</a></li>
 <li><a href="#exporting-importing-of-flashcards">4.4. Exporting/Importing of FlashCards</a></li>
 <li><a href="#test-mode">4.5. Test mode</a></li>
 <li><a href="#statistics-feature">4.6. Statistics feature</a></li>
@@ -618,8 +618,7 @@ be later than the current date.
 </div>
 </div>
 <div class="paragraph">
-<p>The Remove Deadline command <code>remove</code> works in a similar way, and hence the Sequence and Activity diagrams
-will be omitted for redundancy.</p>
+<p>The <code>remove</code> command works in a similar way, and hence the Sequence and Activity diagrams will be omitted for redundancy.</p>
 </div>
 </div>
 <div class="sect3">
@@ -662,7 +661,7 @@ an <strong>add deadline window</strong> would pop up with a section for individu
 </div>
 </div>
 <div class="sect2">
-<h3 id="bad-code-flashcard-code-feature"><a class="link" href="#bad-code-flashcard-code-feature">4.3. Bad <code>FlashCard</code> feature</a></h3>
+<h3 id="bad-flashcard-feature"><a class="link" href="#bad-flashcard-feature">4.3. Bad FlashCard feature</a></h3>
 <div class="sect3">
 <h4 id="implementation-4"><a class="link" href="#implementation-4">4.3.1. Implementation</a></h4>
 <div class="paragraph">
@@ -677,7 +676,7 @@ active recall technique which is said to overcome forgetting, theorised by Herma
 <a href="https://en.wikipedia.org/wiki/Forgetting_curve">Forgetting Curve</a>.</p>
 </div>
 <div class="paragraph">
-<p>The following are new classes used to integrate the Bad <code>FlashCard</code> feature.</p>
+<p>The following are new classes used to integrate the "Bad" <code>FlashCard</code> feature.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -700,8 +699,8 @@ the <code>Deadline</code> that will be added.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>In addition, two Exception classes are added to handle possible runtime errors while adding new Deadlines.
-This is done to ensure that the user specified Deadline is valid for storage and processing.</p>
+<p>In addition, two Exception classes are added to handle possible runtime errors while adding new "Bad" <code>FlashCards</code>.
+This is done to ensure that the user specified "Bad" <code>FlashCard</code> is valid for storage and processing.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -733,7 +732,7 @@ i.e. bad 2
 <p>Given below is an example usage scenario of <code>bad INDEX</code> :</p>
 </div>
 <div class="paragraph">
-<p>The user executes <code>bad 2</code> to rate the second <code>FlashCard</code> as a "Bad".</p>
+<p>The user executes <code>bad 2</code> to rate the second <code>FlashCard</code> in the list as "Bad".</p>
 </div>
 </div>
 <div class="sect3">
@@ -1969,4 +1968,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 06:55:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:10:34 UTC</div></div></div></body></html>
